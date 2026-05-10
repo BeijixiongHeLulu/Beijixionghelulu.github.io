@@ -29,3 +29,5 @@ My research is centered on understanding people in human-computer interaction. I
 My current interests include **human-computer interaction**, **human factors**, and **individual difference**. A key direction in my work is to study how machines can better understand humans: their intentions, cognitive states, and moment-to-moment needs. I approach these questions through behavioral experiments, Unity/VR-based simulation, eye tracking, EEG/fNIRS, and multimodal physiological data.
 
 I am interested in building human-aware agents and LLM-based systems that can interpret multimodal signals and adapt to people more effectively. The broader goal is to support human-machine collaboration that is more efficient, transparent, and trustworthy.
+
+I am actively looking for potential MPhil opportunities or research internships starting in Fall 2027.
