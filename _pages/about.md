@@ -11,6 +11,7 @@ profile:
   more_info: >
     <p>Henan University, B.S. 2022-2026</p>
     <p>Institute of Software, Chinese Academy of Sciences (Internship)</p>
+    <p><a href="mailto:jishuu825@gmail.com">jishuu825@gmail.com</a></p>
 
 selected_papers: true
 social: true
