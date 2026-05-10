@@ -1,0 +1,113 @@
+cv:
+  name: Jianshu Wang
+  label: Undergraduate Student in Applied Psychology
+  email: Jeffwang825@outlook.com
+  phone: "+86 18916491451"
+  location: Shanghai, China
+  summary: Applied psychology student working on human-AI interaction, human factors, situation awareness, and computational behavioral research.
+
+  address:
+    street: Guilin East Street, Xuhui District
+    city: Shanghai
+    region: China
+    postalCode: "200235"
+
+  sections:
+    Experience:
+      - company: Institute of Software, Chinese Academy of Sciences
+        position: Research Intern
+        location: Beijing, China
+        start_date: 2025-07
+        end_date:
+        summary: "Laboratory of Human-Computer Interaction Technology and Intelligent Information Processing. Supervisor: Dr. Chao Zhou and Prof. Jin Huang."
+        highlights:
+          - Conduct independent research projects and assist with Unity programming and data analysis across lab projects.
+
+      - company: Shenzhen University
+        position: Research Intern
+        location: Shenzhen, China
+        start_date: 2024-10
+        end_date: 2025-07
+        summary: "Supervisor: Prof. Zhenhong He."
+        highlights:
+          - Designed experiments, analyzed data, and contributed to academic writing.
+
+    Education:
+      - institution: Henan University
+        location: Kaifeng, China
+        area: Applied Psychology
+        studyType: Bachelor of Science
+        start_date: 2022-09
+        end_date: 2026-06
+        highlights:
+          - "Weighted average score: 86.83"
+          - "TOEFL iBT: 106"
+          - "Selected coursework: General Psychology, Psychological Statistics, Cognitive Psychology, Experimental Psychology, Advanced Psychology Research Methods"
+
+    Projects:
+      - name: Human Factors in Driving Takeover
+        start_date: 2025-12
+        end_date:
+        summary: "Independent Researcher. Supervisor: Prof. Yanan Chen."
+        highlights:
+          - Developed a Unity-based VR driving scenario using PICO 4 Pro for scene presentation and eye-tracking data collection, with simultaneous ECG, GSR, and EMG recording.
+          - Designed a two-stage warning experiment to test how the interval between monitoring request (MR) and takeover request (TOR) interacts with cognitive load to affect situation-awareness recovery and takeover performance.
+          - Examined stable individual differences and state-level factors in automated driving takeover.
+
+      - name: Human Performance in Moving Conditions
+        start_date: 2025-07
+        end_date:
+        summary: "Independent Researcher. Supervisors: Dr. Chao Zhou and Prof. Jin Huang."
+        highlights:
+          - Developed experiments on a 6-DOF motion platform using Unity.
+          - Examined how motion intensity and directional congruency affect human performance.
+
+      - name: Human-Autonomous Interaction
+        start_date: 2025-03
+        end_date:
+        summary: "Independent Researcher. Supervisor: Prof. Yanan Chen."
+        highlights:
+          - Developed a simulated VR takeover scenario in Unity.
+          - Modeled drivers' situation awareness using multimodal measures, including ERP, ECG, and GSR.
+
+      - name: Human-AI Ethics
+        start_date: 2024-09
+        end_date: 2025-12
+        summary: "Independent Researcher. Supervisor: Prof. Yanan Chen."
+        highlights:
+          - Investigated how AI supervision and incentive mechanisms influence dishonest behavior and ethical decision-making.
+          - Applied mixed-effects models to behavioral data.
+
+    Publications:
+      - title: From overt deterrence to covert internalization moral effects of AI regulation and the moderating role of personality traits
+        authors:
+          - Jianshu Wang
+          - Xiaowei Jiang
+          - Yanan Chen
+          - Minghui Wang
+          - Feng Du
+        publisher: Acta Psychologica Sinica
+        releaseDate: "2026"
+        url: https://doi.org/10.3724/SP.J.1041.2026.0381
+
+      - title: Does Motion Intensity Impair Cognition in HCI? The Critical Role of Physical Motion-Visual Target Directional Congruency
+        authors:
+          - Jianshu Wang
+          - Siyu Liu
+          - Chao Zhou
+          - Yawen Zheng
+          - Yuan Yue
+          - Tangjun Qu
+          - Yang Li
+          - Yutao Xie
+          - Yulong Bian
+          - Feng Tian
+        publisher: arXiv preprint arXiv:2601.12884
+        releaseDate: "2026"
+        url: https://doi.org/10.48550/arXiv.2601.12884
+
+    Skills:
+      - name: Experiment
+        keywords: "EEG, fNIRS, eye tracking, behavioral experiments"
+      - name: "Programming & Software"
+        keywords: "Python, Unity VR, MATLAB, R, SPSS, PsychoPy, MNE, LaTeX"
