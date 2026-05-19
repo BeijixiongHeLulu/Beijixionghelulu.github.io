@@ -31,4 +31,4 @@ My current interests include **human-computer interaction**, **human factors**, 
 
 I am interested in building human-aware agents and LLM-based systems that can interpret multimodal signals and adapt to people more effectively. The broader goal is to support human-machine collaboration that is more efficient, transparent, and trustworthy.
 
-I am actively looking for potential MPhil opportunities or research internships starting in Fall 2027.
+I am actively seeking research opportunities starting in Fall 2027, especially research-oriented master's programs and research internships.
