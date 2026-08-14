@@ -9,7 +9,7 @@ profile:
   image: profile.jpg
   image_circular: true
   more_info: >
-    <p>Henan University, B.S. 2022-2026</p>
+    <p>Henan University, B.S. in Applied Psychology (Graduated 2026)</p>
     <p>Institute of Software, Chinese Academy of Sciences (Internship)</p>
     <p><a href="mailto:jishuu825@gmail.com">jishuu825@gmail.com</a></p>
 

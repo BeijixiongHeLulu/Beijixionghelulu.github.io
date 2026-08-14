@@ -1,10 +1,10 @@
 cv:
   name: Jianshu Wang
-  label: Undergraduate Student in Applied Psychology
+  label: Applied Psychology Graduate
   email: jishuu825@gmail.com
   phone: "+86 18916491451"
   location: Shanghai, China
-  summary: Applied psychology student working on human-AI interaction, human factors, situation awareness, and computational behavioral research.
+  summary: Applied psychology graduate working on human-AI interaction, human factors, situation awareness, and computational behavioral research.
 
   address:
     street: Guilin East Street, Xuhui District
@@ -19,18 +19,20 @@ cv:
         location: Beijing, China
         start_date: 2025-07
         end_date:
-        summary: "Laboratory of Human-Computer Interaction Technology and Intelligent Information Processing. Supervisor: Dr. Chao Zhou and Prof. Jin Huang."
+        summary: "Laboratory project on motion-platform and VR studies in human-computer interaction."
         highlights:
-          - Conduct independent research projects and assist with Unity programming and data analysis across lab projects.
+          - Built Unity-based experimental prototypes for motion-platform and VR studies.
+          - Produced multimodal data workflows for eye tracking and physiological signals, including ECG, GSR, and EMG.
 
       - company: Shenzhen University
         position: Research Intern
         location: Shenzhen, China
         start_date: 2024-10
         end_date: 2025-07
-        summary: "Supervisor: Prof. Zhenhong He."
+        summary: "Project on loss and compensation in decision making."
         highlights:
-          - Designed experiments, analyzed data, and contributed to academic writing.
+          - Built PsychoPy tasks and experimental materials for the project.
+          - Prepared cleaned datasets and supported behavioral analysis with DDM and reinforcement-learning models.
 
     Education:
       - institution: Henan University
