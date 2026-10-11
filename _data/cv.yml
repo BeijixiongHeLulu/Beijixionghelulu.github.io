@@ -5,8 +5,8 @@ cv:
   phone: +86 18916491451
   location: Shanghai, China
   website: https://beijixionghelulu.github.io
-  summary: Applied psychology graduate combining behavioral experiments, EEG/ERP analysis, and computational behavioral modeling in
-    cognitive neuroscience and human-computer interaction.
+  summary: Applied psychology graduate combining behavioral experiments, EEG/ERP analysis, and computational behavioral modeling in cognitive
+    neuroscience and human-computer interaction.
   sections:
     Education:
       - institution: Henan University
@@ -18,8 +18,7 @@ cv:
         highlights:
           - "Weighted average score: 87.01/100; GPA: 3.41/4.00"
           - "TOEFL iBT: 118/120 (ETS 1–6 scale: 6.0/6.0)"
-          - "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research
-            Methods"
+          - "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods"
     Research Experience:
       - company: Minzu University of China
         position: Research Assistant
@@ -30,8 +29,8 @@ cv:
         highlights:
           - Preprocess EEG recordings and extract single-trial centroparietal positivity (CPP) slopes to characterize neural evidence accumulation.
           - Fit drift diffusion models to IAT response times and accuracy using PyDDM, comparing model specifications with BIC.
-          - Integrate trial-level neural measures with behavioral decision models; completed all data analyses for a manuscript submitted
-            to the Journal of Environmental Psychology.
+          - Integrate trial-level neural measures with behavioral decision models; completed all data analyses for a manuscript submitted to the Journal
+            of Environmental Psychology.
       - company: Institute of Software, Chinese Academy of Sciences (ISCAS)
         position: Research Intern
         location: Beijing, China
@@ -40,8 +39,8 @@ cv:
         summary: "Supervisors: Dr. Chao Zhou and Prof. Jin Huang. Human performance during whole-body motion."
         highlights:
           - Developed Unity-based directional-judgment experiments on a 6-DOF motion platform.
-          - Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript
-            submitted to CHI 2027.
+          - Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted
+            to CHI 2027.
       - company: Human Factors in Driving Takeover
         position: Independent Research Project
         location: null
@@ -49,8 +48,7 @@ cv:
         end_date: null
         summary: "Supervisor: Prof. Yanan Chen."
         highlights:
-          - Independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG
-            recording.
+          - Independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG recording.
           - Designed a two-stage warning experiment examining cognitive load and the monitoring-to-takeover request interval in situation-awareness
             recovery and takeover performance.
           - Analyzed behavioral and physiological data alongside individual differences in personality and driving style.
@@ -70,19 +68,16 @@ cv:
         end_date: 2025-12
         summary: "Supervisor: Prof. Yanan Chen."
         highlights:
-          - Designed and programmed PsychoPy experiments examining how AI supervision and incentives influence dishonest behavior and ethical
-            decision-making.
-          - Analyzed behavioral data in Python/R using mixed-effects models; co-first author of the resulting Acta Psychologica Sinica article.
+          - Designed and programmed PsychoPy experiments examining how AI supervision and incentives influence dishonest behavior and ethical decision-making.
+          - Analyzed behavioral data in Python/R using mixed-effects models; the resulting article was published in Acta Psychologica Sinica.
     Additional Research:
       - name: Effort-Based Behavior and ERP
-        summary: Research Leader, May 2023–Feb 2024. Collected and analyzed behavioral and ERP data in Python/R using a Monetary Incentive
-          Delay task.
+        summary: Research Leader, May 2023–Feb 2024. Collected and analyzed behavioral and ERP data in Python/R using a Monetary Incentive Delay
+          task.
       - name: Social Network and Neural Similarity
-        summary: Co-researcher, Nov 2022–Apr 2023. Preprocessed and analyzed EEG data in MATLAB/Python to study neural similarity and
-          social relationships.
+        summary: Co-researcher, Nov 2022–Apr 2023. Preprocessed and analyzed EEG data in MATLAB/Python to study neural similarity and social relationships.
     Publications and Manuscripts:
-      - title: "From overt deterrence to covert internalization: Moral effects of AI regulation and the moderating role of personality
-          traits"
+      - title: "From overt deterrence to covert internalization: Moral effects of AI regulation and the moderating role of personality traits"
         authors:
           - Jianshu Wang
           - Xiaowei Jiang
@@ -92,7 +87,7 @@ cv:
         publisher: Acta Psychologica Sinica, 58(3), 381–398
         releaseDate: "2026"
         url: https://doi.org/10.3724/SP.J.1041.2026.0381
-        summary: Published. Jianshu Wang and Xiaowei Jiang contributed equally as co-first authors.
+        summary: Published.
       - title: "Bidirectional benefits: Interbrain synchronization and role-specific neural signatures in interpersonal emotion regulation"
         authors:
           - Yunkai Yang
@@ -113,13 +108,35 @@ cv:
       - title: "Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation"
         publisher: Journal of Environmental Psychology (submitted)
         releaseDate: "2026"
-        summary: "Manuscript submitted. Co-author; corresponding author: Ze Geng."
+        summary: "Manuscript submitted. Corresponding author: Ze Geng."
+        authors:
+          - Ran Liu
+          - Jianshu Wang
+          - Huijun Wang
+          - Chang Liu
+          - Guang Zhao
+          - Ze Geng
       - title: "Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion"
         publisher: CHI 2027 (submitted)
         releaseDate: "2026"
-        summary: "Manuscript submitted. Co-author: Jianshu Wang. An earlier version is available on arXiv under a different title."
-      - title: "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System:
-          An Individual Difference Perspective"
+        summary: Manuscript submitted. An earlier version is available on arXiv under a different title.
+        authors:
+          - Jianshu Wang
+          - Yulong Bian
+          - Siyu Liu
+          - Yawen Zheng
+          - Hao Zhang
+          - Yuan Yue
+          - Tangjun Qu
+          - Yang Li
+          - Yan Hu
+          - Yutao Xie
+          - Chao Zhou
+          - Jin Huang
+          - Feng Tian
+      - title:
+          "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual
+          Difference Perspective"
         authors:
           - Jianshu Wang
           - Yanan Chen
@@ -155,6 +172,7 @@ cv:
       - name: Neural and physiological data
         keywords:
           - EEG/ERP
+          - fNIRS
           - MNE
           - eye tracking
           - ECG
@@ -174,5 +192,4 @@ cv:
           - PsychoPy
           - Unity/VR
           - C#
-          - PICO 4 Pro
           - LaTeX
