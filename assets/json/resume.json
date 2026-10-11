@@ -1,221 +1,160 @@
 {
   "basics": {
-    "name": "Albert Einstein",
-    "label": "Scientist",
-    "image": "",
-    "email": "einstein@example.com",
-    "phone": "(912) 123-4567",
-    "summary": "A German-born theoretical physicist, widely ranked among the greatest and most influential scientists of all time",
+    "name": "Jianshu Wang",
+    "label": "Research Assistant | Applied Psychology",
+    "email": "jishuu825@gmail.com",
+    "phone": "+86 18916491451",
+    "url": "https://beijixionghelulu.github.io",
+    "summary": "Applied psychology graduate combining behavioral experiments, EEG/ERP analysis, and computational behavioral modeling in cognitive neuroscience and human-computer interaction.",
     "location": {
-      "address": "2712 Broadway St",
-      "postalCode": "CA 94115",
-      "city": "San Francisco",
-      "countryCode": "US",
-      "region": "California"
-    },
-    "profiles": []
+      "city": "Shanghai",
+      "countryCode": "CN"
+    }
   },
   "work": [
     {
-      "name": "Institute for Advanced Study, Princeton University",
-      "position": "Professor of Theoretical Physics",
-      "location": "Princeton University, NJ",
-      "startDate": "1933-01-01",
-      "endDate": "1955-01-01",
-      "summary": "Teaching at Palmer Physical Laboratory (now 302 Frist Campus Center). While not a professor at Princeton, I associated with the physics professors and continued to give lectures on campus.",
-      "highlights": ["Relativity", "Description 2."]
+      "name": "Minzu University of China",
+      "position": "Research Assistant",
+      "startDate": "2026-07",
+      "endDate": "",
+      "summary": "Supervisor: Dr. Ze Geng. EEG analysis and behavioral modeling.",
+      "highlights": [
+        "Preprocess EEG recordings and extract single-trial centroparietal positivity (CPP) slopes to characterize neural evidence accumulation.",
+        "Fit drift diffusion models to IAT response times and accuracy using PyDDM, comparing model specifications with BIC.",
+        "Integrate trial-level neural measures with behavioral decision models; completed all data analyses for a manuscript submitted to the Journal of Environmental Psychology."
+      ]
     },
     {
-      "name": "California Institute of Technology",
-      "position": "Visiting Professor",
-      "location": "Pasadena, California, US",
-      "startDate": "1933-01-01",
-      "endDate": "1933-01-01",
-      "summary": "",
-      "highlights": ["Description 1.", "Description 2."]
+      "name": "Institute of Software, Chinese Academy of Sciences (ISCAS)",
+      "position": "Research Intern",
+      "startDate": "2025-07",
+      "endDate": "",
+      "summary": "Supervisors: Dr. Chao Zhou and Prof. Jin Huang. Human performance during whole-body motion.",
+      "highlights": [
+        "Developed Unity-based directional-judgment experiments on a 6-DOF motion platform.",
+        "Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted to CHI 2027."
+      ]
     },
     {
-      "name": "Kaiser Wilhelm Institute for Physics",
-      "position": "Director",
-      "location": "Berlin, Germany",
-      "startDate": "1917-01-01",
-      "endDate": "1933-01-01",
-      "summary": "",
-      "highlights": []
+      "name": "Human Factors in Driving Takeover",
+      "position": "Independent Research Project",
+      "startDate": "2025-12",
+      "endDate": "",
+      "summary": "Supervisor: Prof. Yanan Chen.",
+      "highlights": [
+        "Independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG recording.",
+        "Designed a two-stage warning experiment examining cognitive load and the monitoring-to-takeover request interval in situation-awareness recovery and takeover performance.",
+        "Analyzed behavioral and physiological data alongside individual differences in personality and driving style."
+      ]
     },
     {
-      "name": "Karl-Ferdinand University",
-      "position": "Professor of Theoretical Physics",
-      "location": "Prague, Czechoslovakia",
-      "startDate": "1911-01-01",
-      "endDate": "1917-01-01",
-      "summary": "",
-      "highlights": []
+      "name": "Shenzhen University",
+      "position": "Research Intern",
+      "startDate": "2024-10",
+      "endDate": "2025-07",
+      "summary": "Supervisor: Prof. Zhenhong He. Loss and compensation in decision-making.",
+      "highlights": [
+        "Designed experiments and programmed behavioral tasks in PsychoPy for research on loss and compensatory decisions.",
+        "Developed Python data-analysis pipelines and applied drift diffusion and reinforcement-learning models to behavioral data."
+      ]
     },
     {
-      "name": "University of Zurich",
-      "position": "Associate Professor of Theoretical Physics",
-      "location": "Zurich, Switzerland",
-      "startDate": "1909-01-01",
-      "endDate": "1911-01-01",
-      "summary": "",
-      "highlights": []
-    }
-  ],
-  "volunteer": [
-    {
-      "organization": "People's Climate March",
-      "location": "Zurich, Switzerland",
-      "position": "Lead Organizer",
-      "startDate": "2014-04-01",
-      "endDate": "2015-07-01",
-      "summary": "Lead organizer for the New York City branch of the People's Climate March, the largest climate march in history.",
-      "highlights": ["Awarded 'Climate Hero' award by Greenpeace for my efforts organizing the march.", "Men of the year 2014 by Time magazine"]
+      "name": "Human-AI Ethics",
+      "position": "Independent Research Project",
+      "startDate": "2024-09",
+      "endDate": "2025-12",
+      "summary": "Supervisor: Prof. Yanan Chen.",
+      "highlights": [
+        "Designed and programmed PsychoPy experiments examining how AI supervision and incentives influence dishonest behavior and ethical decision-making.",
+        "Analyzed behavioral data in Python/R using mixed-effects models; co-first author of the resulting Acta Psychologica Sinica article."
+      ]
     }
   ],
   "education": [
     {
-      "institution": "University of Zurich",
-      "location": "Zurich, Switzerland",
-      "url": "https://www.uzh.ch/",
-      "area": "Physics",
-      "studyType": "PhD",
-      "startDate": "1900-01-01",
-      "endDate": "1905-01-01",
-      "score": "",
-      "courses": ["Theory of Relativity"],
-      "highlights": ["Description 1.", "Description 2."]
-    },
-    {
-      "institution": "Eidgenössische Technische Hochschule",
-      "location": "Zurich, Switzerland",
-      "area": "Physics",
-      "studyType": "Federal teaching diploma",
-      "startDate": "1896-01-01",
-      "endDate": "1900-01-01",
-      "score": "",
-      "courses": [],
-      "highlights": ["Description 1.", "Description 2."]
-    }
-  ],
-  "awards": [
-    {
-      "title": "Nobel Prize in Physics",
-      "date": "1921-11-01",
-      "awarder": "Royal Swedish Academy of Sciences",
-      "url": "https://www.nobelprize.org/prizes/physics/1921/einstein/biographical/",
-      "summary": "The Nobel Prizes are five separate prizes that, according to Alfred Nobel's will of 1895, are awarded to 'those who, during the preceding year, have conferred the greatest benefit to humankind.'"
-    },
-    {
-      "title": "Max Planck Medal",
-      "date": "2029-01-01",
-      "awarder": "German Physical Society",
-      "summary": ""
-    }
-  ],
-  "certificates": [
-    {
-      "name": "Machine Learning",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "icon": "fa-solid fa-location-dot"
-    },
-    {
-      "name": "Quantum Computing",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "icon": "fa-solid fa-tag"
-    },
-    {
-      "name": "Quantum Information",
-      "date": "2018-01-01",
-      "issuer": "Stanford University",
-      "icon": "fa-solid fa-envelope"
+      "institution": "Henan University",
+      "area": "Applied Psychology",
+      "studyType": "Bachelor of Science",
+      "startDate": "2022-09",
+      "endDate": "2026-06",
+      "highlights": [
+        "Weighted average score: 87.01/100; GPA: 3.41/4.00",
+        "TOEFL iBT: 118/120 (ETS 1–6 scale: 6.0/6.0)",
+        "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods"
+      ]
     }
   ],
   "publications": [
     {
-      "name": "Zur Elektrodynamik bewegter Körper",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-06-30",
-      "url": "https://en.wikisource.org/wiki/Translation:On_the_Electrodynamics_of_Moving_Bodies",
-      "summary": "It concerned an interpretation of the Michelson–Morley experiment and the properties of light and time. Special relativity incorporates the principle that the speed of light is the same for all inertial observers regardless of the state of motion of the source."
+      "name": "From overt deterrence to covert internalization: Moral effects of AI regulation and the moderating role of personality traits",
+      "publisher": "Acta Psychologica Sinica, 58(3), 381–398",
+      "releaseDate": "2026",
+      "summary": "Published. Jianshu Wang and Xiaowei Jiang contributed equally as co-first authors.",
+      "url": "https://doi.org/10.3724/SP.J.1041.2026.0381"
     },
     {
-      "name": "Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1905-03-18",
-      "url": "https://de.wikisource.org/wiki/Über_einen_die_Erzeugung_und_Verwandlung_des_Lichtes_betreffenden_heuristischen_Gesichtspunkt",
-      "summary": "In the second paper, he applied the quantum theory to light to explain the photoelectric effect. In particular, he used the idea of light quanta (photons) to explain experimental results, but stressed the importance of the experimental results. The importance of his work on the photoelectric effect earned him the Nobel Prize in Physics in 1921."
+      "name": "Bidirectional benefits: Interbrain synchronization and role-specific neural signatures in interpersonal emotion regulation",
+      "publisher": "Emotion",
+      "releaseDate": "2026-05",
+      "summary": "Published online in May 2026.",
+      "url": "https://doi.org/10.1037/emo0001683"
     },
     {
-      "name": "Die Grundlage der allgemeinen Relativitätstheorie",
-      "publisher": "Annalen der Physik",
-      "releaseDate": "1916-03-20",
-      "url": "https://de.wikisource.org/wiki/Die_Grundlage_der_allgemeinen_Relativitätstheorie",
-      "summary": "The publication of the theory of general relativity made him internationally famous. He was professor of physics at the universities of Zurich (1909–1911) and Prague (1911–1912), before he returned to ETH Zurich (1912–1914)."
+      "name": "Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation",
+      "publisher": "Journal of Environmental Psychology (submitted)",
+      "releaseDate": "2026",
+      "summary": "Manuscript submitted. Co-author; corresponding author: Ze Geng."
+    },
+    {
+      "name": "Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion",
+      "publisher": "CHI 2027 (submitted)",
+      "releaseDate": "2026",
+      "summary": "Manuscript submitted. Co-author: Jianshu Wang. An earlier version is available on arXiv under a different title."
+    },
+    {
+      "name": "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual Difference Perspective",
+      "publisher": "IEEE Transactions on Intelligent Transportation Systems (submitted)",
+      "releaseDate": "2026",
+      "summary": "Manuscript submitted."
+    },
+    {
+      "name": "The effect of input cost and reward/punishment cues on performance in simple cognitive tasks: An ERP study",
+      "publisher": "Submitted manuscript",
+      "releaseDate": "2026",
+      "summary": "Manuscript submitted."
+    },
+    {
+      "name": "Does Motion Intensity Impair Cognition in HCI? The Critical Role of Physical Motion-Visual Target Directional Congruency",
+      "publisher": "arXiv:2601.12884",
+      "releaseDate": "2026",
+      "summary": "Earlier preprint version of the whole-body motion project.",
+      "url": "https://doi.org/10.48550/arXiv.2601.12884"
     }
   ],
   "skills": [
     {
-      "name": "Physics",
-      "level": "Master",
-      "icon": "fa-solid fa-hashtag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "languages": [
-    {
-      "language": "German",
-      "fluency": "Native speaker",
-      "icon": ""
+      "name": "Neural and physiological data",
+      "keywords": ["EEG/ERP", "MNE", "eye tracking", "ECG", "GSR", "EMG"]
     },
     {
-      "language": "English",
-      "fluency": "Fluent",
-      "icon": ""
-    }
-  ],
-  "interests": [
-    {
-      "name": "Physics",
-      "icon": "fa-solid fa-tag",
-      "keywords": [
-        "Quantum Mechanics",
-        "Quantum Computing",
-        "Quantum Information",
-        "Quantum Cryptography",
-        "Quantum Communication",
-        "Quantum Teleportation"
-      ]
-    }
-  ],
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit."
+      "name": "Behavioral modeling and statistics",
+      "keywords": ["Drift diffusion models (DDM/PyDDM)", "reinforcement-learning models", "mixed-effects models", "Python", "R", "MATLAB", "SPSS"]
     },
     {
-      "name": "Professor Jane Smith",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit."
+      "name": "Experiment development",
+      "keywords": ["PsychoPy", "Unity/VR", "C#", "PICO 4 Pro", "LaTeX"]
     }
   ],
   "projects": [
     {
-      "name": "Quantum Computing",
-      "summary": "Quantum computing is the use of quantum-mechanical phenomena such as superposition and entanglement to perform computation. Computers that perform quantum computations are known as quantum computers.",
-      "highlights": ["Quantum Teleportation", "Quantum Cryptography"],
-      "startDate": "2018-01-01",
-      "endDate": "2018-01-01"
+      "name": "Effort-Based Behavior and ERP",
+      "summary": "Research Leader, May 2023–Feb 2024. Collected and analyzed behavioral and ERP data in Python/R using a Monetary Incentive Delay task.",
+      "cn": "努力行为与 ERP（项目负责人，2023.05—2024.02）：使用金钱激励延迟任务，采集并以 Python/R 分析行为与 ERP 数据。"
+    },
+    {
+      "name": "Social Network and Neural Similarity",
+      "summary": "Co-researcher, Nov 2022–Apr 2023. Preprocessed and analyzed EEG data in MATLAB/Python to study neural similarity and social relationships.",
+      "cn": "社会网络与神经相似性（合作研究者，2022.11—2023.04）：使用 MATLAB/Python 预处理与分析 EEG 数据，研究神经相似性与社会关系。"
     }
   ]
 }

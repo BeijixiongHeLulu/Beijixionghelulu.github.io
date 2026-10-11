@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Journal articles, conference abstracts, preprints, and manuscripts.
+description: Published articles, submitted manuscripts, and earlier preprints.
 nav: true
 nav_order: 2
 ---

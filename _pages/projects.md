@@ -2,7 +2,7 @@
 layout: page
 title: research
 permalink: /projects/
-description: Selected research projects in human-AI interaction, human factors, and cognitive psychology.
+description: Selected research in EEG/ERP analysis, behavioral modeling, cognitive neuroscience, and human-computer interaction.
 nav: true
 nav_order: 3
 horizontal: true

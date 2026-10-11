@@ -2,15 +2,15 @@
 layout: about
 title: about
 permalink: /
-subtitle: Human-Computer Interaction | Human Factors | Human-Centered AI
+subtitle: Psychology | Cognitive Neuroscience | Behavioral Modeling
 
 profile:
   align: right
   image: profile.jpg
   image_circular: true
   more_info: >
-    <p>Henan University, B.S. in Applied Psychology (Graduated 2026)</p>
-    <p>Institute of Software, Chinese Academy of Sciences (Internship)</p>
+    <p>Research Assistant, Minzu University of China</p>
+    <p>B.S. in Applied Psychology, Henan University (2026)</p>
     <p><a href="mailto:jishuu825@gmail.com">jishuu825@gmail.com</a></p>
 
 selected_papers: true
@@ -25,10 +25,10 @@ latest_posts:
   enabled: false
 ---
 
-My research is centered on understanding people in human-computer interaction. I am interested in how perception, trust, cognition, and behavior can be measured and modeled when people work with intelligent systems.
+I am a research assistant at **Minzu University of China**, supervised by Dr. Ze Geng, and a research intern at the Institute of Software, Chinese Academy of Sciences. I graduated from Henan University with a B.S. in Applied Psychology in 2026.
 
-My current interests include **human-computer interaction**, **human factors**, and **human-centered AI**. A key direction in my work is to study how machines can better understand humans: their intentions, cognitive states, and moment-to-moment needs. I approach these questions through behavioral experiments, Unity/VR-based simulation, eye tracking, EEG/fNIRS, and multimodal physiological data.
+With a background in psychology, I study perception, decision-making, and human performance. My research combines **behavioral experiments, EEG/ERP analysis, and computational behavioral modeling**, including drift diffusion and reinforcement-learning models. I use Python, R, and MATLAB for data analysis, and develop Unity/VR experiments for research in human-computer interaction and human factors.
 
-I am interested in building human-aware agents and LLM-based systems that can interpret multimodal signals and adapt to people more effectively. The broader goal is to support human-machine collaboration that is more efficient, transparent, and trustworthy.
+At Minzu University of China, I carry out EEG preprocessing, single-trial centroparietal positivity (CPP) extraction, and drift diffusion model fitting in PyDDM. I link neural measures with behavioral decision models in research on implicit community evaluations and resident well-being. I also study cognitive performance during whole-body motion and situation awareness in automated-driving takeovers.
 
-I am actively seeking research opportunities starting in Fall 2027, especially research-oriented master's programs and research internships.
+I am seeking research-oriented master's programs in HCI, human factors, or related engineering fields for **Fall 2027**, with the aim of continuing to a Ph.D.
