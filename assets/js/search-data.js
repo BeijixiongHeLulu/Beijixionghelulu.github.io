@@ -11,21 +11,21 @@ ninja.data = [{
     },
   },{id: "nav-publications",
           title: "publications",
-          description: "Journal articles, conference abstracts, preprints, and manuscripts.",
+          description: "Published articles, submitted manuscripts, and earlier preprints.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
           },
         },{id: "nav-research",
           title: "research",
-          description: "Selected research projects in human-AI interaction, human factors, and cognitive psychology.",
+          description: "Selected research in EEG/ERP analysis, behavioral modeling, cognitive neuroscience, and human-computer interaction.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
           },
         },{id: "nav-cv",
           title: "CV",
-          description: "A web version of my academic CV. Use the PDF icon to download the full version.",
+          description: "Psychology training, EEG/ERP analysis, computational behavioral modeling, and HCI research. Download the full CV using the PDF icon.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
@@ -42,26 +42,36 @@ ninja.data = [{
           section: "News",},{id: "news-our-paper-on-interbrain-synchronization-and-interpersonal-emotion-regulation-is-now-online-in-emotion",
           title: 'Our paper on interbrain synchronization and interpersonal emotion regulation is now online in...',
           description: "",
-          section: "News",},{id: "projects-human-factors-in-driving-takeover",
+          section: "News",},{id: "projects-community-evaluations-and-evidence-accumulation",
+          title: 'Community Evaluations and Evidence Accumulation',
+          description: "EEG analysis and behavioral modeling of implicit community evaluations and resident well-being.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/00-eeg-behavioral-modeling/";
+            },},{id: "projects-human-factors-in-driving-takeover",
           title: 'Human Factors in Driving Takeover',
           description: "Cognitive load, warning timing, and situation-awareness recovery in automated driving.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/01-driving-takeover/";
-            },},{id: "projects-human-performance-in-moving-conditions",
-          title: 'Human Performance in Moving Conditions',
-          description: "Motion intensity, directional congruency, and cognition on a 6-DOF motion platform.",
+            },},{id: "projects-human-performance-during-whole-body-motion",
+          title: 'Human Performance During Whole-Body Motion',
+          description: "Unity experiments and task-relative motion analysis on a 6-DOF platform.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/02-motion-performance/";
             },},{id: "projects-human-ai-ethics",
           title: 'Human-AI Ethics',
-          description: "AI supervision, incentive mechanisms, and ethical decision-making.",
+          description: "PsychoPy experiments and mixed-effects analysis of AI supervision and ethical decisions.",
           section: "Projects",handler: () => {
               window.location.href = "/projects/03-human-ai-ethics/";
-            },},{id: "projects-human-ai-trust",
-          title: 'Human-AI Trust',
-          description: "Personality traits, trust repair, and trust behavior in human-AI collaboration.",
+            },},{id: "projects-behavioral-decision-modeling",
+          title: 'Behavioral Decision Modeling',
+          description: "Drift diffusion and reinforcement-learning models for loss and compensatory decisions.",
           section: "Projects",handler: () => {
-              window.location.href = "/projects/04-human-ai-trust/";
+              window.location.href = "/projects/05-behavioral-decision-modeling/";
+            },},{id: "projects-eeg-and-erp-analysis",
+          title: 'EEG and ERP Analysis',
+          description: "Neural data analysis in studies of effort-based behavior and social relationships.",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/06-eeg-erp-analysis/";
             },},{
         id: 'social-cv',
         title: 'CV',
