@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Psychology | Cognitive Neuroscience | Behavioral Modeling
+subtitle: Human Factors | Cognitive Neuroscience | Behavioral Modeling
 
 profile:
   align: right
@@ -25,10 +25,8 @@ latest_posts:
   enabled: false
 ---
 
-I am a research assistant at **Minzu University of China**, supervised by Dr. Ze Geng, and a research intern at the Institute of Software, Chinese Academy of Sciences. I graduated from Henan University with a B.S. in Applied Psychology in 2026.
+I am a research assistant at Minzu University of China, supervised by Dr. Ze Geng, and a research intern at the Institute of Software, Chinese Academy of Sciences. I received my B.S. in Applied Psychology from Henan University in 2026.
 
-With a background in psychology, I study perception, decision-making, and human performance. My research combines **behavioral experiments, EEG/ERP analysis, and computational behavioral modeling**, including drift diffusion and reinforcement-learning models. I use Python, R, and MATLAB for data analysis, and develop Unity/VR experiments for research in human-computer interaction and human factors.
+I study human cognition and behavior, with interests in how people interact with technology, one another, and their environments. My interests range from the cognitive and neural processes underlying behavior to the design of systems and environments that support human performance and well-being.
 
-At Minzu University of China, I carry out EEG preprocessing, single-trial centroparietal positivity (CPP) extraction, and drift diffusion model fitting in PyDDM. I link neural measures with behavioral decision models in research on implicit community evaluations and resident well-being. I also study cognitive performance during whole-body motion and situation awareness in automated-driving takeovers.
-
-I am seeking research-oriented master's programs in HCI, human factors, or related engineering fields for **Fall 2027**, with the aim of continuing to a Ph.D.
+I am seeking research-oriented master's programs for **Fall 2027**, with the aim of continuing to a Ph.D.

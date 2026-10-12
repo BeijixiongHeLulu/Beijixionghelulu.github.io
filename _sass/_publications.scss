@@ -43,6 +43,27 @@
         display: inline-block;
       }
 
+      .publication-visual {
+        figure {
+          margin: 0.4rem 0 0.2rem;
+        }
+
+        .preview {
+          display: block;
+          width: 100%;
+          height: auto;
+          padding: 0.35rem;
+          background-color: white;
+          border: 1px solid var(--global-divider-color);
+        }
+
+        .preview-caption {
+          margin: 0.25rem 0 0.75rem;
+          font-size: 0.75rem;
+          color: var(--global-text-color-light);
+        }
+      }
+
       .abbr {
         margin-bottom: 0.5rem;
 

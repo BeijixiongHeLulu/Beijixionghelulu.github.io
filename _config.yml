@@ -8,11 +8,11 @@ middle_name:
 last_name: Wang
 contact_note: >
   For research collaboration or academic inquiries, feel free to contact me by email.
-description: > # the ">" symbol means to ignore newlines until "footer_text:"
-  Academic profile of Jianshu Wang, an applied psychology graduate working on EEG/ERP analysis, computational behavioral modeling, cognitive neuroscience, and human-computer interaction.
+description: >
+  Academic profile of Jianshu Wang. Research interests in human factors, cognitive neuroscience, and behavioral modeling.
 footer_text: >
   Powered by <a href="https://jekyllrb.com/" target="_blank">Jekyll</a> with <a href="https://github.com/alshedivat/al-folio">al-folio</a> theme.
-keywords: applied psychology, cognitive neuroscience, EEG, ERP, behavioral modeling, drift diffusion model, reinforcement learning, human-computer interaction, human factors
+keywords: human factors, cognitive neuroscience, behavioral modeling, human-computer interaction, psychology
 lang: en # the language of your site (for example: en, fr, cn, ru, etc.)
 icon: 🧠 # the emoji used as the favicon (alternatively, provide image name in /assets/img/)
 
@@ -323,6 +323,8 @@ filtered_bibtex_keywords:
     pmid,
     poster,
     preview,
+    preview_alt,
+    preview_caption,
     selected,
     slides,
     supp,
