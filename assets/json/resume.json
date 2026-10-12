@@ -157,6 +157,10 @@
       "keywords": ["Drift diffusion models (DDM/PyDDM)", "reinforcement-learning models", "mixed-effects models", "Python", "R", "MATLAB", "SPSS"]
     },
     {
+      "name": "Machine learning",
+      "keywords": ["scikit-learn"]
+    },
+    {
       "name": "Experiment development",
       "keywords": ["PsychoPy", "Unity/VR", "C#", "LaTeX"]
     }

@@ -186,6 +186,9 @@ cv:
           - R
           - MATLAB
           - SPSS
+      - name: Machine learning
+        keywords:
+          - scikit-learn
       - name: Experiment development
         keywords:
           - PsychoPy
