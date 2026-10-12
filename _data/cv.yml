@@ -17,7 +17,7 @@ cv:
         end_date: 2026-06
         highlights:
           - "Weighted average score: 87.01/100; GPA: 3.41/4.00"
-          - "TOEFL iBT: 118/120 (ETS 1–6 scale: 6.0/6.0)"
+          - "TOEFL iBT: 6.0/6.0"
           - "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods"
           - "Online coursework (Coursera): Linear Algebra, Calculus, Machine Learning, Python for Everybody"
     Research Experience:
@@ -28,10 +28,8 @@ cv:
         end_date: null
         summary: "Supervisor: Dr. Ze Geng. EEG analysis and behavioral modeling."
         highlights:
-          - Preprocess EEG recordings and extract single-trial centroparietal positivity (CPP) slopes to characterize neural evidence accumulation.
-          - Fit drift diffusion models to IAT response times and accuracy using PyDDM, comparing model specifications with BIC.
-          - Integrate trial-level neural measures with behavioral decision models; completed all data analyses for a manuscript submitted to the Journal
-            of Environmental Psychology.
+          - Conduct EEG preprocessing and data analysis for cognitive and behavioral research.
+          - Apply computational behavioral modeling and integrate behavioral models with neural measures.
       - company: Institute of Software, Chinese Academy of Sciences (ISCAS)
         position: Research Intern
         location: Beijing, China
