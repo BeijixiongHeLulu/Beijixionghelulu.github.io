@@ -20,61 +20,6 @@ cv:
           - "TOEFL iBT: 6.0/6.0"
           - "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods"
           - "Online coursework (Coursera): Linear Algebra, Calculus, Machine Learning, Python for Everybody"
-    Research Experience:
-      - company: Minzu University of China
-        position: Research Assistant
-        location: Beijing, China
-        start_date: 2026-07
-        end_date: null
-        summary: "Supervisor: Dr. Ze Geng. EEG analysis and behavioral modeling."
-        highlights:
-          - Conduct EEG preprocessing and data analysis for cognitive and behavioral research.
-          - Apply computational behavioral modeling and integrate behavioral models with neural measures.
-      - company: Institute of Software, Chinese Academy of Sciences (ISCAS)
-        position: Research Intern
-        location: Beijing, China
-        start_date: 2025-07
-        end_date: null
-        summary: "Supervisors: Dr. Chao Zhou and Yulong Bian. Human performance during whole-body motion."
-        highlights:
-          - Developed Unity-based directional-judgment experiments on a 6-DOF motion platform.
-          - Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted
-            to CHI 2027.
-      - company: Human Factors in Driving Takeover
-        position: Independent Research Project
-        location: null
-        start_date: 2025-12
-        end_date: null
-        summary: "Supervisor: Prof. Yanan Chen."
-        highlights:
-          - Independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG recording.
-          - Designed a two-stage warning experiment examining cognitive load and the monitoring-to-takeover request interval in situation-awareness
-            recovery and takeover performance.
-          - Analyzed behavioral and physiological data alongside individual differences in personality and driving style.
-      - company: Shenzhen University
-        position: Research Intern
-        location: Shenzhen, China
-        start_date: 2024-10
-        end_date: 2025-07
-        summary: "Supervisor: Prof. Zhenhong He. Loss and compensation in decision-making."
-        highlights:
-          - Designed experiments and programmed behavioral tasks in PsychoPy for research on loss and compensatory decisions.
-          - Developed Python data-analysis pipelines and applied drift diffusion and reinforcement-learning models to behavioral data.
-      - company: Human-AI Ethics
-        position: Independent Research Project
-        location: null
-        start_date: 2024-09
-        end_date: 2025-12
-        summary: "Supervisor: Prof. Yanan Chen."
-        highlights:
-          - Designed and programmed PsychoPy experiments examining how AI supervision and incentives influence dishonest behavior and ethical decision-making.
-          - Analyzed behavioral data in Python/R using mixed-effects models; the resulting article was published in Acta Psychologica Sinica.
-    Additional Research:
-      - name: Effort-Based Behavior and ERP
-        summary: Research Leader, May 2023–Feb 2024. Collected and analyzed behavioral and ERP data in Python/R using a Monetary Incentive Delay
-          task.
-      - name: Social Network and Neural Similarity
-        summary: Co-researcher, Nov 2022–Apr 2023. Preprocessed and analyzed EEG data in MATLAB/Python to study neural similarity and social relationships.
     Publications and Manuscripts:
       - title: "From overt deterrence to covert internalization: Moral effects of AI regulation and the moderating role of personality traits"
         authors:
@@ -167,6 +112,61 @@ cv:
         releaseDate: "2026"
         url: https://doi.org/10.48550/arXiv.2601.12884
         summary: Earlier preprint version of the whole-body motion project.
+    Research Experience:
+      - company: Minzu University of China
+        position: Research Assistant
+        location: Beijing, China
+        start_date: 2026-07
+        end_date: null
+        summary: "Supervisor: Dr. Ze Geng. EEG analysis and behavioral modeling."
+        highlights:
+          - Conduct EEG preprocessing and data analysis for cognitive and behavioral research.
+          - Apply computational behavioral modeling and integrate behavioral models with neural measures.
+      - company: Institute of Software, Chinese Academy of Sciences (ISCAS)
+        position: Research Intern
+        location: Beijing, China
+        start_date: 2025-07
+        end_date: null
+        summary: "Supervisors: Dr. Chao Zhou and Yulong Bian. Human performance during whole-body motion."
+        highlights:
+          - Developed Unity-based directional-judgment experiments on a 6-DOF motion platform.
+          - Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted
+            to CHI 2027.
+      - company: Human Factors in Driving Takeover
+        position: Independent Research Project
+        location: null
+        start_date: 2025-12
+        end_date: null
+        summary: "Supervisor: Prof. Yanan Chen."
+        highlights:
+          - Independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG recording.
+          - Designed a two-stage warning experiment examining cognitive load and the monitoring-to-takeover request interval in situation-awareness
+            recovery and takeover performance.
+          - Analyzed behavioral and physiological data alongside individual differences in personality and driving style.
+      - company: Shenzhen University
+        position: Research Intern
+        location: Shenzhen, China
+        start_date: 2024-10
+        end_date: 2025-07
+        summary: "Supervisor: Prof. Zhenhong He. Loss and compensation in decision-making."
+        highlights:
+          - Designed experiments and programmed behavioral tasks in PsychoPy for research on loss and compensatory decisions.
+          - Developed Python data-analysis pipelines and applied drift diffusion and reinforcement-learning models to behavioral data.
+      - company: Human-AI Ethics
+        position: Independent Research Project
+        location: null
+        start_date: 2024-09
+        end_date: 2025-12
+        summary: "Supervisor: Prof. Yanan Chen."
+        highlights:
+          - Designed and programmed PsychoPy experiments examining how AI supervision and incentives influence dishonest behavior and ethical decision-making.
+          - Analyzed behavioral data in Python/R using mixed-effects models; the resulting article was published in Acta Psychologica Sinica.
+    Additional Research:
+      - name: Effort-Based Behavior and ERP
+        summary: Research Leader, May 2023–Feb 2024. Collected and analyzed behavioral and ERP data in Python/R using a Monetary Incentive Delay
+          task.
+      - name: Social Network and Neural Similarity
+        summary: Co-researcher, Nov 2022–Apr 2023. Preprocessed and analyzed EEG data in MATLAB/Python to study neural similarity and social relationships.
     Technical Skills:
       - name: Neural and physiological data
         keywords:
