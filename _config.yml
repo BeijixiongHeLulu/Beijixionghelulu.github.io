@@ -276,6 +276,8 @@ scholar:
   source: /_bibliography/
   bibliography: papers.bib
   bibliography_template: bib
+  order: ascending
+  sort_by: profile_order
   # Note: if you have latex math in your bibtex, the latex filter
   # preprocessing may conflict with MathJAX if the latter is enabled.
   # See https://github.com/alshedivat/al-folio/issues/357.
@@ -325,6 +327,7 @@ filtered_bibtex_keywords:
     preview,
     preview_alt,
     preview_caption,
+    profile_order,
     selected,
     slides,
     supp,

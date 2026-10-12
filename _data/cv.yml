@@ -19,6 +19,7 @@ cv:
           - "Weighted average score: 87.01/100; GPA: 3.41/4.00"
           - "TOEFL iBT: 118/120 (ETS 1–6 scale: 6.0/6.0)"
           - "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods"
+          - "Online coursework (Coursera): Linear Algebra, Calculus, Machine Learning, Python for Everybody"
     Research Experience:
       - company: Minzu University of China
         position: Research Assistant
@@ -36,7 +37,7 @@ cv:
         location: Beijing, China
         start_date: 2025-07
         end_date: null
-        summary: "Supervisors: Dr. Chao Zhou and Prof. Jin Huang. Human performance during whole-body motion."
+        summary: "Supervisors: Dr. Chao Zhou and Yulong Bian. Human performance during whole-body motion."
         highlights:
           - Developed Unity-based directional-judgment experiments on a 6-DOF motion platform.
           - Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted
@@ -105,21 +106,19 @@ cv:
         releaseDate: 2026-05
         url: https://doi.org/10.1037/emo0001683
         summary: Published online in May 2026.
-      - title: "Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation"
-        publisher: Journal of Environmental Psychology (submitted)
-        releaseDate: "2026"
-        summary: "Manuscript submitted. Corresponding author: Ze Geng."
+      - title:
+          "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual
+          Difference Perspective"
         authors:
-          - Ran Liu
           - Jianshu Wang
-          - Huijun Wang
-          - Chang Liu
-          - Guang Zhao
-          - Ze Geng
+          - Yanan Chen
+        publisher: IEEE Transactions on Intelligent Transportation Systems (submitted)
+        releaseDate: "2026"
+        summary: Manuscript submitted.
       - title: "Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion"
         publisher: CHI 2027 (submitted)
         releaseDate: "2026"
-        summary: Manuscript submitted. An earlier version is available on arXiv under a different title.
+        summary: Manuscript submitted to CHI 2027.
         authors:
           - Jianshu Wang
           - Yulong Bian
@@ -134,15 +133,17 @@ cv:
           - Chao Zhou
           - Jin Huang
           - Feng Tian
-      - title:
-          "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual
-          Difference Perspective"
-        authors:
-          - Jianshu Wang
-          - Yanan Chen
-        publisher: IEEE Transactions on Intelligent Transportation Systems (submitted)
+      - title: "Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation"
+        publisher: Journal of Environmental Psychology (submitted)
         releaseDate: "2026"
-        summary: Manuscript submitted.
+        summary: "Manuscript submitted. Corresponding author: Ze Geng."
+        authors:
+          - Ran Liu
+          - Jianshu Wang
+          - Huijun Wang
+          - Chang Liu
+          - Guang Zhao
+          - Ze Geng
       - title: "The effect of input cost and reward/punishment cues on performance in simple cognitive tasks: An ERP study"
         authors:
           - Jianshu Wang

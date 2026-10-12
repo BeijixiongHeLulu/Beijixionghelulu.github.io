@@ -29,7 +29,7 @@
       "position": "Research Intern",
       "startDate": "2025-07",
       "endDate": "",
-      "summary": "Supervisors: Dr. Chao Zhou and Prof. Jin Huang. Human performance during whole-body motion.",
+      "summary": "Supervisors: Dr. Chao Zhou and Yulong Bian. Human performance during whole-body motion.",
       "highlights": [
         "Developed Unity-based directional-judgment experiments on a 6-DOF motion platform.",
         "Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted to CHI 2027."
@@ -80,7 +80,8 @@
       "highlights": [
         "Weighted average score: 87.01/100; GPA: 3.41/4.00",
         "TOEFL iBT: 118/120 (ETS 1–6 scale: 6.0/6.0)",
-        "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods"
+        "Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods",
+        "Online coursework (Coursera): Linear Algebra, Calculus, Machine Learning, Python for Everybody"
       ]
     }
   ],
@@ -100,17 +101,16 @@
       "url": "https://doi.org/10.1037/emo0001683"
     },
     {
-      "name": "Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation",
-      "publisher": "Journal of Environmental Psychology (submitted)",
+      "name": "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual Difference Perspective",
+      "publisher": "IEEE Transactions on Intelligent Transportation Systems (submitted)",
       "releaseDate": "2026",
-      "summary": "Manuscript submitted. Corresponding author: Ze Geng.",
-      "authors": ["Ran Liu", "Jianshu Wang", "Huijun Wang", "Chang Liu", "Guang Zhao", "Ze Geng"]
+      "summary": "Manuscript submitted."
     },
     {
       "name": "Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion",
       "publisher": "CHI 2027 (submitted)",
       "releaseDate": "2026",
-      "summary": "Manuscript submitted. An earlier version is available on arXiv under a different title.",
+      "summary": "Manuscript submitted to CHI 2027.",
       "authors": [
         "Jianshu Wang",
         "Yulong Bian",
@@ -128,10 +128,11 @@
       ]
     },
     {
-      "name": "Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual Difference Perspective",
-      "publisher": "IEEE Transactions on Intelligent Transportation Systems (submitted)",
+      "name": "Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation",
+      "publisher": "Journal of Environmental Psychology (submitted)",
       "releaseDate": "2026",
-      "summary": "Manuscript submitted."
+      "summary": "Manuscript submitted. Corresponding author: Ze Geng.",
+      "authors": ["Ran Liu", "Jianshu Wang", "Huijun Wang", "Chang Liu", "Guang Zhao", "Ze Geng"]
     },
     {
       "name": "The effect of input cost and reward/punishment cues on performance in simple cognitive tasks: An ERP study",
