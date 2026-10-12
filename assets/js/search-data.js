@@ -30,6 +30,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
+        },{id: "nav-hobby",
+          title: "hobby",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/hobby/";
+          },
         },{id: "news-started-a-research-internship-at-the-institute-of-software-chinese-academy-of-sciences",
           title: 'Started a research internship at the Institute of Software, Chinese Academy of Sciences....',
           description: "",
