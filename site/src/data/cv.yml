@@ -113,12 +113,12 @@ cv:
         url: https://doi.org/10.48550/arXiv.2601.12884
         summary: Earlier preprint version of the whole-body motion project.
     Research Experience:
-      - company: Minzu University of China
+      - company: Lifedu Educational Technology Co., Ltd.
         position: Research Assistant
         location: Beijing, China
         start_date: 2026-07
         end_date: null
-        summary: "Supervisor: Dr. Ze Geng. EEG analysis and behavioral modeling."
+        summary: "Supervisor: Dr. Ze Geng (Principal Investigator). EEG analysis and behavioral modeling."
         highlights:
           - Conduct EEG preprocessing and data analysis for cognitive and behavioral research.
           - Apply computational behavioral modeling and integrate behavioral models with neural measures.

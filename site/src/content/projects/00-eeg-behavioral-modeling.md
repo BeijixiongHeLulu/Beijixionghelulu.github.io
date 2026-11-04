@@ -6,7 +6,7 @@ order: 1
 draft: false
 ---
 
-As a research assistant at Minzu University of China, supervised by Dr. Ze Geng, I completed all data analyses for this collaborative project on community environments and resident well-being.
+As a research assistant at Lifedu Educational Technology Co., Ltd., supervised by Dr. Ze Geng (Principal Investigator), I completed all data analyses for this collaborative project on community environments and resident well-being.
 
 The study combines questionnaires, a community–valence Implicit Association Test (IAT), and EEG. I preprocessed the EEG recordings, extracted single-trial centroparietal positivity (CPP) slopes, and fit drift diffusion models to IAT response times and accuracy using PyDDM. I used BIC to compare models and incorporated CPP slopes into drift-rate models to examine the relationship between neural and behavioral evidence accumulation.
 

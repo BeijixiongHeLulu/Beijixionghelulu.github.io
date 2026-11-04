@@ -14,12 +14,15 @@ export const siteConfig = defineSiteConfig({
   ],
   hero: {
     headline: "Human Factors | Cognitive Neuroscience | Behavioral Modeling",
-    subheadline: "Research Assistant, Minzu University of China",
+    subheadline: "Research Assistant, Lifedu Educational Technology Co., Ltd.",
     profileImage: "/assets/img/profile.jpg",
     profileAlt: "Jianshu Wang",
   },
   affiliations: [
-    { role: "Research Assistant", institution: "Minzu University of China" },
+    {
+      role: "Research Assistant",
+      institution: "Lifedu Educational Technology Co., Ltd.",
+    },
   ],
   socialLinks: [
     {
