@@ -1,18 +1,18 @@
 import type { PortfolioCase } from "../types";
-import thumbnail from "./acta-task-vignette.svg";
+import thumbnail from "./acta-monitoring-english.svg";
 
 export default {
   slug: "honesty-ai-supervision",
-  title: "Honesty under AI supervision",
-  summary:
-    "How do supervision and incentives shape honest reporting? In four behavioral experiments, participants predicted a computer-presented coin outcome and then reported whether they had guessed correctly. The experiments used programmed supervision and feedback conditions framed as AI oversight.",
+  title: "Honesty, monitoring and incentives",
+  summary: "How do AI monitoring and incentives affect honest reporting?",
   description:
     "Behavioral experiments on supervision, incentives and honest reporting.",
   role: "Co-first author · Experimental design and analysis",
   status: "Published 2026",
   facts: [{ label: "Journal", value: "Acta Psychologica Sinica" }],
   thumbnail,
-  thumbnailAlt: "",
+  thumbnailAlt:
+    "Published comparison of honesty rates across monitoring conditions.",
   resources: [
     {
       label: "Read the published article",

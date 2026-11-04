@@ -1,272 +1,275 @@
 ---
 import type { CasePart } from "../types";
-import graphicalAbstract from "./acta-graphical-abstract.svg";
-import { actaFigure as figure } from "./acta-figure-data";
-
+import ResearchFigure from "../../components/ResearchFigure.astro";
+import monitoring from "./acta-monitoring-english.svg";
+import incentives from "./acta-incentives-english.svg";
+import screen1 from "./acta-task-screen-01-original.png";
+import screen2 from "./acta-task-screen-02-original.png";
+import screen3 from "./acta-task-screen-03-original.png";
+import screen4 from "./acta-task-screen-04-original.png";
+import screen5 from "./acta-task-screen-05-original.png";
+import screen6 from "./acta-task-screen-06-original.png";
 interface Props {
   part: CasePart;
 }
 const { part } = Astro.props;
+const screens = [
+  { source: screen1, content: "+", duration: "Random 0.8–1.5 s" },
+  {
+    source: screen2,
+    content: "Predict: heads or tails",
+    duration: "Up to 10 s",
+  },
+  { source: screen3, content: "Tossing…", duration: "Random 1–2 s" },
+  { source: screen4, content: "Outcome: heads / tails", duration: "1 s" },
+  {
+    source: screen5,
+    content: "Was your prediction correct or incorrect?",
+    duration: "Up to 10 s",
+  },
+  { source: screen6, content: "Feedback", duration: "1.5 s" },
+];
 ---
 
 {part === "intro" && (
   <p>
-    My contributions included experimental design, PsychoPy task development,
-    behavioral data collection, and analysis in Python and R.
+    I helped design the experiments, programmed the PsychoPy tasks, and analyzed
+    trial-level responses with mixed-effects models in Python and R.
   </p>
 )}
 
 {part === "visual" && (
-  <figure class="portfolio-figure acta-figure">
-    <img
-      class="acta-wide"
-      src={graphicalAbstract.src}
-      width={graphicalAbstract.width}
-      height={graphicalAbstract.height}
-      alt="Graphical abstract of the reporting task, supervision and incentive experiments, and a published finding. A full text description follows."
-      loading="eager"
-      decoding="async"
-      fetchpriority="high"
-    />
-    <div
-      class="acta-narrow portfolio-diagram"
-      aria-label="Study design and finding"
-    >
-      <section>
-        <h2>{figure.measureTitle}</h2>
-        <ol class="acta-task">
-          {figure.task.map((step) => (
-            <li>
-              <strong>{step.title}</strong>
-              <span>{step.detail}</span>
-            </li>
-          ))}
-        </ol>
-        <dl class="acta-comparison">
-          <div>
-            <dt>{figure.actualLabel}</dt>
-            <dd>{figure.actualInput}</dd>
-          </div>
-          <div>
-            <dt>{figure.reportedLabel}</dt>
-            <dd>{figure.reportedInput}</dd>
-          </div>
-        </dl>
-        <p class="acta-relation">{figure.comparison}</p>
-        <p class="acta-reward">{figure.reward}</p>
-      </section>
-      <section>
-        <h2>{figure.conditionsTitle}</h2>
-        <div class="acta-monitoring">
-          <h3>Monitoring</h3>
-          {figure.monitoring.map((condition) => (
-            <p>
-              <strong>{condition.title}</strong>
-              <span>{condition.detail}</span>
-            </p>
-          ))}
-          <p class="acta-relation">{figure.monitoringContext}</p>
-        </div>
-        <div class="acta-interventions">
-          {figure.interventions.map((condition) => (
-            <div class="acta-intervention">
-              <h3>{condition.title}</h3>
-              <ol>
-                {condition.phases.map((phase) => (
-                  <li>{phase}</li>
-                ))}
-              </ol>
+  <section
+    class="portfolio-section acta-task-section"
+    aria-labelledby="task-title"
+  >
+    <h2 id="task-title">A coin-prediction task</h2>
+    <figure class="portfolio-figure">
+      <ol class="acta-screens" aria-label="Six steps in one trial">
+        {screens.map((screen, index) => (
+          <li>
+            <div class="acta-screen-meta">
+              <span class="acta-step-number" aria-hidden="true">
+                {index + 1}
+              </span>
+              <span>{screen.duration}</span>
             </div>
-          ))}
-          <p class="acta-relation">{figure.interventionContext}</p>
-        </div>
-        <p class="acta-traits">{figure.traits}</p>
-      </section>
-      <section class="acta-finding">
-        <h2>{figure.findingsTitle}</h2>
-        <p>{figure.finding}</p>
-      </section>
-    </div>
-    <figcaption>
-      Study design and findings summarized from Wang et al. (2026).
-    </figcaption>
-    <details class="portfolio-methods acta-description">
-      <summary>Figure description</summary>
-      <p>{figure.canonicalDescription}</p>
-    </details>
-  </figure>
+            <div class:list={["acta-screen", { "acta-fixation": index === 0 }]}>
+              <img
+                src={screen.source.src}
+                width={screen.source.width}
+                height={screen.source.height}
+                alt=""
+                aria-hidden="true"
+                loading="eager"
+                decoding="async"
+              />
+              <span>{screen.content}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <figcaption class="acta-task-caption">
+        Predictions and outcomes were recorded, so each report could be checked.
+        Reporting a correct guess earned more tokens.
+        <span class="acta-caption-source">
+          Adapted from Fig. 2a; English labels.
+        </span>
+      </figcaption>
+    </figure>
+    <p class="portfolio-note acta-ai-context">
+      Programmed monitoring and feedback were framed as AI oversight.
+    </p>
+  </section>
 )}
 
 {part === "body" && (
   <>
-    <h2>Study design</h2>
-    <p>
-      The task recorded the prediction and outcome, allowing actual correctness
-      to be compared with the participant’s report. Claiming a correct
-      prediction earned more task tokens.
-    </p>
-    <p>
-      Experiments 1 and 2 examined visible and uncertain monitoring sequentially
-      in the same participants. Experiments 3a and 3b examined monetary rewards
-      and moral feedback in separate groups. Personality traits were measured
-      with the Short Dark Triad (SD3) scale and examined alongside the
-      intervention conditions.
-    </p>
-    <h2>Behavior after reward withdrawal</h2>
-    <p>
-      In the monetary-reward experiment, extra rewards for consistent honesty
-      were introduced and later removed without announcing the rule. The
-      comparison separated behavior during reward delivery from persistence
-      after withdrawal within the task.
-    </p>
-    <h2>Published findings</h2>
-    <p>
-      Honest reporting was higher when monitoring was visible in this task.
-      Monetary rewards produced a clearer increase in honest reporting than
-      moral feedback, with behavior also varying across measured traits and
-      experimental phases.
-    </p>
-    <details class="portfolio-methods">
-      <summary>Trial-level analysis</summary>
-      <p>
-        One analysis modeled trial-level honesty using supervision conditions,
-        personality scores and their interactions, with a participant random
-        intercept to account for repeated observations.
+    <section class="portfolio-section" aria-labelledby="monitoring-title">
+      <h2 id="monitoring-title">Monitoring and honest reporting</h2>
+      <div class="acta-monitoring-result">
+        <ResearchFigure
+          src={monitoring}
+          alt="Published honesty-rate comparison: visible monitoring has the highest bar, uncertain monitoring is intermediate, and no monitoring is lowest. The source axis runs from 80% to 100%; original error bars and significance brackets are preserved."
+          class="acta-monitoring-figure"
+        >
+          <span class="acta-caption-source">
+            Adapted from Fig. 3a; English labels. *** <em>p</em> &lt; .001.
+          </span>
+        </ResearchFigure>
+        <div class="acta-result-copy">
+          <p class="acta-finding">
+            Honesty was highest when monitoring was visible.
+          </p>
+          <p class="portfolio-copy">
+            Experiment 2 used uncertain monitoring and followed Experiment 1 in
+            the same 46 participants.
+          </p>
+          <p class="portfolio-copy">
+            In Experiment 1, the monitoring effect was larger in groups with
+            higher Machiavellianism or psychopathy scores.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="portfolio-section" aria-labelledby="incentives-title">
+      <h2 id="incentives-title">After incentives were removed</h2>
+      <ResearchFigure
+        src={incentives}
+        alt="Published honesty rates across baseline, incentive and withdrawal phases. Monetary rewards show an increase during incentives and remain above baseline after withdrawal. Moral feedback shows no comparable increase. Original curves, error bars and significance marks are preserved."
+        class="acta-incentives-figure"
+      >
+        <span class="acta-caption-source">
+          Adapted from Fig. 9; English labels. * <em>p</em> &lt; .05, **{" "}
+          <em>p</em> &lt; .01, *** <em>p</em> &lt; .001.
+        </span>
+      </ResearchFigure>
+      <p class="portfolio-copy">
+        In the monetary-reward experiment, honesty rose during incentives and
+        remained above baseline after withdrawal. Moral feedback showed no
+        comparable increase.
       </p>
-    </details>
-    <h2>Publication</h2>
-    <p class="acta-citation">
-      Wang, J., Jiang, X., Chen, Y., Wang, M., &amp; Du, F. (2026). From Overt
-      Deterrence to Covert Internalization: Moral Effects of AI Regulation and
-      the Moderating Role of Personality Traits.{" "}
-      <em>Acta Psychologica Sinica, 58</em>(3), 381–398.
-    </p>
+      <p class="portfolio-note">
+        Separate groups; phases within the same session.
+      </p>
+    </section>
+    <section
+      class="portfolio-section acta-publication"
+      aria-labelledby="publication-title"
+    >
+      <h2 id="publication-title">Publication</h2>
+      <p class="portfolio-copy acta-citation">
+        Wang, J., Jiang, X., Chen, Y., Wang, M., &amp; Du, F. (2026). From Overt
+        Deterrence to Covert Internalization: Moral Effects of AI Regulation and
+        the Moderating Role of Personality Traits.{" "}
+        <em>Acta Psychologica Sinica, 58</em>(3), 381–398.
+      </p>
+    </section>
   </>
 )}
 
 <style>
-  .acta-figure {
-    width: 100%;
-    max-width: 64rem;
-    margin-inline: auto;
+  .acta-screens {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem 1.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
   }
-  .acta-wide {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 1px solid #c9d5de;
-    border-radius: 1rem;
-    background: #fcfdfd;
+  .acta-screens li {
+    min-width: 0;
   }
-  .acta-narrow {
-    display: none;
-  }
-  .acta-description {
+  .acta-screen-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 0.7rem;
+    margin-bottom: 0.55rem;
+    color: var(--portfolio-muted);
     font-size: 1rem;
-    line-height: 1.65;
+    line-height: 1.4;
   }
-  .acta-description p {
-    margin-bottom: 0;
+  .acta-step-number {
+    color: var(--portfolio-accent);
+    font-size: 1.125rem;
+    font-weight: 700;
+  }
+  .acta-screen {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 10rem;
+    padding: 20px;
+    isolation: isolate;
+    text-align: center;
+  }
+  .acta-screen img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    z-index: -2;
+  }
+  .acta-screen::before {
+    content: "";
+    position: absolute;
+    inset: 14% 8%;
+    background: #8c898e;
+    z-index: -1;
+  }
+  .acta-screen > span {
+    font-size: 1.3rem;
+    line-height: 1.4;
+    font-weight: 700;
+    color: #10141a;
+    text-wrap: balance;
+  }
+  .acta-fixation > span {
+    font-size: 2.5rem;
+    font-weight: 400;
+  }
+  .acta-task-caption {
+    max-width: 46rem;
+  }
+  .acta-caption-source {
+    display: block;
+    font-size: 0.875rem;
+  }
+  .acta-ai-context {
+    margin: 0.6rem 0 0;
+  }
+  .acta-monitoring-result {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    align-items: center;
+    gap: clamp(1.5rem, 4vw, 3.5rem);
+  }
+  .acta-result-copy {
+    min-width: 0;
+  }
+  .acta-finding {
+    font-family: "Crimson Pro Variable", Georgia, serif;
+    font-size: 1.8rem;
+    line-height: 1.25;
+    margin: 0 0 1rem;
+    color: var(--portfolio-ink);
   }
   .acta-citation {
     font-size: 0.9375rem;
-    line-height: 1.7;
+  }
+  .acta-publication {
+    margin-bottom: 0;
   }
   @media (max-width: 47rem) {
-    .acta-wide {
-      display: none;
+    .acta-screens {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem 0.8rem;
     }
-    .acta-narrow {
-      display: grid;
-      gap: 1.75rem;
-      padding: 16px;
-      color: var(--portfolio-ink);
-      background: var(--portfolio-surface);
-      border: 1px solid var(--portfolio-line);
-      border-radius: 1rem;
+    .acta-screen {
+      min-height: 10rem;
+      padding: 14px;
     }
-    .acta-narrow section {
-      min-width: 0;
+    .acta-screen > span {
+      font-size: 1.125rem;
     }
-    .acta-narrow h2 {
-      margin: 0 0 1rem;
-      font-size: 1.25rem;
-      line-height: 1.3;
+    .acta-fixation > span {
+      font-size: 2.25rem;
     }
-    .acta-narrow h3 {
-      margin: 0 0 0.7rem;
-      font-size: 1.0625rem;
-      line-height: 1.4;
+    .acta-monitoring-result {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 1.25rem;
     }
-    .acta-task {
-      display: grid;
-      gap: 0.6rem;
-      margin: 0;
-      padding-left: 1.5rem;
+    .acta-finding {
+      font-size: 1.6rem;
     }
-    .acta-task li {
-      padding-left: 0.25rem;
+  }
+  @media (max-width: 359px) {
+    .acta-screens {
+      grid-template-columns: minmax(0, 1fr);
     }
-    .acta-task span,
-    .acta-monitoring span {
-      display: block;
-      color: var(--portfolio-muted);
-    }
-    .acta-comparison {
-      display: grid;
-      gap: 0.65rem;
-      margin: 1.25rem 0 0;
-    }
-    .acta-comparison > div,
-    .acta-monitoring,
-    .acta-intervention {
-      padding: 12px;
-      border: 1px solid var(--portfolio-line);
-      border-radius: 0.65rem;
-    }
-    .acta-comparison dt {
-      font-weight: 700;
-    }
-    .acta-comparison dd {
-      margin: 0.2rem 0 0;
-      color: var(--portfolio-muted);
-    }
-    .acta-relation {
-      margin: 0.75rem 0 0;
-      color: var(--portfolio-accent);
-      font-size: 0.9375rem;
-      font-weight: 700;
-    }
-    .acta-reward {
-      margin: 0.75rem 0 0;
-      font-size: 0.9375rem;
-      color: var(--portfolio-muted);
-    }
-    .acta-monitoring > p {
-      margin: 0.8rem 0 0;
-    }
-    .acta-interventions {
-      display: grid;
-      gap: 0.75rem;
-      margin-top: 0.9rem;
-    }
-    .acta-intervention ol {
-      display: grid;
-      gap: 0.3rem;
-      margin: 0;
-      padding-left: 1.3rem;
-      color: var(--portfolio-muted);
-    }
-    .acta-traits {
-      margin: 0.9rem 0 0;
-      padding: 0.8rem 0;
-      border-block: 1px solid var(--portfolio-line);
-      font-weight: 700;
-      font-size: 0.9375rem;
-    }
-    .acta-finding p {
-      margin: 0;
-      color: var(--portfolio-accent);
+    .acta-screen {
+      min-height: 9rem;
     }
   }
 </style>

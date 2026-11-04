@@ -1,281 +1,558 @@
 ---
+import { Image } from "astro:assets";
+import ResearchFigure from "../../components/ResearchFigure.astro";
 import type { CasePart } from "../types";
+import taskScene from "./lifedu-eeg-task-illustration-v2.png";
+import community from "./lifedu-community-illustration-v2.png";
 
 interface Props {
   part: CasePart;
 }
 const { part } = Astro.props;
+const mappings = [
+  {
+    title: "Mapping 1",
+    f: ["Own community", "Positive"],
+    j: ["Other community", "Negative"],
+  },
+  {
+    title: "Mapping 2",
+    f: ["Own community", "Negative"],
+    j: ["Other community", "Positive"],
+  },
+];
 ---
 
 {part === "intro" && (
   <p>
-    As a research assistant at Lifedu, I carried out the data analyses for a
-    collaborative study combining an implicit association task,
-    electroencephalography (EEG) and decision modeling.
+    I preprocessed electroencephalography (EEG) recordings, extracted
+    centroparietal positivity (CPP) slopes, and fitted and compared behavioral
+    models for this collaborative study.
   </p>
 )}
 
 {part === "visual" && (
-  <figure class="portfolio-figure lifedu-workflow">
-    <div class="portfolio-diagram lifedu-map">
-      <div class="portfolio-node lifedu-context">
-        <strong>Implicit association task</strong>
-        <span>Community images and positive or negative words</span>
-      </div>
-      <div class="lifedu-streams">
-        <section class="lifedu-stream" aria-labelledby="lifedu-behavior-route">
-          <h2 id="lifedu-behavior-route">Behavioral observations</h2>
-          <div class="portfolio-node">
-            <strong>Response time</strong>
-            <span>Correct or error choice</span>
+  <section
+    class="portfolio-section lifedu-task-section"
+    aria-label="The community classification task"
+  >
+    <ResearchFigure
+      src={taskScene}
+      preserveSource={false}
+      eager
+      class="lifedu-scene"
+      alt="Task illustration: a participant wearing an EEG cap uses a keyboard to classify a community image on a computer display."
+    >
+      Task illustration. Electroencephalography (EEG) was recorded during
+      classification.
+    </ResearchFigure>
+    <figure class="portfolio-figure lifedu-task">
+      <ol class="stimulus-sequence">
+        <li>
+          <div class="stimulus-screen">
+            <Image
+              src={community}
+              width={300}
+              format="webp"
+              alt="Illustrative residential community with apartment buildings, trees and a path."
+            />
           </div>
-        </section>
-        <section class="lifedu-stream" aria-labelledby="lifedu-eeg-route">
-          <h2 id="lifedu-eeg-route">EEG recorded during the task</h2>
-          <div class="portfolio-node">
-            <strong>EEG recordings</strong>
+          <strong>Community image</strong>
+          <span>Classify and respond</span>
+        </li>
+        <li>
+          <div class="stimulus-screen word-screen">
+            <span>pleasant</span>
           </div>
-          <p class="lifedu-connection">
-            <span aria-hidden="true">↓</span>
-          </p>
-          <div class="portfolio-node">
-            <strong>Preprocessing</strong>
-          </div>
-          <p class="lifedu-connection">
-            <span aria-hidden="true">↓</span>
-          </p>
-          <div class="portfolio-node">
-            <strong>Trial-level CPP slope</strong>
-            <span>CPP: centroparietal positivity</span>
-          </div>
-        </section>
+          <strong>Then an affective word</strong>
+          <span>Classify and respond</span>
+        </li>
+      </ol>
+      <div class="lifedu-mappings">
+        {mappings.map((mapping) => (
+          <section class="mapping-example" aria-label={mapping.title}>
+            <h3>{mapping.title}</h3>
+            <div class="mapping-keys">
+              <div>
+                <kbd>F</kbd>
+                <span>{mapping.f[0]}</span>
+                <span>{mapping.f[1]}</span>
+              </div>
+              <div>
+                <kbd>J</kbd>
+                <span>{mapping.j[0]}</span>
+                <span>{mapping.j[1]}</span>
+              </div>
+            </div>
+          </section>
+        ))}
       </div>
-      <div class="portfolio-node lifedu-matching">
-        <strong>Matched trials</strong>
-        <span>Link each CPP slope to its corresponding behavioral trial</span>
-      </div>
-      <div class="lifedu-inputs">
-        <div class="portfolio-node">
-          <strong>Fitting observations</strong>
-          <span>Response times + correct/error choices</span>
-        </div>
-        <div class="portfolio-node">
-          <strong>Drift-rate specification</strong>
-          <span>CPP slope enters as a measured covariate</span>
-        </div>
-      </div>
-      <p class="lifedu-connection">
-        Together inform <span aria-hidden="true">↓</span>
-      </p>
-      <div class="portfolio-node lifedu-fit">
-        <strong>Fit candidate models</strong>
-      </div>
-      <p class="lifedu-connection">
-        <span aria-hidden="true">↓</span>
-      </p>
-      <div class="portfolio-node lifedu-compare">
-        <strong>Compare candidate explanations</strong>
-        <span>Fit and complexity</span>
-      </div>
-    </div>
-    <figcaption>
-      Analysis workflow: behavioral responses inform model fitting, while a
-      derived EEG measure enters the drift-rate specification.
-    </figcaption>
-  </figure>
+      <figcaption>
+        One stimulus at a time. “Own” refers to the participant’s residential
+        community. Example mappings; category-to-key assignments were
+        counterbalanced.
+      </figcaption>
+    </figure>
+  </section>
 )}
 
 {part === "body" && (
   <>
-    <p>
-      Participants classified community images and positive or negative words.
-      “Own” meant their residential community; “other” meant another community.
-      Across two response mappings, the community category sharing a key with
-      positive words changed.
-    </p>
-
-    <figure class="portfolio-figure lifedu-task">
-      <div class="portfolio-diagram lifedu-mappings">
-        <section aria-labelledby="lifedu-mapping-one">
-          <h3 id="lifedu-mapping-one">Mapping 1</h3>
-          <dl>
-            <div>
-              <dt>Response A</dt>
-              <dd>Own community + positive words</dd>
+    <section class="portfolio-section" aria-labelledby="lifedu-model-title">
+      <h2 id="lifedu-model-title">From recordings to a decision model</h2>
+      <figure class="portfolio-figure lifedu-model">
+        <div class="lifedu-model-layout">
+          <section class="cpp-panel" aria-labelledby="lifedu-cpp-title">
+            <h3 id="lifedu-cpp-title">Trial-level CPP slope</h3>
+            <p class="plot-subtitle">Derived from centroparietal EEG</p>
+            <div class="scientific-canvas">
+              <svg viewBox="0 0 360 235" aria-hidden="true">
+                <rect x="166" y="23" width="119" height="171" fill="#edf3f1" />
+                <path
+                  d="M30 20V199H340"
+                  fill="none"
+                  stroke="#83949a"
+                  stroke-width="1.5"
+                />
+                <path
+                  d="m30 165 14-3 13 8 13-9 14 4 13-5 14 3 14-9 13 7 14-15 13 4 14-14 14 3 13-16 14 2 14-17 13-4 14-14 13 2 14-17 14-4 13-13 14 2"
+                  fill="none"
+                  stroke="#386f6b"
+                  stroke-width="2.7"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m166 150 119-80"
+                  fill="none"
+                  stroke="#a55e35"
+                  stroke-width="3"
+                />
+                <path
+                  d="M167 17V11H284V17"
+                  fill="none"
+                  stroke="#6b7d7c"
+                  stroke-width="1.5"
+                />
+              </svg>
+              <span class="axis-time">Time</span>
             </div>
-            <div>
-              <dt>Response B</dt>
-              <dd>Other community + negative words</dd>
+            <div class="cpp-key">
+              <span>
+                <i class="eeg-line" />
+                Schematic EEG
+              </span>
+              <span>
+                <i class="slope-line" />
+                Fitted slope in a selected interval
+              </span>
             </div>
-          </dl>
-        </section>
-        <section aria-labelledby="lifedu-mapping-two">
-          <h3 id="lifedu-mapping-two">Mapping 2</h3>
-          <dl>
-            <div>
-              <dt>Response A</dt>
-              <dd>Own community + negative words</dd>
+            <p class="cpp-relation">
+              CPP included in the <strong>drift-rate specification</strong>
+            </p>
+          </section>
+          <section
+            class="accumulation-panel"
+            aria-labelledby="lifedu-accumulation-title"
+          >
+            <h3 id="lifedu-accumulation-title">Evidence accumulation</h3>
+            <p class="fitting-inputs">
+              <span>Choice</span>
+              <span>Response time</span>
+            </p>
+            <p class="input-relation">Observations for model fitting</p>
+            <div class="accumulation-chart scientific-canvas">
+              <span class="boundary-label upper-boundary">
+                Correct response
+              </span>
+              <svg viewBox="0 0 440 255" aria-hidden="true">
+                <path
+                  d="M26 29H418M26 205H418"
+                  fill="none"
+                  stroke="#526877"
+                  stroke-width="2"
+                />
+                <path
+                  d="M26 117H418"
+                  fill="none"
+                  stroke="#ccd4d8"
+                  stroke-width="1"
+                  stroke-dasharray="4 5"
+                />
+                <path
+                  d="m26 117 18 5 17-17 18 4 18-23 17 8 18-18 18 5 17-17 18 3 18-20 17 4 18-22"
+                  fill="none"
+                  stroke="#3f638f"
+                  stroke-width="3"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m26 117 18-8 17 18 18-7 18 21 17-4 18 17 18-5 17 18 18-4 18 23 17-5 18 24"
+                  fill="none"
+                  stroke="#8d7597"
+                  stroke-width="2.5"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="m26 117 18 4 17-10 18 7 18-12 17 4 18-17 18 7 17-13 18 6 18-19 17 3 18-16 18 5 17-16 18 5 18-16 17 2 18-12"
+                  fill="none"
+                  stroke="#9aadb8"
+                  stroke-width="2"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M54 112 208 57m-2 12 2-12-12 0"
+                  fill="none"
+                  stroke="#1c3449"
+                  stroke-width="1.8"
+                  stroke-dasharray="6 5"
+                />
+                <circle cx="238" cy="29" r="5" fill="#3f638f" />
+              </svg>
+              <span class="boundary-label lower-boundary">Error response</span>
+              <span class="axis-time model-time">Time →</span>
             </div>
-            <div>
-              <dt>Response B</dt>
-              <dd>Other community + positive words</dd>
+            <div class="model-key">
+              <span>
+                <i class="decision-point" />
+                Decision
+              </span>
+              <span>
+                <i class="drift-line" />
+                Drift rate
+              </span>
             </div>
-          </dl>
-        </section>
-      </div>
-      <figcaption>
-        The two category mappings used counterbalanced response keys. Images and
-        words were classified successively, each remaining on screen until a
-        response.
-      </figcaption>
-    </figure>
-
-    <h2>Connecting measurements and models</h2>
-    <p>
-      I preprocessed the EEG recordings and extracted slopes of centroparietal
-      positivity (CPP), then matched valid EEG measures with the corresponding
-      behavioral trials.
-    </p>
-    <p>
-      I fitted drift diffusion models to response times and correct or incorrect
-      choices. Drift rate represents the model’s rate of evidence accumulation.
-      In joint EEG–behavior models, trial-level CPP slopes entered the
-      drift-rate specification.
-    </p>
-    <h2>Keeping valid error responses</h2>
-    <p>
-      In this study, error trials were excluded from response-time summaries,
-      while valid error responses were retained as choice information for
-      decision modeling. The model needed the pattern of correct and incorrect
-      responses as well as their timing.
-    </p>
-
+            <p class="schematic-label">Schematic accumulation paths</p>
+          </section>
+        </div>
+        <figcaption>
+          Matched behavioral and EEG trials informed the model; CPP slope
+          entered its drift-rate specification. Illustrative evidence paths
+          reach a correct or error boundary to produce a decision; these are not
+          study results.
+        </figcaption>
+      </figure>
+      <p class="portfolio-copy lifedu-judgment">
+        I retained valid error responses for decision modeling.
+      </p>
+    </section>
     <details class="portfolio-methods">
       <summary>Model fitting and comparison</summary>
       <p>
-        Models were fitted using aggregate maximum-likelihood estimation in
-        PyDDM. I compared candidate specifications using BIC, considering fit
-        alongside model complexity. CPP slope entered the drift-rate
-        specification as a measured covariate; the resulting drift rate was a
-        model parameter.
+        CPP slopes were extracted from trial-level EEG averaged across Pz, Cz,
+        CP1 and CP2. Models were fitted using aggregate maximum-likelihood
+        estimation in PyDDM and compared using BIC. CPP slope was a measured
+        covariate; drift rate was a model parameter. The model separated
+        accumulation from nondecision time, so boundary-crossing time alone is
+        not the full response time.
+      </p>
+      <p>
+        Error trials were excluded from response-time and D-score summaries,
+        while valid error choices were retained for decision modeling.
       </p>
     </details>
   </>
 )}
 
 <style>
-  .lifedu-workflow {
-    max-width: 56rem;
+  .lifedu-task-section {
+    margin-top: 0;
+  }
+  :global(.lifedu-scene) {
+    max-width: 48rem;
     margin-inline: auto;
   }
-  .lifedu-map {
-    padding: clamp(1rem, 3vw, 2rem);
+  .lifedu-task {
+    margin-top: 2rem;
   }
-  .lifedu-map .portfolio-node {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    min-width: 0;
-  }
-  .lifedu-context,
-  .lifedu-matching,
-  .lifedu-fit,
-  .lifedu-compare {
-    text-align: center;
-  }
-  .lifedu-context {
-    max-width: 34rem;
-    margin-inline: auto;
-  }
-  .lifedu-streams,
-  .lifedu-inputs {
+  .stimulus-sequence {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-    margin-top: 1.25rem;
+    gap: 4rem;
+    max-width: 44rem;
+    padding: 0;
+    margin: 0 auto 2.5rem;
+    list-style: none;
   }
-  .lifedu-stream {
+  .stimulus-sequence li {
     min-width: 0;
+    position: relative;
+    text-align: center;
   }
-  .lifedu-stream h2 {
-    margin: 0 0 0.75rem;
-    font-size: 0.9rem;
-    line-height: 1.5;
+  .stimulus-sequence li + li::before {
+    content: "→";
+    position: absolute;
+    left: -2.7rem;
+    top: 4rem;
     color: var(--portfolio-muted);
+    font-size: 1.7rem;
   }
-  .lifedu-matching {
-    margin-top: 1.25rem;
-    border-style: dashed;
+  .stimulus-screen {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border: 5px solid #374b5c;
+    border-bottom-width: 12px;
+    border-radius: 0.6rem;
+    background: #fff;
+    overflow: hidden;
   }
-  .lifedu-connection {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.6rem;
-    margin: 0.4rem 0;
+  .stimulus-screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .word-screen {
+    display: grid;
+    place-items: center;
+    color: #253849;
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  .stimulus-sequence strong {
+    display: block;
+    margin-top: 0.8rem;
+    font-weight: 650;
+  }
+  .stimulus-sequence li > span {
+    display: block;
     color: var(--portfolio-muted);
-    font-size: 0.8rem;
-  }
-  .lifedu-connection span {
-    font-size: 1.15rem;
-    color: var(--portfolio-accent);
-  }
-  .lifedu-inputs + .lifedu-connection {
-    margin: 0.8rem 0;
-  }
-  .lifedu-fit,
-  .lifedu-compare {
-    max-width: 34rem;
-    margin-inline: auto;
-  }
-  .lifedu-compare {
-    border-color: var(--portfolio-accent);
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
   }
   .lifedu-mappings {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-    padding: 1.25rem;
+    gap: 2rem;
+    max-width: 52rem;
+    margin-inline: auto;
   }
-  .lifedu-mappings section {
+  .mapping-example {
     min-width: 0;
-  }
-  .lifedu-mappings h3 {
-    margin: 0 0 0.8rem;
-    font-size: 1rem;
-  }
-  .lifedu-mappings dl {
-    margin: 0;
-  }
-  .lifedu-mappings dl > div {
-    padding-block: 0.75rem;
+    padding-top: 0.8rem;
     border-top: 1px solid var(--portfolio-line);
   }
-  .lifedu-mappings dt {
-    font-size: 0.75rem;
-    font-weight: 650;
-    color: var(--portfolio-accent);
+  .mapping-example h3 {
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--portfolio-muted);
+    margin: 0 0 0.8rem;
   }
-  .lifedu-mappings dd {
-    margin: 0.35rem 0 0;
+  .mapping-keys {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 8.5rem), 1fr));
+    gap: 0.7rem;
+  }
+  .mapping-keys > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-width: 0;
+    text-align: center;
+    gap: 0.3rem;
+  }
+  .mapping-keys kbd {
+    display: grid;
+    place-items: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid #7c8b98;
+    border-bottom: 4px solid #7c8b98;
+    border-radius: 0.35rem;
+    background: #f2f4f6;
+    color: #243947;
+    font-family: inherit;
+    font-size: 1.15rem;
+    margin-bottom: 0.3rem;
+  }
+  .mapping-keys span {
     font-size: 0.9rem;
-    line-height: 1.5;
-    color: var(--portfolio-ink);
+    line-height: 1.45;
   }
-  @media (max-width: 539px) {
-    .lifedu-map,
-    .lifedu-map .portfolio-node,
-    .lifedu-mappings {
-      padding: 12px;
+  .lifedu-model-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: start;
+  }
+  .lifedu-model-layout > section {
+    min-width: 0;
+  }
+  .lifedu-model-layout h3 {
+    font-size: 1.05rem;
+    margin: 0 0 0.4rem;
+    font-weight: 650;
+  }
+  .plot-subtitle,
+  .input-relation {
+    margin: 0 0 0.6rem;
+    font-size: 0.8rem;
+    color: var(--portfolio-muted);
+  }
+  .scientific-canvas {
+    position: relative;
+    background: #fff;
+    color: #243947;
+    border-radius: 0.3rem;
+    padding: 0.65rem 0.5rem 1.65rem;
+  }
+  .scientific-canvas svg {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+  .axis-time {
+    display: block;
+    font-size: 0.8rem;
+    text-align: center;
+    line-height: 1;
+  }
+  .cpp-key {
+    margin-top: 0.7rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    font-size: 0.76rem;
+    color: var(--portfolio-muted);
+  }
+  .cpp-key > span {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+  .cpp-key i {
+    display: inline-block;
+    flex-shrink: 0;
+    width: 1.3rem;
+    border-top: 3px solid;
+  }
+  .eeg-line {
+    color: #386f6b;
+  }
+  .slope-line {
+    color: #a55e35;
+  }
+  .cpp-relation {
+    border-left: 3px solid var(--portfolio-accent);
+    padding-left: 0.75rem;
+    margin: 1.2rem 0 0;
+    max-width: 24rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+  }
+  .fitting-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.3rem;
+    margin: 0.75rem 0 0.3rem;
+    font-size: 0.9rem;
+  }
+  .fitting-inputs span {
+    border-bottom: 2px solid var(--portfolio-line);
+    padding-bottom: 0.2rem;
+  }
+  .accumulation-chart {
+    padding-top: 0.8rem;
+  }
+  .boundary-label {
+    display: block;
+    font-size: 0.75rem;
+    line-height: 1.2;
+    padding-inline: 5%;
+  }
+  .upper-boundary {
+    margin-bottom: -0.5rem;
+  }
+  .lower-boundary {
+    margin-top: -1.5rem;
+  }
+  .model-time {
+    margin-top: 1rem;
+  }
+  .model-key {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.3rem;
+    margin-top: 0.7rem;
+    font-size: 0.76rem;
+    color: var(--portfolio-muted);
+  }
+  .model-key span {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+  .model-key i {
+    display: inline-block;
+    flex-shrink: 0;
+  }
+  .decision-point {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    background: #3f638f;
+  }
+  .drift-line {
+    width: 1.3rem;
+    border-top: 2px dashed #1c3449;
+  }
+  :global(.dark) .drift-line {
+    border-color: #b7cbd7;
+  }
+  @media (max-width: 500px) {
+    .upper-boundary {
+      margin-bottom: 0;
     }
-    .lifedu-streams,
-    .lifedu-inputs,
-    .lifedu-mappings {
+    .lower-boundary {
+      margin-top: -0.3rem;
+    }
+  }
+  .schematic-label {
+    font-size: 0.76rem;
+    color: var(--portfolio-muted);
+    margin: 0.6rem 0 0;
+  }
+  .lifedu-judgment {
+    margin-top: 1.4rem;
+  }
+  @media (max-width: 700px) {
+    .lifedu-mappings,
+    .lifedu-model-layout {
       grid-template-columns: 1fr;
     }
-    .lifedu-stream + .lifedu-stream {
-      border-top: 1px solid var(--portfolio-line);
-      padding-top: 1rem;
+    .lifedu-model-layout {
+      gap: 2.5rem;
+    }
+    .stimulus-sequence {
+      gap: 2rem;
+    }
+    .stimulus-sequence li + li::before {
+      left: -1.55rem;
+      top: 2.5rem;
+      font-size: 1.3rem;
+    }
+    .stimulus-screen {
+      border-width: 3px;
+      border-bottom-width: 8px;
+    }
+    .scientific-canvas {
+      padding-inline: 4px;
+    }
+  }
+  @media (max-width: 400px) {
+    .stimulus-sequence {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+      max-width: 18rem;
+    }
+    .stimulus-sequence li + li::before {
+      content: "↓";
+      left: calc(50% - 0.4rem);
+      top: -2rem;
+    }
+    .mapping-keys {
+      gap: 0.5rem;
+    }
+    .mapping-keys span {
+      font-size: 0.85rem;
     }
   }
 </style>

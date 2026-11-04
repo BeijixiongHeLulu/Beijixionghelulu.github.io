@@ -1,5 +1,5 @@
 import type { PortfolioCase } from "../types";
-import setup from "./cockpit-participant-setup.png";
+import setup from "./cockpit-platform-original.jpeg";
 
 export default {
   slug: "whole-body-motion",
@@ -16,7 +16,8 @@ export default {
     },
   ],
   thumbnail: setup,
-  thumbnailAlt: "",
+  thumbnailAlt:
+    "Participant seated on a six-degree-of-freedom motion platform facing three displays, with the original face covering retained.",
   resources: [
     {
       label: "Whole-body motion research overview",

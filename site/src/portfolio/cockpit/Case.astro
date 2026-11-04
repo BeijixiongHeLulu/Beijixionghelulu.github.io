@@ -1,9 +1,11 @@
 ---
 import { Image } from "astro:assets";
+import ResearchFigure from "../../components/ResearchFigure.astro";
 import type { CasePart } from "../types";
-import setup from "./cockpit-participant-setup.png";
-import display from "./cockpit-task-display.png";
-
+import setup from "./cockpit-platform-original.jpeg";
+import display from "./cockpit-display-original.jpeg";
+import sensors from "./cockpit-sensors-original.jpeg";
+import keypress from "./cockpit-keypress-illustration.png";
 interface Props {
   part: CasePart;
 }
@@ -12,315 +14,429 @@ const { part } = Astro.props;
 
 {part === "intro" && (
   <p>
-    At the Institute of Software, Chinese Academy of Sciences, I developed a
-    Unity directional-judgment task for an existing six-degree-of-freedom motion
-    platform and analyzed response times.
+    I developed a Unity directional-judgment task for an existing
+    six-degree-of-freedom motion platform and analyzed response times in
+    relation to task-relative measured motion.
   </p>
 )}
-
 {part === "visual" && (
-  <figure class="portfolio-figure cockpit-apparatus">
-    <div class="cockpit-photos">
-      <figure class="cockpit-photo cockpit-photo-main">
-        <Image
-          src={setup}
-          format="webp"
-          widths={[414, 640, setup.width]}
-          sizes="(min-width: 1000px) 640px, (min-width: 700px) 60vw, calc(100vw - 48px)"
-          alt="Participant seated on the motion platform facing the task display, with the original face covering retained."
-          width={setup.width}
-          height={setup.height}
-          loading="eager"
-          fetchpriority="high"
-        />
-        <figcaption>Motion platform and participant.</figcaption>
-      </figure>
-      <figure class="cockpit-photo cockpit-photo-detail">
-        <Image
-          src={display}
-          format="webp"
-          widths={[320, display.width]}
-          sizes="(min-width: 700px) 352px, calc(100vw - 48px)"
-          alt="Task display showing a green directional arrow."
-          width={display.width}
-          height={display.height}
-          loading="eager"
-        />
-        <figcaption>Directional cue on the task display.</figcaption>
-      </figure>
-    </div>
-    <figcaption>
-      The study paired a physical motion platform with an on-screen directional
-      task. Cropped from the original apparatus figure.
-    </figcaption>
-  </figure>
+  <div class="cockpit-setup">
+    <ResearchFigure
+      src={setup}
+      alt="Participant on the existing motion platform facing three displays. The original face covering and complete platform base are visible."
+      eager
+    >
+      The existing platform delivered whole-body motion during an on-screen
+      task.
+    </ResearchFigure>
+  </div>
 )}
-
 {part === "body" && (
   <>
-    <p>
-      Participants responded to an arrow using the corresponding directional
-      key. Practice introduced the mapping with feedback; formal trials provided
-      the behavioral records.
-    </p>
-    <h2>Commands and measurements</h2>
-    <p>
-      Commanding motion and measuring motion answer different questions. Unity
-      specified the platform’s motion conditions, while sensors beneath the seat
-      recorded the movement that occurred. Keeping these roles separate allowed
-      the study to relate task performance to measured motion rather than
-      treating a command setting as the measurement itself.
-    </p>
-    <h2>Task implementation</h2>
-    <p>
-      I implemented cue presentation and directional-response capture in Unity.
-      The task emitted cue and response events alongside behavioral records,
-      providing reference points for relating responses to the independent
-      motion recordings.
-    </p>
-
-    <figure class="portfolio-figure cockpit-workflow">
-      <div class="portfolio-diagram cockpit-map">
-        <div class="cockpit-lanes">
-          <section class="cockpit-lane" aria-labelledby="cockpit-task-lane">
-            <h3 id="cockpit-task-lane">Task and events</h3>
-            <div class="portfolio-node">
-              <span class="cockpit-system">Unity environment</span>
-              <strong>Directional task</strong>
-              <span>Cue presentation · response capture</span>
-            </div>
-            <p class="cockpit-relationship">
-              Emits <span aria-hidden="true">↓</span>
-            </p>
-            <div class="portfolio-node">
-              <strong>Task records</strong>
-              <span>Cue and response events</span>
-              <span>Behavioral responses</span>
-            </div>
-          </section>
-          <section class="cockpit-lane" aria-labelledby="cockpit-motion-lane">
-            <h3 id="cockpit-motion-lane">Command and measurement</h3>
-            <div class="portfolio-node">
-              <span class="cockpit-system">Unity environment</span>
-              <strong>Motion conditions</strong>
-              <span>Platform-command output</span>
-            </div>
-            <p class="cockpit-relationship">
-              Commands <span aria-hidden="true">↓</span>
-            </p>
-            <div class="portfolio-node">
-              <strong>Physical motion platform</strong>
-            </div>
-            <p class="cockpit-relationship">
-              Movement measured by <span aria-hidden="true">↓</span>
-            </p>
-            <div class="portfolio-node">
-              <strong>Under-seat sensors</strong>
-            </div>
-            <p class="cockpit-relationship">
-              Produce <span aria-hidden="true">↓</span>
-            </p>
-            <div class="portfolio-node">
-              <strong>Independent motion records</strong>
-            </div>
-          </section>
+    <section class="portfolio-section" aria-labelledby="cockpit-task-heading">
+      <h2 id="cockpit-task-heading">Responding during motion</h2>
+      <div class="cockpit-task-layout">
+        <div class="cockpit-detail">
+          <ResearchFigure
+            src={display}
+            alt="The actual task display shows an upward green arrow; a four-direction keypad sits beside it."
+          >
+            Task display and directional keys.
+          </ResearchFigure>
         </div>
-        <div class="cockpit-alignment portfolio-node">
-          <span>Task records + motion records</span>
-          <strong>Align for analysis</strong>
-          <span>Motion relative to the cue direction</span>
-        </div>
-
-        <section class="cockpit-trial" aria-labelledby="cockpit-trial-heading">
-          <h3 id="cockpit-trial-heading">Within each formal trial</h3>
-          <ol class="cockpit-trial-sequence">
+        <figure class="portfolio-figure cockpit-task-story">
+          <ol class="cockpit-screens" aria-label="Illustrated trial sequence">
             <li>
-              <strong>Fixation</strong>
+              <span class="cockpit-screen-label">1 · Fixation</span>
+              <div class="cockpit-screen" aria-hidden="true">
+                <span class="cockpit-fixation">+</span>
+              </div>
             </li>
-            <li class="cockpit-cue">
-              <strong>Directional cue</strong>
-              <span class="cockpit-arrow" aria-hidden="true">
-                ↑
+            <li class="cockpit-cue-stage">
+              <span class="cockpit-screen-label">2 · Directional cue</span>
+              <div class="cockpit-screen" aria-hidden="true">
+                <svg viewBox="0 0 100 100">
+                  <path d="M50 16L22 48H40V84H60V48H78Z" fill="#7fda71" />
+                </svg>
+              </div>
+              <div class="cockpit-fixed-cue">
+                Cue stays visible for a fixed interval
+              </div>
+              <Image
+                src={keypress}
+                alt="Illustration of an index finger pressing the upward key of a four-direction keypad."
+                format="webp"
+                widths={[240, 480]}
+                sizes="240px"
+                width={keypress.width}
+                height={keypress.height}
+                class="cockpit-keypress"
+              />
+              <span class="cockpit-response-label">
+                Response during the cue
               </span>
-              <span>One of four directions</span>
-              <span class="cockpit-response">Valid response recorded here</span>
             </li>
             <li>
-              <strong>Interval</strong>
+              <span class="cockpit-screen-label">3 · Blank interval</span>
+              <div class="cockpit-screen" aria-hidden="true"></div>
             </li>
           </ol>
-          <p class="portfolio-note">
-            The arrow remained visible for its scheduled interval; valid
-            responses were recorded during that interval.
-          </p>
-        </section>
+          <figcaption>
+            Task illustration. Match the arrow to its key; one of four
+            directions is shown. A response does not end the cue.
+          </figcaption>
+        </figure>
       </div>
-      <figcaption>
-        Task events and physical measurements support a shared analysis. The
-        inset shows the sequence within one trial; the main arrows indicate
-        commands, events and measurements.
-      </figcaption>
-    </figure>
-
+    </section>
+    <section class="portfolio-section" aria-labelledby="cockpit-motion-heading">
+      <h2 id="cockpit-motion-heading">Motion relative to the task</h2>
+      <p class="portfolio-copy">
+        Unity controlled task and motion commands; under-seat sensors recorded
+        the motion used in analysis.
+      </p>
+      <div class="cockpit-measurement-layout">
+        <div class="cockpit-detail">
+          <ResearchFigure
+            src={sensors}
+            alt="Two motion sensors mounted beneath the participant's seat."
+          >
+            Measured motion beneath the seat.
+          </ResearchFigure>
+        </div>
+        <figure class="portfolio-figure cockpit-geometry">
+          <div class="cockpit-geometry-drawing">
+            <svg
+              viewBox="0 0 440 290"
+              role="img"
+              aria-labelledby="cockpit-geometry-title cockpit-geometry-description"
+            >
+              <title id="cockpit-geometry-title">A cue-relative reference frame</title>
+              <desc id="cockpit-geometry-description">
+                An upward cue defines the along-cue direction. The across-cue
+                direction is perpendicular. An illustrative diagonal motion
+                vector has components in both directions.
+              </desc>
+              <path
+                d="M115 232V52M115 232H349"
+                fill="none"
+                stroke="#73858e"
+                stroke-width="2"
+              />
+              <path
+                d="M109 61L115 48L121 61M340 226L353 232L340 238"
+                fill="none"
+                stroke="#73858e"
+                stroke-width="2"
+              />
+              <path
+                d="M115 90H269V232"
+                fill="none"
+                stroke="#b3c4ca"
+                stroke-width="2"
+                stroke-dasharray="5 6"
+              />
+              <path
+                d="M115 232L265 94"
+                fill="none"
+                stroke="#346579"
+                stroke-width="5"
+              />
+              <path
+                d="M247 97L270 88L260 112"
+                fill="none"
+                stroke="#346579"
+                stroke-width="5"
+              />
+              <circle cx="115" cy="232" r="5" fill="#346579" />
+            </svg>
+            <ul
+              class="cockpit-direction-key"
+              aria-label="Directions in the illustration"
+            >
+              <li>
+                <span aria-hidden="true">↑</span> Along cue
+              </li>
+              <li>
+                <span aria-hidden="true">→</span> Across cue
+              </li>
+              <li class="cockpit-motion-key">
+                <span aria-hidden="true">↗</span> Motion
+              </li>
+            </ul>
+          </div>
+          <div
+            class="cockpit-window"
+            role="img"
+            aria-label="Motion was summarized in a fixed window before cue onset. The response occurs after cue onset and does not define the window length."
+          >
+            <div class="cockpit-window-before">
+              <span>Fixed pre-cue window</span>
+            </div>
+            <div class="cockpit-window-cue">
+              <span>Cue</span>
+            </div>
+            <div class="cockpit-window-after">
+              <span>Response</span>
+            </div>
+          </div>
+          <figcaption>
+            Method illustration. Motion is expressed along and across the cue
+            direction, using a fixed window before the cue.
+          </figcaption>
+        </figure>
+      </div>
+      <p class="portfolio-copy">
+        Task events linked responses to motion recorded beneath the seat.
+      </p>
+    </section>
     <details class="portfolio-methods">
-      <summary>How motion was related to each cue</summary>
+      <summary>How motion entered the response-time analysis</summary>
       <p>
-        For each cue, motion was summarized over a fixed preceding interval and
-        expressed relative to the direction of that cue. The window did not
-        depend on how quickly the participant responded. This linked the
-        definition of the behavioral task to the way motion was represented in
-        the analysis.
+        The along-cue component was summarized by its signed mean; the
+        across-cue component by its root mean square. The geometry above
+        explains the reference frame, rather than showing either computed
+        statistic. The pre-cue window did not depend on response time.
+      </p>
+      <p>
+        Unity emitted cue and response markers. Independently recorded motion
+        was aligned with these task events for analysis; commanded platform
+        settings were not treated as the measured movement.
       </p>
     </details>
   </>
 )}
-
 <style>
-  .cockpit-apparatus {
-    max-width: 48rem;
+  .cockpit-setup {
+    max-width: 850px;
     margin-inline: auto;
   }
-  .cockpit-photos {
+  .cockpit-task-layout,
+  .cockpit-measurement-layout {
     display: grid;
-    gap: 1.5rem;
-    align-items: center;
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.65fr);
+    gap: 2.25rem;
+    align-items: start;
   }
-  .cockpit-photo {
-    margin: 0;
-    min-width: 0;
+  .cockpit-detail {
+    max-width: 340px;
   }
-  .cockpit-photo :global(img) {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 0.7rem;
-  }
-  .cockpit-photo-main {
-    max-width: 48rem;
-  }
-  .cockpit-photo-detail {
-    max-width: 22rem;
-  }
-  .cockpit-photo figcaption {
-    margin-top: 0.65rem;
-  }
-  .cockpit-map {
-    padding: clamp(1rem, 3vw, 1.5rem);
-  }
-  .cockpit-lanes {
+  .cockpit-screens {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1.25rem;
-  }
-  .cockpit-lane {
-    min-width: 0;
-  }
-  .cockpit-map h3 {
-    margin: 0 0 1rem;
-    font-size: 1rem;
-    line-height: 1.45;
-  }
-  .cockpit-map .portfolio-node {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-  .cockpit-system {
-    font-size: 0.75rem;
-    font-weight: 650;
-    color: var(--portfolio-accent);
-  }
-  .cockpit-relationship {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 0.5rem;
-    margin: 0.5rem 0;
-    color: var(--portfolio-muted);
-    font-size: 0.8rem;
-  }
-  .cockpit-relationship span {
-    color: var(--portfolio-accent);
-    font-size: 1.2rem;
-  }
-  .cockpit-alignment {
-    margin-top: 1.5rem;
-    border-color: var(--portfolio-accent);
-    text-align: center;
-  }
-  .cockpit-trial {
-    border-top: 1px solid var(--portfolio-line);
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-  }
-  .cockpit-trial-sequence {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 1fr);
-    gap: 0.7rem;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 1rem;
+    list-style: none;
     padding: 0;
     margin: 0;
-    list-style: none;
   }
-  .cockpit-trial-sequence li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
+  .cockpit-screens li {
     min-width: 0;
-    margin: 0;
-    padding: 0.8rem 0.5rem;
-    text-align: center;
-    border: 1px solid var(--portfolio-line);
-    border-radius: 0.6rem;
+    position: relative;
   }
-  .cockpit-trial-sequence li::before {
-    display: none;
+  .cockpit-screen-label {
+    display: block;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    font-weight: 600;
+    min-height: 2.8em;
+    margin-bottom: 0.4rem;
+    color: var(--portfolio-ink);
   }
-  .cockpit-trial-sequence li::marker {
+  .cockpit-screen {
+    aspect-ratio: 4/3;
+    background: #191b20;
+    border: 5px solid #45515a;
+    border-bottom-width: 9px;
+    border-radius: 5px;
+    display: grid;
+    place-items: center;
+    position: relative;
+  }
+  .cockpit-screen::after {
     content: "";
+    width: 35%;
+    height: 5px;
+    position: absolute;
+    top: calc(100% + 9px);
+    background: #45515a;
   }
-  .cockpit-trial-sequence strong {
-    font-size: 0.9rem;
+  .cockpit-fixation {
+    color: #e8ebe9;
+    font:
+      400 3rem/1 Arial,
+      sans-serif;
   }
-  .cockpit-trial-sequence span {
-    font-size: 0.75rem;
+  .cockpit-screen svg {
+    width: 52%;
+    height: 75%;
+  }
+  .cockpit-fixed-cue {
+    border-top: 2px solid #74897c;
+    margin: 1.15rem 0 0.45rem;
+    padding-top: 0.45rem;
+    text-align: center;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    color: var(--portfolio-muted);
+  }
+  .cockpit-keypress {
+    display: block;
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    background: #f5f6f5;
+    border-radius: 5px;
+    margin: 0.5rem auto 0;
+  }
+  .cockpit-response-label {
+    display: block;
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
+    margin-top: 0.4rem;
+    color: var(--portfolio-muted);
+  }
+  .cockpit-task-story figcaption {
+    margin-top: 1.25rem;
+  }
+  .cockpit-measurement-layout {
+    align-items: center;
+    margin-top: 1.5rem;
+  }
+  .cockpit-geometry {
+    max-width: 580px;
+  }
+  .cockpit-geometry-drawing {
+    background: #f6f8f7;
+    border-radius: 5px;
+  }
+  .cockpit-geometry-drawing svg {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  .cockpit-direction-key {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.4rem 1rem;
+    list-style: none;
+    padding: 0 12px 12px;
+    margin: 0;
+    color: #355a69;
+    font-size: 0.875rem;
     line-height: 1.5;
   }
-  .cockpit-trial-sequence .cockpit-arrow {
-    font-size: 1.8rem;
+  .cockpit-direction-key li {
+    display: flex;
+    align-items: baseline;
+    gap: 0.4rem;
+  }
+  .cockpit-direction-key li span {
+    color: #73858e;
+    font-size: 1.25em;
+    font-weight: 700;
+  }
+  .cockpit-direction-key .cockpit-motion-key span {
+    color: #346579;
+  }
+  .cockpit-window {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 2px minmax(0, 1fr);
+    margin: 1.75rem 0 1rem;
+    align-items: stretch;
+    color: var(--portfolio-muted);
+    font-size: 0.8rem;
+    line-height: 1.5;
+  }
+  .cockpit-window-before {
+    min-height: 3.2rem;
+    padding: 0.6rem 0.5rem;
+    background: var(--portfolio-surface);
+    border-bottom: 2px solid var(--portfolio-accent);
+    text-align: center;
+  }
+  .cockpit-window-cue {
+    position: relative;
+    background: var(--portfolio-accent);
+  }
+  .cockpit-window-cue span {
+    position: absolute;
+    white-space: nowrap;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 100%;
+    font-weight: 650;
+  }
+  .cockpit-window-after {
+    min-height: 3.2rem;
+    padding: 0.6rem 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid var(--portfolio-line);
+  }
+  .cockpit-window-after span::before {
+    content: "•";
+    display: inline-block;
+    margin-right: 0.5rem;
     color: var(--portfolio-accent);
   }
-  .cockpit-response {
-    border-top: 1px solid var(--portfolio-line);
-    padding-top: 0.5rem;
+  .cockpit-window-after span {
+    white-space: nowrap;
   }
-  .cockpit-trial .portfolio-note {
-    margin-bottom: 0;
+  @media (max-width: 767px) {
+    .cockpit-task-layout,
+    .cockpit-measurement-layout {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .cockpit-detail {
+      width: min(100%, 300px);
+      margin-inline: auto;
+    }
+    .cockpit-geometry {
+      width: 100%;
+      max-width: 580px;
+      margin-inline: auto;
+    }
   }
-  @media (max-width: 699px) {
-    .cockpit-photos {
+  @media (max-width: 539px) {
+    .cockpit-direction-key {
+      flex-direction: column;
+      align-items: center;
+    }
+    .cockpit-screens {
       grid-template-columns: 1fr;
+      gap: 1.6rem;
     }
-    .cockpit-photo-detail {
-      width: min(100%, 22rem);
+    .cockpit-screens li {
+      width: 100%;
+      max-width: 320px;
+      margin-inline: auto;
     }
-  }
-  @media (max-width: 479px) {
-    .cockpit-map,
-    .cockpit-map .portfolio-node {
-      padding: 12px;
+    .cockpit-screen {
+      max-width: 240px;
+      margin-inline: auto;
     }
-    .cockpit-lanes {
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
+    .cockpit-screen-label {
+      min-height: 0;
+      text-align: center;
+      margin-bottom: 0.7rem;
     }
-    .cockpit-trial-sequence {
-      grid-template-columns: 1fr;
+    .cockpit-fixed-cue {
+      max-width: 240px;
+      margin-inline: auto;
     }
-    .cockpit-trial-sequence li {
-      padding: 12px;
+    .cockpit-keypress {
+      width: min(100%, 200px);
+    }
+    .cockpit-window-before,
+    .cockpit-window-after {
+      padding-inline: 6px;
+    }
+    .cockpit-window-after span::before {
+      display: block;
+      margin-right: 0;
     }
   }
 </style>

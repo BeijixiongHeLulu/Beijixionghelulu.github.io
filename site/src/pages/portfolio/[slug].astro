@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import DetailShell from "../../components/DetailShell.astro";
+import PortfolioCaseShell from "../../components/PortfolioCaseShell.astro";
 import { portfolio } from "../../portfolio/registry";
 import type { PortfolioCase } from "../../portfolio/types";
 import "../../styles/portfolio.css";
@@ -16,24 +16,11 @@ const item: PortfolioCase = Astro.props.metadata;
 ---
 
 <Layout title={item.title} description={item.description}>
-  <DetailShell
-    backHref="/portfolio/"
-    backLabel="Back to portfolio"
-    title={item.title}
-    subtitle={item.subtitle}
-    summary={item.summary}
-    transitionKey={`portfolio-${item.slug}`}
-    facts={item.facts}
-    portfolio
-  >
-    <div slot="context" class="portfolio-context">
-      <p class="portfolio-role">{item.role}</p>
-      <p class="portfolio-status">{item.status}</p>
-    </div>
-    <div slot="intro" class="portfolio-contribution">
+  <PortfolioCaseShell item={item}>
+    <div slot="intro">
       <Component part="intro" />
     </div>
-    <div slot="visual" class="portfolio-hero">
+    <div slot="visual">
       <Component part="visual" />
     </div>
     <Component part="body" />
@@ -56,5 +43,5 @@ const item: PortfolioCase = Astro.props.metadata;
         );
       })}
     </div>
-  </DetailShell>
+  </PortfolioCaseShell>
 </Layout>

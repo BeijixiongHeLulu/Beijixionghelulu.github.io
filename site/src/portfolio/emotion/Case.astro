@@ -1,431 +1,346 @@
 ---
-import { Image } from "astro:assets";
+import ResearchFigure from "../../components/ResearchFigure.astro";
 import type { CasePart } from "../types";
-import setup from "./emotion-paired-setup.png";
+import paired from "./emotion-paired-illustration-v2.png";
+import coverage from "./emotion-measurement-coverage-v2.png";
+import decoding from "./emotion-decoding-result-v2.png";
+import photograph from "./emotion-paired-setup.png";
 
 interface Props {
   part: CasePart;
 }
 const { part } = Astro.props;
-const imageWidths = [360, 540, 704].filter((width) => width <= setup.width);
-const cells = Array.from({ length: 100 });
 ---
 
 {part === "intro" && (
   <p>
-    I contributed across the behavioral and fNIRS data-analysis workflow,
-    including preprocessing, activation analysis, interbrain synchrony and
-    multivariate pattern analysis.
+    I contributed across the behavioral and fNIRS analyses, including
+    preprocessing, activation analysis, interbrain synchrony and multivariate
+    classification.
   </p>
 )}
 
 {part === "visual" && (
-  <figure class="portfolio-figure emotion-setup">
-    <Image
-      src={setup}
-      format="webp"
-      widths={imageWidths}
-      sizes="(min-width: 752px) 704px, calc(100vw - 48px)"
-      width={setup.width}
-      height={setup.height}
-      alt="Two participants wearing fNIRS caps sit across from one another with computer displays between them."
-      loading="eager"
-      fetchpriority="high"
-      decoding="async"
-    />
-    <figcaption>
-      Paired fNIRS recording during face-to-face interaction (Figure 1B, Yang et
-      al., 2026). fNIRS tracks changes in blood oxygenation over the sampled
-      cortical regions.
-    </figcaption>
-  </figure>
+  <section
+    class="portfolio-section emotion-task-section"
+    aria-label="The interpersonal regulation task"
+  >
+    <ResearchFigure
+      src={paired}
+      preserveSource={false}
+      eager
+      class="emotion-pair"
+      alt="Published illustration of two participants facing each other across a table, each wearing an fNIRS cap and using a separate display and response keypad."
+    >
+      Simultaneous fNIRS recording from both participants.{" "}
+      <a href="https://doi.org/10.1037/emo0001683">
+        Yang et al., 2026, Figure 1A.
+      </a>
+    </ResearchFigure>
+    <figure class="portfolio-figure emotion-story">
+      <ol class="emotion-scenes">
+        <li>
+          <span class="scene-number">1</span>
+          <div class="image-and-rating" aria-hidden="true">
+            <svg class="emotion-image-card" viewBox="0 0 200 120">
+              <rect
+                x="1"
+                y="1"
+                width="198"
+                height="118"
+                rx="6"
+                fill="#e9eff1"
+                stroke="#526476"
+                stroke-width="2"
+              />
+              <circle cx="147" cy="32" r="12" fill="#d6c2a4" />
+              <path d="M2 113 62 39 108 94 139 65 198 113Z" fill="#90a5ab" />
+              <path d="m44 61 18-22 19 23-17-8Z" fill="#f8fafb" />
+            </svg>
+            <div class="rating-ruler">
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+          </div>
+          <h3>View and rate</h3>
+        </li>
+        <li class="emotion-interaction">
+          <span class="scene-number">2</span>
+          <div class="strategy-examples">
+            <div>
+              <span class="speech-example" aria-hidden="true">
+                ↻
+              </span>
+              <strong>Reappraisal</strong>
+            </div>
+            <span class="strategy-or">or</span>
+            <div>
+              <span class="speech-example arithmetic" aria-hidden="true">
+                71 − 52 = ?
+              </span>
+              <strong>Arithmetic distraction</strong>
+            </div>
+          </div>
+          <h3>Regulation interaction</h3>
+          <p>Regulator offers a strategy; target responds.</p>
+        </li>
+        <li>
+          <span class="scene-number">3</span>
+          <div class="image-and-rating" aria-hidden="true">
+            <svg class="emotion-image-card" viewBox="0 0 200 120">
+              <rect
+                x="1"
+                y="1"
+                width="198"
+                height="118"
+                rx="6"
+                fill="#e9eff1"
+                stroke="#526476"
+                stroke-width="2"
+              />
+              <circle cx="147" cy="32" r="12" fill="#d6c2a4" />
+              <path d="M2 113 62 39 108 94 139 65 198 113Z" fill="#90a5ab" />
+              <path d="m44 61 18-22 19 23-17-8Z" fill="#f8fafb" />
+            </svg>
+            <div class="rating-ruler">
+              <i />
+              <i />
+              <i />
+              <i />
+              <i />
+            </div>
+          </div>
+          <h3>View the same image and rate again</h3>
+        </li>
+      </ol>
+      <figcaption>
+        Task illustration: the same negative image was rated before and after
+        the interaction. The picture card is illustrative.
+      </figcaption>
+    </figure>
+  </section>
 )}
 
 {part === "body" && (
   <>
-    <h2>From interaction to analysis</h2>
-    <p>
-      Participants viewed and rated an image, completed a regulation
-      interaction, then viewed and rated the same image again. One person, the
-      regulator, offered reappraisal or a distraction task; the other, the
-      target, responded.
-    </p>
-    <figure class="portfolio-figure emotion-analysis">
-      <div
-        class="portfolio-diagram emotion-map"
-        aria-label="Task and analysis workflow"
+    <section
+      class="portfolio-section"
+      aria-labelledby="emotion-measurement-heading"
+    >
+      <h2 id="emotion-measurement-heading">Where we measured</h2>
+      <ResearchFigure
+        src={coverage}
+        class="emotion-coverage"
+        alt="Published fNIRS coverage: frontal and lateral brain views show source and detector positions and the ten sampled regions, including prefrontal, primary motor, primary sensory, Broca and Wernicke regions."
       >
-        <section class="emotion-task" aria-labelledby="emotion-task-title">
-          <h3 id="emotion-task-title">Two people, one interaction</h3>
-          <ol>
-            <li>View image and rate</li>
-            <li>Regulation interaction</li>
-            <li>View the same image again and rate</li>
-          </ol>
-        </section>
-
-        <div class="emotion-data-streams">
-          <section
-            class="emotion-ratings emotion-lane"
-            aria-labelledby="emotion-ratings-title"
-          >
-            <h3 id="emotion-ratings-title">Ratings</h3>
-            <p>Compare pre/post ratings across strategy and role.</p>
-            <p class="emotion-small">Account for dyads.</p>
-          </section>
-          <section
-            class="emotion-fnirs emotion-lane"
-            aria-labelledby="emotion-fnirs-title"
-          >
-            <h3 id="emotion-fnirs-title">Simultaneous fNIRS</h3>
-            <ol class="emotion-preprocessing">
-              <li>Quality checks and preprocessing</li>
-              <li>Hemoglobin time series</li>
-            </ol>
-            <p class="emotion-split-label">Separate analysis branches</p>
-            <div class="emotion-neural-branches">
-              <section
-                class="emotion-branch"
-                aria-labelledby="emotion-activation-title"
-              >
-                <h4 id="emotion-activation-title">Activation</h4>
-                <p>GLM: task-related HbO estimates</p>
-                <p class="emotion-small">Compare strategy and role.</p>
-              </section>
-              <section
-                class="emotion-branch"
-                aria-labelledby="emotion-synchrony-title"
-              >
-                <h4 id="emotion-synchrony-title">Interbrain synchrony</h4>
-                <p>
-                  Correlate the two participants’ regional signals within each
-                  trial.
-                </p>
-                <div class="emotion-matrix-block">
-                  <p class="emotion-matrix-title">Schematic feature matrix</p>
-                  <div class="emotion-matrix-layout">
-                    <span class="emotion-column-label">
-                      Target ROIs (columns)
-                    </span>
-                    <span class="emotion-row-label">Regulator ROIs (rows)</span>
-                    <div class="emotion-matrix" aria-hidden="true">
-                      {cells.map((_, index) => (
-                        <span class:list={{ "selected-pair": index === 36 }} />
-                      ))}
-                    </div>
-                  </div>
-                  <p class="emotion-small">
-                    Ten regions per person. Each cell represents a correlation
-                    between two regions; one pair is outlined.
-                  </p>
-                </div>
-                <p class="emotion-feature-label">
-                  Matrix values supply <strong>features</strong> for
-                  classification.
-                </p>
-              </section>
-            </div>
-          </section>
-        </div>
-
-        <section
-          class="emotion-classification"
-          aria-labelledby="emotion-classification-title"
-        >
-          <h3 id="emotion-classification-title">Multivariate classification</h3>
-          <div class="emotion-inputs">
-            <p>
-              <strong>Features:</strong> interbrain-synchrony matrix.
-            </p>
-            <p>
-              <strong>Target labels:</strong> assigned strategy and each
-              person’s rating-defined success.
-            </p>
-          </div>
-          <div class="emotion-targets">
-            <div>
-              <h4>Which strategy?</h4>
-              <p>Reappraisal or distraction</p>
-            </div>
-            <div>
-              <h4>Regulation success?</h4>
-              <ul>
-                <li>Regulator success</li>
-                <li>Target success</li>
-              </ul>
-            </div>
-          </div>
-          <p class="emotion-small">
-            Success meant a more positive rating when viewing the same image
-            again. Classification addressed three targets and was evaluated
-            using within-participant cross-validation.
-          </p>
-        </section>
-      </div>
-      <figcaption>
-        Simplified analysis workflow from the published study. The matrix
-        illustrates feature construction.
-      </figcaption>
-    </figure>
-    <p>
-      Behavioral models compared ratings before and after regulation across
-      strategies and roles. Activation analysis estimated task-related changes
-      in oxygenated hemoglobin and compared responses across strategies and
-      roles.
-    </p>
-    <p>
-      For each trial, correlations between the two participants’ regional
-      signals formed an interbrain-synchrony matrix. These cross-person patterns
-      provided features for multivariate classification.
-    </p>
-    <h2>Accounting for interacting pairs</h2>
-    <p>
-      Behavioral and activation models accounted for shared variation within
-      each dyad through a dyad random intercept. This retained the paired
-      structure when comparing strategies and roles.
-    </p>
-    <h2>Published findings</h2>
-    <p>
-      The published analyses found role- and strategy-dependent neural
-      responses, alongside interbrain patterns informative about regulation
-      strategy and success.
-    </p>
-    <details class="portfolio-methods">
-      <summary>Analysis details</summary>
-      <p>
-        Each trial produced a 10×10 matrix of Pearson correlations between the
-        two participants’ regional time series. SVM-based classification
-        evaluated strategy and role-specific success using five-fold
-        cross-validation within participants. Preprocessing included
-        signal-quality checks, motion-artifact handling and conversion from
-        optical measurements to hemoglobin changes.
+        fNIRS tracks blood-oxygenation changes in sampled cortical regions,
+        yielding regional time courses for each person.{" "}
+        <a href="https://doi.org/10.1037/emo0001683">Figure 2.</a>
+      </ResearchFigure>
+    </section>
+    <section class="portfolio-section" aria-labelledby="emotion-result-heading">
+      <h2 id="emotion-result-heading">
+        What the neural patterns distinguished
+      </h2>
+      <p class="portfolio-copy">
+        Interbrain synchronization patterns distinguished strategy and
+        rating-defined regulation success in within-participant
+        cross-validation. Success meant a more positive rating on the second
+        viewing.
       </p>
+      <ResearchFigure
+        src={decoding}
+        class="emotion-result"
+        alt="Published decoding results for strategy, regulator success and target success. Each violin retains individual points and the box plot; the dashed horizontal line marks chance accuracy of 0.5. All three comparisons are marked above chance."
+      >
+        Original published result,{" "}
+        <a href="https://doi.org/10.1037/emo0001683">Figure 5A</a>. The three
+        targets were strategy, regulator success and target success.
+      </ResearchFigure>
+    </section>
+    <details class="portfolio-methods">
+      <summary>Study and analysis details</summary>
+      <p>
+        After quality checks and preprocessing, activation analyses used
+        task-related oxygenated-hemoglobin estimates. Behavioral and activation
+        models included a dyad random intercept. For interbrain synchrony,
+        trial-level Pearson correlations between ten regions per person formed a
+        10 × 10 feature matrix. Support-vector machines were evaluated with
+        five-fold within-participant cross-validation.
+      </p>
+      <ResearchFigure
+        src={photograph}
+        class="emotion-photo"
+        alt="The study's two participants wearing fNIRS caps at the paired setup, with the original published face masks preserved."
+      >
+        Study photograph from Figure 1B.
+      </ResearchFigure>
     </details>
-    <h2>Publication</h2>
-    <p class="emotion-citation">
-      Yang, Y., He, J., Wang, L., Wang, J., Xu, J., Jiang, X., Ao, N., Zhang,
-      P., Chen, Y., Wang, M., &amp; Du, F. (2026). Bidirectional Benefits:
-      Interbrain Synchronization and Role-Specific Neural Signatures in
-      Interpersonal Emotion Regulation. <em>Emotion.</em>
-    </p>
   </>
 )}
 
 <style>
-  .emotion-setup {
-    width: 100%;
-    max-width: 44rem;
+  .emotion-task-section {
+    margin-top: 0;
+  }
+  :global(.emotion-pair) {
+    max-width: 46rem;
     margin-inline: auto;
   }
-  .emotion-setup img {
-    display: block;
-    width: 100%;
-    height: auto;
-    border-radius: 0.85rem;
+  :global(.emotion-coverage) {
+    max-width: 48rem;
+    margin-inline: auto;
   }
-  .emotion-analysis {
-    margin-block: 1.75rem;
+  :global(.emotion-result) {
+    max-width: 45rem;
+    margin-inline: auto;
   }
-  .emotion-map {
+  :global(.emotion-photo) {
+    max-width: 38rem;
+  }
+  .emotion-story {
+    margin-top: 2.5rem;
+  }
+  .emotion-scenes {
+    list-style: none;
     display: grid;
-    gap: 1.25rem;
-    padding: clamp(1rem, 3vw, 1.5rem);
-    color: var(--portfolio-ink);
-    background: var(--portfolio-surface);
-    border: 1px solid var(--portfolio-line);
-    border-radius: 1rem;
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
-  .emotion-map h3,
-  .emotion-map h4 {
-    margin: 0 0 0.6rem;
-    font-family: inherit;
-    color: var(--portfolio-ink);
-    font-size: 1.0625rem;
-    line-height: 1.35;
-  }
-  .emotion-map h4 {
-    font-size: 1rem;
-  }
-  .emotion-map p {
-    margin: 0.5rem 0 0;
-    color: inherit;
-    line-height: inherit;
-  }
-  .emotion-map ol,
-  .emotion-map ul {
+    grid-template-columns: 1fr 1.25fr 1fr;
+    gap: clamp(1rem, 3vw, 2.5rem);
+    padding: 0;
     margin: 0;
-    padding-left: 1.25rem;
   }
-  .emotion-map li {
-    padding-left: 0.15rem;
-    margin: 0.3rem 0 0;
-    color: inherit;
-  }
-  .emotion-task ol {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 0.6rem 1.7rem;
-    margin-top: 0.8rem;
-  }
-  .emotion-task li {
-    padding-right: 0.25rem;
-  }
-  .emotion-data-streams {
-    display: grid;
-    gap: 1rem;
-    border-block: 1px solid var(--portfolio-line);
-    padding-block: 1.25rem;
-  }
-  .emotion-lane {
+  .emotion-scenes li {
     min-width: 0;
-    padding-left: 1rem;
-    border-left: 3px solid var(--portfolio-line);
-  }
-  .emotion-fnirs {
-    border-color: var(--portfolio-accent);
-  }
-  .emotion-preprocessing {
-    display: grid;
-    gap: 0.15rem;
-  }
-  .emotion-map .emotion-split-label {
-    margin-top: 1rem;
-    margin-bottom: 0.75rem;
-    font-size: 0.8125rem;
-    font-weight: 700;
-    color: var(--portfolio-muted);
-  }
-  .emotion-neural-branches {
-    display: grid;
-    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.25fr);
-    gap: 1rem;
-  }
-  .emotion-branch {
-    min-width: 0;
-    padding-top: 0.75rem;
-    border-top: 1px solid var(--portfolio-line);
-  }
-  .emotion-map .emotion-small {
-    font-size: 0.8125rem;
-    color: var(--portfolio-muted);
-  }
-  .emotion-matrix-block {
-    margin-top: 0.9rem;
-  }
-  .emotion-map .emotion-matrix-title {
-    font-size: 0.875rem;
-    font-weight: 700;
-  }
-  .emotion-matrix-layout {
-    display: grid;
-    grid-template-columns: minmax(0, 4.5rem) minmax(0, 9rem);
-    grid-template-rows: auto auto;
-    gap: 0.4rem;
-    width: 100%;
-    max-width: 14rem;
-    margin-top: 0.75rem;
-    align-items: center;
-    font-size: 0.75rem;
-    line-height: 1.35;
-    color: var(--portfolio-muted);
-  }
-  .emotion-column-label {
-    grid-column: 2;
+    position: relative;
     text-align: center;
   }
-  .emotion-row-label {
-    grid-column: 1;
-    grid-row: 2;
+  .emotion-scenes li + li::before {
+    content: "→";
+    position: absolute;
+    left: -1.5rem;
+    top: 5.5rem;
+    color: var(--portfolio-muted);
+    font-size: 1.5rem;
   }
-  .emotion-matrix {
-    display: grid;
-    grid-template-columns: repeat(10, minmax(0, 1fr));
-    aspect-ratio: 1;
-    grid-column: 2;
-    grid-row: 2;
-    border-top: 1px solid var(--portfolio-line);
-    border-left: 1px solid var(--portfolio-line);
-  }
-  .emotion-matrix span {
-    border-right: 1px solid var(--portfolio-line);
-    border-bottom: 1px solid var(--portfolio-line);
-  }
-  .emotion-matrix .selected-pair {
-    outline: 2px solid var(--portfolio-accent);
-    outline-offset: -2px;
-  }
-  .emotion-map .emotion-feature-label {
-    margin-top: 0.9rem;
-  }
-  .emotion-classification {
-    min-width: 0;
-  }
-  .emotion-targets {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  .emotion-targets > div {
-    padding: 0.8rem;
+  .scene-number {
+    display: inline-flex;
+    width: 1.7rem;
+    height: 1.7rem;
+    align-items: center;
+    justify-content: center;
     border: 1px solid var(--portfolio-line);
-    border-radius: 0.6rem;
+    border-radius: 50%;
+    font-size: 0.8rem;
+    color: var(--portfolio-muted);
+    margin-bottom: 0.8rem;
+  }
+  .image-and-rating {
+    max-width: 12.5rem;
+    min-height: 10rem;
+    margin-inline: auto;
+  }
+  .emotion-image-card {
+    width: 100%;
+    height: auto;
+  }
+  .rating-ruler {
+    height: 1.6rem;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.7rem 0.8rem 0;
+    border-top: 2px solid #637782;
+  }
+  .rating-ruler i {
+    display: block;
+    width: 2px;
+    height: 0.55rem;
+    background: #637782;
+  }
+  .emotion-scenes h3 {
+    margin: 0.6rem 0 0;
+    font-size: 1rem;
+    line-height: 1.45;
+    font-weight: 650;
+    color: var(--portfolio-ink);
+  }
+  .emotion-scenes p {
+    margin: 0.5rem 0 0;
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--portfolio-muted);
+  }
+  .strategy-examples {
+    min-height: 10rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.65rem;
+  }
+  .strategy-examples > div {
+    flex: 1;
     min-width: 0;
   }
-  .emotion-citation {
-    font-size: 0.9375rem;
-    line-height: 1.7;
+  .speech-example {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 4rem;
+    padding: 0.5rem;
+    border-radius: 1rem 1rem 1rem 0.2rem;
+    background: #eef3f4;
+    color: #304e5a;
+    font-size: 2.3rem;
   }
-  @media (max-width: 35rem) {
-    .emotion-task ol,
-    .emotion-neural-branches,
-    .emotion-targets {
-      grid-template-columns: minmax(0, 1fr);
+  .speech-example.arithmetic {
+    font-size: clamp(0.8rem, 1.5vw, 1rem);
+  }
+  .strategy-examples strong {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.83rem;
+    line-height: 1.4;
+    font-weight: 550;
+  }
+  .strategy-or {
+    font-size: 0.75rem;
+    color: var(--portfolio-muted);
+  }
+  @media (max-width: 700px) {
+    .emotion-scenes {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
     }
-    .emotion-task ol {
-      gap: 0.35rem;
+    .emotion-scenes li + li::before {
+      content: "↓";
+      top: -2rem;
+      left: calc(50% - 0.4rem);
     }
-    .emotion-task ol {
-      padding-left: 20px;
+    .strategy-examples {
+      max-width: 24rem;
+      margin-inline: auto;
+      min-height: 7rem;
     }
-    .emotion-map .emotion-preprocessing {
-      list-style-position: inside;
-      padding-left: 0;
+    .image-and-rating {
+      min-height: auto;
     }
-    .emotion-map .emotion-preprocessing li {
-      padding-left: 0;
+    .speech-example.arithmetic {
+      font-size: 1rem;
     }
-    .emotion-map {
-      padding: 12px;
-      font-size: 0.9375rem;
+  }
+  @media (max-width: 400px) {
+    .strategy-examples {
+      flex-direction: column;
+      gap: 0.6rem;
     }
-    .emotion-lane {
-      padding-left: 10px;
+    .strategy-examples > div {
+      width: 100%;
     }
-    .emotion-targets > div {
-      padding: 12px;
-    }
-    .emotion-matrix-layout {
-      grid-template-columns: minmax(0, 1fr);
-      grid-template-rows: auto auto auto;
-      max-width: 180px;
-      gap: 8px;
-    }
-    .emotion-column-label {
-      grid-column: 1;
-      grid-row: 1;
-      text-align: left;
-    }
-    .emotion-row-label {
-      grid-column: 1;
-      grid-row: 3;
-    }
-    .emotion-matrix {
-      grid-column: 1;
-      grid-row: 2;
-      width: min(100%, 160px);
+    .speech-example {
+      max-width: 12rem;
+      margin-inline: auto;
     }
   }
 </style>

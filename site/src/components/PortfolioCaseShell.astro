@@ -1,0 +1,46 @@
+---
+import type { PortfolioCase } from "../portfolio/types";
+
+interface Props {
+  item: PortfolioCase;
+}
+
+const { item } = Astro.props;
+---
+
+<article class="portfolio-case">
+  <header class="portfolio-case-header">
+    <a href="/portfolio/" class="action-link w-fit px-0">
+      <span class="i-mdi:arrow-left" aria-hidden="true"></span>
+      Back to portfolio
+    </a>
+    <h1 class="page-title" transition:name={`portfolio-${item.slug}-title`}>
+      {item.title}
+    </h1>
+    {item.subtitle && <p class="portfolio-subtitle">{item.subtitle}</p>}
+    <p class="portfolio-question">{item.summary}</p>
+    <div class="portfolio-context">
+      <p class="portfolio-role">{item.role}</p>
+      <p class="portfolio-status">{item.status}</p>
+    </div>
+    {item.facts && item.facts.length > 0 && (
+      <dl class="portfolio-facts">
+        {item.facts.map((fact) => (
+          <div>
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+    )}
+    <div class="portfolio-contribution">
+      <slot name="intro" />
+    </div>
+  </header>
+  <div class="portfolio-hero">
+    <slot name="visual" />
+  </div>
+  <div class="portfolio-case-content">
+    <slot />
+  </div>
+</article>

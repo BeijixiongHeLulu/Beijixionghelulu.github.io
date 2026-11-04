@@ -1,5 +1,5 @@
 import type { PortfolioCase } from "../types";
-import vignette from "./lifedu-model-inputs.svg";
+import vignette from "./lifedu-eeg-task-illustration-v2.png";
 
 export default {
   slug: "community-eeg-modeling",
