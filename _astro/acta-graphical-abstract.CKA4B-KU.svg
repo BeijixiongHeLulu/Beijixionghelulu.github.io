@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="950" viewBox="0 0 1200 950" role="img" aria-labelledby="figure-title">
+<title id="figure-title">Honesty under AI supervision: study design and findings</title>
+<defs><marker id="arrow" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="7" markerHeight="7" orient="auto"><path d="M 1 1 L 7 4 L 1 7" fill="none" stroke="#536678" stroke-width="1.5" stroke-linejoin="round"/></marker></defs>
+<rect id="figure-surface" width="1200" height="950" fill="#fcfdfd"/>
+
+<g id="measure-honest-reporting">
+<text x="40" y="47" font-family="Arial" font-size="28" font-weight="700" fill="#21394b" text-anchor="start">Measure honest reporting</text>
+<g id="task-1">
+<rect x="40" y="82" width="340" height="102" rx="12" fill="#f3f7f9" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="64" y="122" font-family="Arial" font-size="27" font-weight="700" fill="#21394b" text-anchor="start">Predict</text>
+<text x="64" y="157" font-family="Arial" font-size="23" font-weight="400" fill="#536678" text-anchor="start">Heads or tails</text>
+</g>
+<path d="M 390 133 L 418 133" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g id="task-2">
+<rect x="430" y="82" width="340" height="102" rx="12" fill="#f3f7f9" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="454" y="122" font-family="Arial" font-size="27" font-weight="700" fill="#21394b" text-anchor="start">Observe</text>
+<text x="454" y="157" font-family="Arial" font-size="23" font-weight="400" fill="#536678" text-anchor="start">Coin outcome</text>
+</g>
+<path d="M 780 133 L 808 133" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g id="task-3">
+<rect x="820" y="82" width="340" height="102" rx="12" fill="#f3f7f9" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="844" y="122" font-family="Arial" font-size="27" font-weight="700" fill="#21394b" text-anchor="start">Report</text>
+<text x="844" y="157" font-family="Arial" font-size="23" font-weight="400" fill="#536678" text-anchor="start">Correct or incorrect</text>
+</g>
+<path d="M 210 184 V 202 H 295 V 228" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<path d="M 600 184 V 202 H 295" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 990 184 V 228" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<g id="actual-versus-reported-correctness">
+<rect x="40" y="232" width="510" height="88" rx="12" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="64" y="265" font-family="Arial" font-size="22" font-weight="400" fill="#536678" text-anchor="start">Recorded prediction + outcome</text>
+<text x="64" y="298" font-family="Arial" font-size="25" font-weight="700" fill="#21394b" text-anchor="start">Actual correctness</text>
+<rect x="820" y="232" width="340" height="88" rx="12" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="844" y="265" font-family="Arial" font-size="22" font-weight="400" fill="#536678" text-anchor="start">Participant’s report</text>
+<text x="844" y="298" font-family="Arial" font-size="25" font-weight="700" fill="#21394b" text-anchor="start">Reported correctness</text>
+<path d="M 562 276 H 808" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="685" y="260" font-family="Arial" font-size="22" font-weight="700" fill="#21394b" text-anchor="middle">Compare</text>
+<text x="685" y="304" font-family="Arial" font-size="20" font-weight="400" fill="#21394b" text-anchor="middle">Honest / dishonest</text>
+<text x="1160" y="351" font-family="Arial" font-size="20" font-weight="400" fill="#536678" text-anchor="end">Claiming ‘correct’ earns more task tokens.</text>
+</g></g>
+<g id="supervision-and-incentives">
+<text x="40" y="405" font-family="Arial" font-size="28" font-weight="700" fill="#21394b" text-anchor="start">Vary supervision and incentives</text>
+<g id="monitoring-experiments">
+<rect x="40" y="432" width="440" height="260" rx="12" fill="#f3f7f9" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="62" y="466" font-family="Arial" font-size="24" font-weight="700" fill="#21394b" text-anchor="start">Monitoring</text>
+<rect x="62" y="486" width="396" height="67" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="78" y="513" font-family="Arial" font-size="22" font-weight="700" fill="#21394b" text-anchor="start">1 · Visible monitoring</text>
+<text x="78" y="539" font-family="Arial" font-size="20" font-weight="400" fill="#536678" text-anchor="start">Cue present or absent</text>
+<rect x="62" y="564" width="396" height="67" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="78" y="591" font-family="Arial" font-size="22" font-weight="700" fill="#21394b" text-anchor="start">2 · Possible monitoring</text>
+<text x="78" y="617" font-family="Arial" font-size="20" font-weight="400" fill="#536678" text-anchor="start">No visible cue</text>
+<text x="62" y="670" font-family="Arial" font-size="21" font-weight="400" fill="#536678" text-anchor="start">Same participants, sequential tasks</text>
+</g>
+<g id="experiment-3a">
+<rect x="502" y="432" width="318" height="260" rx="12" fill="#f3f7f9" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="522" y="466" font-family="Arial" font-size="24" font-weight="700" fill="#21394b" text-anchor="start">3a · Monetary reward</text>
+<rect x="522" y="486" width="278" height="42" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="661" y="514" font-family="Arial" font-size="22" font-weight="400" fill="#21394b" text-anchor="middle">Baseline</text>
+<path d="M 661 532 V 543" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="522" y="548" width="278" height="42" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="661" y="576" font-family="Arial" font-size="22" font-weight="400" fill="#21394b" text-anchor="middle">Added reward</text>
+<path d="M 661 594 V 605" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="522" y="610" width="278" height="42" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="661" y="638" font-family="Arial" font-size="22" font-weight="400" fill="#21394b" text-anchor="middle">Withdrawal</text>
+</g>
+<g id="experiment-3b">
+<rect x="842" y="432" width="318" height="260" rx="12" fill="#f3f7f9" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="862" y="466" font-family="Arial" font-size="24" font-weight="700" fill="#21394b" text-anchor="start">3b · Moral feedback</text>
+<rect x="862" y="486" width="278" height="42" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="1001" y="514" font-family="Arial" font-size="22" font-weight="400" fill="#21394b" text-anchor="middle">Baseline</text>
+<path d="M 1001 532 V 543" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="862" y="548" width="278" height="42" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="1001" y="576" font-family="Arial" font-size="22" font-weight="400" fill="#21394b" text-anchor="middle">Added feedback</text>
+<path d="M 1001 594 V 605" fill="none" stroke="#536678" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="862" y="610" width="278" height="42" rx="8" fill="white" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="1001" y="638" font-family="Arial" font-size="22" font-weight="400" fill="#21394b" text-anchor="middle">Withdrawal</text>
+</g>
+<text x="842" y="722" font-family="Arial" font-size="21" font-weight="400" fill="#536678" text-anchor="middle">Separate groups</text>
+<g id="measured-personality">
+<rect x="40" y="742" width="1120" height="52" rx="8" fill="#eef2f5" stroke="#c9d5de" stroke-width="1.5"/>
+<text x="600" y="776" font-family="Arial" font-size="23" font-weight="700" fill="#21394b" text-anchor="middle">Measured personality traits (SD3)</text>
+</g></g>
+<g id="published-finding">
+<text x="40" y="848" font-family="Arial" font-size="28" font-weight="700" fill="#21394b" text-anchor="start">Compare behavior</text>
+<rect x="40" y="871" width="1120" height="53" rx="8" fill="#e9f1f6" stroke="#b6cddd" stroke-width="1.5"/>
+<text x="62" y="906" font-family="Arial" font-size="24" font-weight="700" fill="#285d7e" text-anchor="start">Honest reporting was higher when monitoring was visible in this task.</text>
+</g></svg>
