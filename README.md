@@ -257,7 +257,8 @@ Run the test yourself: [Google Lighthouse PageSpeed Insights](https://pagespeed.
 
 <!--ts-->
 
-- [al-folio](#al-folio)
+- [Jianshu Wang's academic website](#jianshu-wangs-academic-website)
+- [Archived al-folio documentation](#archived-al-folio-documentation)
   - [User community](#user-community)
   - [Lighthouse PageSpeed Insights](#lighthouse-pagespeed-insights)
     - [Desktop](#desktop)
