@@ -1,0 +1,164 @@
+---
+import Layout from "../layouts/Layout.astro";
+import raw from "../data/cv.yml?raw";
+import { parse } from "yaml";
+interface Entry {
+  institution?: string;
+  location?: string;
+  area?: string;
+  studyType?: string;
+  start_date?: string;
+  end_date?: string | null;
+  highlights?: string[];
+  title?: string;
+  authors?: string[];
+  publisher?: string;
+  releaseDate?: string;
+  url?: string;
+  summary?: string;
+  company?: string;
+  position?: string;
+  name?: string;
+  keywords?: string[];
+}
+interface CV {
+  name: string;
+  label: string;
+  email: string;
+  website: string;
+  summary: string;
+  sections: Record<string, Entry[]>;
+}
+const cv: CV = parse(raw).cv;
+const sections = Object.entries(cv.sections);
+const sectionId = (title: string) => title.toLowerCase().replaceAll(" ", "-");
+const date = (value: string) =>
+  new Date(`${value}-01T00:00:00Z`).toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+---
+
+<Layout
+  title="CV"
+  description="Psychology training, EEG/ERP analysis, computational behavioral modeling, and HCI research."
+>
+  <div class="page-stack cv-page">
+    <header class="page-header">
+      <div class="cv-title-row">
+        <h1 class="page-title">CV</h1>
+        <a class="btn-primary" href="/assets/pdf/CV_Jianshu_Wang.pdf">
+          <span class="i-mdi:file-pdf-box" aria-hidden="true" />
+          Download CV
+        </a>
+      </div>
+      <p class="page-description">
+        Psychology training, EEG/ERP analysis, computational behavioral
+        modeling, and HCI research. Download the full CV using the PDF icon.
+      </p>
+    </header>
+    <nav class="cv-jump" aria-label="CV sections">
+      {sections.map(([title]) => (
+        <a href={`#${sectionId(title)}`}>{title}</a>
+      ))}
+    </nav>
+    <section class="surface-card">
+      <h2 class="section-heading">Contact Information</h2>
+      <dl class="cv-contact">
+        <dt>Name</dt>
+        <dd>{cv.name}</dd>
+        <dt>Professional Title</dt>
+        <dd>{cv.label}</dd>
+        <dt>Email</dt>
+        <dd>
+          <a href={`mailto:${cv.email}`}>{cv.email}</a>
+        </dd>
+        <dt>Website</dt>
+        <dd>
+          <a href={cv.website}>{cv.website}</a>
+        </dd>
+      </dl>
+    </section>
+    <section class="cv-section">
+      <h2 class="section-heading">Professional Summary</h2>
+      <p class="body-copy">{cv.summary}</p>
+    </section>
+    {sections.map(([title, entries]) => (
+      <section class="cv-section" id={sectionId(title)}>
+        <h2 class="section-heading">{title}</h2>
+        <div class="cv-entries">
+          {entries.map((entry) => (
+            <article class="cv-entry">
+              {(entry.start_date || entry.releaseDate) && (
+                <p class="entry-meta cv-date">
+                  {entry.start_date
+                    ? `${date(entry.start_date)} – ${entry.end_date ? date(entry.end_date) : "Present"}`
+                    : String(entry.releaseDate).split("-")[0]}
+                </p>
+              )}
+              <div class="cv-entry-main">
+                <h3 class="entry-title">
+                  {entry.url ? (
+                    <a href={entry.url}>{entry.title}</a>
+                  ) : (
+                    entry.institution ||
+                    entry.position ||
+                    entry.title ||
+                    entry.name
+                  )}
+                </h3>
+                {entry.institution && (
+                  <p class="entry-supporting">
+                    {entry.studyType}, {entry.area}
+                    {entry.location && ` · ${entry.location}`}
+                  </p>
+                )}
+                {entry.company && (
+                  <p class="entry-supporting">
+                    {entry.company}
+                    {entry.location && ` · ${entry.location}`}
+                  </p>
+                )}
+                {entry.authors && (
+                  <p class="cv-authors">
+                    {entry.authors.map((author, i) => (
+                      <>
+                        {i > 0 && ", "}
+                        {author === cv.name ? (
+                          <strong>{author}</strong>
+                        ) : (
+                          author
+                        )}
+                      </>
+                    ))}
+                  </p>
+                )}
+                {entry.publisher && (
+                  <p class="entry-supporting">
+                    <em>{entry.publisher}</em>
+                  </p>
+                )}
+                {entry.summary && <p class="body-copy">{entry.summary}</p>}
+                {entry.highlights && (
+                  <ul class="cv-highlights">
+                    {entry.highlights.map((highlight) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
+                {entry.keywords && (
+                  <ul class="cv-skills">
+                    {entry.keywords.map((keyword) => (
+                      <li class="meta-chip">{keyword}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Layout>

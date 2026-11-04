@@ -1,0 +1,36 @@
+---
+import { getCollection, render } from "astro:content";
+interface Props {
+  limit?: number;
+}
+const { limit } = Astro.props;
+const allNews = (await getCollection("news")).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const news = await Promise.all(
+  (limit ? allNews.slice(0, limit) : allNews).map(async (item) => ({
+    ...item,
+    Content: (await render(item)).Content,
+  })),
+);
+const formatDate = (date: Date) =>
+  date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "2-digit",
+    year: "numeric",
+    timeZone: "Asia/Shanghai",
+  });
+---
+
+<div class="news-list">
+  {news.map(({ id, data, Content }) => (
+    <div class="news-row">
+      <a class="news-date" href={`/news/${id}/`}>
+        <time datetime={data.date.toISOString()}>{formatDate(data.date)}</time>
+      </a>
+      <div class="body-copy news-copy">
+        <Content />
+      </div>
+    </div>
+  ))}
+</div>

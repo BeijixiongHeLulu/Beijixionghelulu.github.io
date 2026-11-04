@@ -1,0 +1,27 @@
+---
+import { getCollection, render, type CollectionEntry } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+export async function getStaticPaths() {
+  return (await getCollection("projects", ({ data }) => !data.draft)).map(
+    (project) => ({ params: { slug: project.id }, props: { project } }),
+  );
+}
+const { project } = Astro.props as { project: CollectionEntry<"projects"> };
+const { Content } = await render(project);
+---
+
+<Layout title={project.data.title} description={project.data.summary}>
+  <article class="page-stack research-detail">
+    <header class="page-header">
+      <a class="action-link" href="/projects/">
+        <span class="i-ph-arrow-left" aria-hidden="true" />
+        research
+      </a>
+      <h1 class="page-title">{project.data.title}</h1>
+      <p class="page-description">{project.data.summary}</p>
+    </header>
+    <div class="prose-copy">
+      <Content />
+    </div>
+  </article>
+</Layout>

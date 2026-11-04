@@ -1,0 +1,173 @@
+{
+  "sourceCommit": "5d7bb1a0e22a9df8e50c33fbca363a8d48eac8d2",
+  "sourceHashes": {
+    "src/data/publications.bib": "20e5afc73e6e791c8ccc3fdc9d4501bc8a0b85428e992a003eb471e2844ec45f",
+    "src/data/cv.yml": "06316565ab785c5136db2fa3a17e0a7449de611cc170662bcfa62ad0b443c09f",
+    "src/data/publication_figures.yml": "8a4bc49f0c65d9dfa8db6528594ea1bd3a0c834f5d82d9ae9cd8fc7e49923453"
+  },
+  "pages": [
+    {
+      "path": "/news/2025-07-01-iscas-internship/",
+      "title": "Iscas Internship",
+      "text": "Iscas Internship Created on July 01, 2025 2025 Started a research internship at the Institute of Software, Chinese Academy of Sciences.",
+      "links": []
+    },
+    {
+      "path": "/news/2026-03-01-aps-publication/",
+      "title": "Aps Publication",
+      "text": "Aps Publication Created on September 01, 2025 2025 Our paper on the moral effects of AI regulation was accepted by Acta Psychologica Sinica in September 2025.",
+      "links": []
+    },
+    {
+      "path": "/news/2026-01-20-motion-preprint/",
+      "title": "Motion Preprint",
+      "text": "Motion Preprint Created on January 20, 2026 2026 New preprint on motion intensity, visual-target congruency, and cognition in HCI is available on arXiv.",
+      "links": []
+    },
+    {
+      "path": "/news/2026-05-07-emotion-online/",
+      "title": "Emotion Online",
+      "text": "Emotion Online Created on May 07, 2026 2026 Our paper on interbrain synchronization and interpersonal emotion regulation is now online in Emotion .",
+      "links": []
+    },
+    {
+      "path": "/projects/00-eeg-behavioral-modeling/",
+      "title": "Community Evaluations and Evidence Accumulation",
+      "text": "Community Evaluations and Evidence Accumulation EEG analysis and behavioral modeling of implicit community evaluations and resident well-being. As a research assistant at Minzu University of China, supervised by Dr. Ze Geng, I completed all data analyses for this collaborative project on community environments and resident well-being. The study combines questionnaires, a community–valence Implicit Association Test (IAT), and EEG. I preprocessed the EEG recordings, extracted single-trial centroparietal positivity (CPP) slopes, and fit drift diffusion models to IAT response times and accuracy using PyDDM. I used BIC to compare models and incorporated CPP slopes into drift-rate models to examine the relationship between neural and behavioral evidence accumulation. The manuscript, “Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation,” has been submitted to the Journal of Environmental Psychology . I am the second author; Ze Geng is the corresponding author.",
+      "links": []
+    },
+    {
+      "path": "/projects/01-driving-takeover/",
+      "title": "Human Factors in Driving Takeover",
+      "text": "Human Factors in Driving Takeover Cognitive load, warning timing, and situation-awareness recovery in automated driving. This independent project examines how cognitive load and the interval between monitoring and takeover requests relate to drivers’ situation-awareness recovery and takeover performance in a two-stage warning system. I independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG recording. The experimental design considers stable individual differences, including personality and driving style, alongside cognitive load and warning timing.",
+      "links": []
+    },
+    {
+      "path": "/projects/02-motion-performance/",
+      "title": "Human Performance During Whole-Body Motion",
+      "text": "Human Performance During Whole-Body Motion Unity experiments and task-relative motion analysis on a 6-DOF platform. At the Institute of Software, Chinese Academy of Sciences, I developed a Unity-based directional-judgment task on a 6-DOF motion platform. The study included 39 participants and related response times to trial-level, task-relative components of platform acceleration: directional congruency and lateral interference. Reaction times showed no clear monotonic gradient across motion-intensity conditions. The two motion components showed opposite associations with response time in the pooled model, but neither association was clearly supported after adjustment for target direction. The manuscript, “Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion,” has been submitted to CHI 2027 . An earlier preprint is available under the title “Does Motion Intensity Impair Cognition in HCI? The Critical Role of Physical Motion-Visual Target Directional Congruency.”",
+      "links": [
+        "https://arxiv.org/abs/2601.12884"
+      ]
+    },
+    {
+      "path": "/projects/03-human-ai-ethics/",
+      "title": "Human-AI Ethics",
+      "text": "Human-AI Ethics PsychoPy experiments and mixed-effects analysis of AI supervision and ethical decisions. This project investigates how AI supervision and incentive mechanisms influence dishonest behavior and ethical decision-making. I designed and programmed the behavioral experiments in PsychoPy and analyzed the data using Python/R and mixed-effects models. The resulting article was published in Acta Psychologica Sinica . Read the article .",
+      "links": [
+        "https://doi.org/10.3724/SP.J.1041.2026.0381"
+      ]
+    },
+    {
+      "path": "/projects/05-behavioral-decision-modeling/",
+      "title": "Behavioral Decision Modeling",
+      "text": "Behavioral Decision Modeling Drift diffusion and reinforcement-learning models for loss and compensatory decisions. During my research internship at Shenzhen University, supervised by Prof. Zhenhong He, I worked on loss and compensation in decision-making. I designed and programmed behavioral tasks in PsychoPy, developed Python data-analysis pipelines, and applied drift diffusion and reinforcement-learning models to behavioral data. This work connects experimental psychology with computational accounts of decision-making.",
+      "links": []
+    },
+    {
+      "path": "/projects/06-eeg-erp-analysis/",
+      "title": "EEG and ERP Analysis",
+      "text": "EEG and ERP Analysis Neural data analysis in studies of effort-based behavior and social relationships. As project leader in a study of effort-based behavior, I collected and analyzed behavioral and ERP data using Python/R. The experiment used a Monetary Incentive Delay task to examine input costs and reward/punishment cues. The related ERP manuscript has been submitted. In an earlier collaborative project on social networks and neural similarity, I preprocessed and analyzed EEG data using MATLAB and Python. These projects provided practical experience with neural data alongside behavioral measures.",
+      "links": []
+    },
+    {
+      "path": "/",
+      "title": "Jianshu Wang",
+      "text": "Jianshu Wang Human Factors | Cognitive Neuroscience | Behavioral Modeling Research Assistant, Minzu University of China B.S. in Applied Psychology, Henan University (2026) jishuu825@gmail.com I am a research assistant at Minzu University of China, supervised by Dr. Ze Geng, and a research intern at the Institute of Software, Chinese Academy of Sciences. I received my B.S. in Applied Psychology from Henan University in 2026. I study human cognition and behavior, with interests in how people interact with technology, one another, and their environments. My interests range from the cognitive and neural processes underlying behavior to the design of systems and environments that support human performance and well-being. I am seeking research-oriented master’s programs for Fall 2027 , with the aim of continuing to a Ph.D. news May 07, 2026 Our paper on interbrain synchronization and interpersonal emotion regulation is now online in Emotion . Jan 20, 2026 New preprint on motion intensity, visual-target congruency, and cognition in HCI is available on arXiv. Sep 01, 2025 Our paper on the moral effects of AI regulation was accepted by Acta Psychologica Sinica in September 2025. selected publications Acta Psychol. Sin. Figure 2 From Overt Deterrence to Covert Internalization: Moral Effects of AI Regulation and the Moderating Role of Personality Traits Jianshu Wang , Xiaowei Jiang, Yanan Chen, and 2 more authors Acta Psychologica Sinica , 2026 DOI Emotion Figure 1 Bidirectional Benefits: Interbrain Synchronization and Role-Specific Neural Signatures in Interpersonal Emotion Regulation Yunkai Yang, Jinxin He, Luxin Wang, and 8 more authors Emotion , May 2026 Accepted in April 2026; published online on May 7, 2026 DOI HTML Submitted Figure 3 Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual Difference Perspective Jianshu Wang and Yanan Chen 2026 Manuscript submitted to IEEE Transactions on Intelligent Transportation Systems . Submitted Figure 1 Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion Jianshu Wang , Yulong Bian, Siyu Liu, and 10 more authors 2026 Manuscript submitted to CHI 2027 . Submitted Figure 1 Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation Ran Liu, Jianshu Wang , Huijun Wang, and 3 more authors 2026 Manuscript submitted to Journal of Environmental Psychology . Corresponding author: Ze Geng. For research collaboration or academic inquiries, feel free to contact me by email.",
+      "links": [
+        "mailto:jishuu825@gmail.com",
+        "/news/",
+        "/publications/",
+        "https://doi.org/10.3724/SP.J.1041.2026.0381",
+        "https://doi.org/10.1037/emo0001683",
+        "https://doi.org/10.1037/emo0001683",
+        "/assets/pdf/CV_Jianshu_Wang.pdf",
+        "mailto:jishuu825@gmail.com",
+        "/feed.xml",
+        "https://scholar.google.com/citations?user=Zs9zJOMAAAAJ"
+      ]
+    },
+    {
+      "path": "/blog/",
+      "title": "blog | Jianshu Wang",
+      "text": "",
+      "links": []
+    },
+    {
+      "path": "/books/",
+      "title": "bookshelf",
+      "text": "bookshelf What an astonishing thing a book is. It’s a flat object made from a tree with flexible parts on which are imprinted lots of funny dark squiggles. But one glance at it and you’re inside the mind of another person, maybe somebody dead for thousands of years. Across the millennia, an author is speaking clearly and silently inside your head, directly to you. Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic. – Carl Sagan, Cosmos, Part 11: The Persistence of Memory (1980) Books that I am reading, have read, or will read",
+      "links": []
+    },
+    {
+      "path": "/cv/",
+      "title": "CV",
+      "text": "CV Psychology training, EEG/ERP analysis, computational behavioral modeling, and HCI research. Download the full CV using the PDF icon. Contact Information Name Jianshu Wang Professional Title Research Assistant | Applied Psychology Email jishuu825@gmail.com Website https://beijixionghelulu.github.io Professional Summary Applied psychology graduate combining behavioral experiments, EEG/ERP analysis, and computational behavioral modeling in cognitive neuroscience and human-computer interaction. Education 2022 - 2026 Kaifeng, China Bachelor of Science Henan University Applied Psychology Weighted average score: 87.01/100; GPA: 3.41/4.00 TOEFL iBT: 6.0/6.0 Selected coursework: Psychological Statistics, Experimental Psychology, Cognitive Psychology, Advanced Psychology Research Methods Online coursework (Coursera): Linear Algebra, Calculus, Machine Learning, Python for Everybody Publications and Manuscripts 2026 From overt deterrence to covert internalization: Moral effects of AI regulation and the moderating role of personality traits Jianshu Wang , Xiaowei Jiang, Yanan Chen, Minghui Wang, Feng Du Acta Psychologica Sinica, 58(3), 381–398 Published. 2026 Bidirectional benefits: Interbrain synchronization and role-specific neural signatures in interpersonal emotion regulation Yunkai Yang, Jinxin He, Luxin Wang, Jianshu Wang , Jingwen Xu, Xiaowei Jiang, Na Ao, Pengyi Zhang, Yanan Chen, Minghui Wang, Feng Du Emotion Published online in May 2026. 2026 Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual Difference Perspective Jianshu Wang , Yanan Chen IEEE Transactions on Intelligent Transportation Systems (submitted) Manuscript submitted. 2026 Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion Jianshu Wang , Yulong Bian, Siyu Liu, Yawen Zheng, Hao Zhang, Yuan Yue, Tangjun Qu, Yang Li, Yan Hu, Yutao Xie, Chao Zhou, Jin Huang, Feng Tian CHI 2027 (submitted) Manuscript submitted to CHI 2027. 2026 Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation Ran Liu, Jianshu Wang , Huijun Wang, Chang Liu, Guang Zhao, Ze Geng Journal of Environmental Psychology (submitted) Manuscript submitted. Corresponding author: Ze Geng. 2026 The effect of input cost and reward/punishment cues on performance in simple cognitive tasks: An ERP study Jianshu Wang , Xuemeng Wang, Yanan Chen Submitted manuscript Manuscript submitted. 2026 Does Motion Intensity Impair Cognition in HCI? The Critical Role of Physical Motion-Visual Target Directional Congruency Jianshu Wang , Siyu Liu, Chao Zhou, Yawen Zheng, Yuan Yue, Tangjun Qu, Yang Li, Yutao Xie, Jin Huang, Yulong Bian, Feng Tian arXiv:2601.12884 Earlier preprint version of the whole-body motion project. Research Experience Jul 2026 – Present Beijing, China Research Assistant Minzu University of China Supervisor: Dr. Ze Geng. EEG analysis and behavioral modeling. Conduct EEG preprocessing and data analysis for cognitive and behavioral research. Apply computational behavioral modeling and integrate behavioral models with neural measures. Jul 2025 – Present Beijing, China Research Intern Institute of Software, Chinese Academy of Sciences (ISCAS) Supervisors: Dr. Chao Zhou and Yulong Bian. Human performance during whole-body motion. Developed Unity-based directional-judgment experiments on a 6-DOF motion platform. Analyzed response times in relation to task-relative motion components and individual differences; contributed to a manuscript submitted to CHI 2027. Dec 2025 – Present Independent Research Project Human Factors in Driving Takeover Supervisor: Prof. Yanan Chen. Independently developed a Unity-based VR driving scenario using PICO 4 Pro, integrating eye tracking with ECG, GSR, and EMG recording. Designed a two-stage warning experiment examining cognitive load and the monitoring-to-takeover request interval in situation-awareness recovery and takeover performance. Analyzed behavioral and physiological data alongside individual differences in personality and driving style. Oct 2024 – Jul 2025 Shenzhen, China Research Intern Shenzhen University Supervisor: Prof. Zhenhong He. Loss and compensation in decision-making. Designed experiments and programmed behavioral tasks in PsychoPy for research on loss and compensatory decisions. Developed Python data-analysis pipelines and applied drift diffusion and reinforcement-learning models to behavioral data. Sep 2024 – Dec 2025 Independent Research Project Human-AI Ethics Supervisor: Prof. Yanan Chen. Designed and programmed PsychoPy experiments examining how AI supervision and incentives influence dishonest behavior and ethical decision-making. Analyzed behavioral data in Python/R using mixed-effects models; the resulting article was published in Acta Psychologica Sinica. Additional Research Effort-Based Behavior and ERP Research Leader, May 2023–Feb 2024. Collected and analyzed behavioral and ERP data in Python/R using a Monetary Incentive Delay task. Social Network and Neural Similarity Co-researcher, Nov 2022–Apr 2023. Preprocessed and analyzed EEG data in MATLAB/Python to study neural similarity and social relationships. Technical Skills Neural and physiological data: EEG/ERP, fNIRS, MNE, eye tracking, ECG, GSR, EMG Behavioral modeling and statistics: Drift diffusion models (DDM/PyDDM), reinforcement-learning models, mixed-effects models, Python, R, MATLAB, SPSS Machine learning: scikit-learn Experiment development: PsychoPy, Unity/VR, C#, LaTeX",
+      "links": [
+        "/assets/pdf/CV_Jianshu_Wang.pdf",
+        "https://beijixionghelulu.github.io",
+        "https://doi.org/10.3724/SP.J.1041.2026.0381",
+        "https://doi.org/10.1037/emo0001683",
+        "https://doi.org/10.48550/arXiv.2601.12884"
+      ]
+    },
+    {
+      "path": "/_pages/dropdown/",
+      "previousStatus": 404
+    },
+    {
+      "path": "/hobby/",
+      "title": "hobby",
+      "text": "hobby Badminton Outside of research, I enjoy playing badminton. Time on the court helps me stay active and unwind.",
+      "links": []
+    },
+    {
+      "path": "/news/",
+      "title": "news",
+      "text": "news May 07, 2026 Our paper on interbrain synchronization and interpersonal emotion regulation is now online in Emotion . Jan 20, 2026 New preprint on motion intensity, visual-target congruency, and cognition in HCI is available on arXiv. Sep 01, 2025 Our paper on the moral effects of AI regulation was accepted by Acta Psychologica Sinica in September 2025. Jul 01, 2025 Started a research internship at the Institute of Software, Chinese Academy of Sciences.",
+      "links": []
+    },
+    {
+      "path": "/people/",
+      "title": "people",
+      "text": "people",
+      "links": []
+    },
+    {
+      "path": "/projects/",
+      "title": "research",
+      "text": "research Selected research in EEG/ERP analysis, behavioral modeling, cognitive neuroscience, and human-computer interaction. Community Evaluations and Evidence Accumulation EEG analysis and behavioral modeling of implicit community evaluations and resident well-being. Behavioral Decision Modeling Drift diffusion and reinforcement-learning models for loss and compensatory decisions. Human Performance During Whole-Body Motion Unity experiments and task-relative motion analysis on a 6-DOF platform. Human Factors in Driving Takeover Cognitive load, warning timing, and situation-awareness recovery in automated driving. Human-AI Ethics PsychoPy experiments and mixed-effects analysis of AI supervision and ethical decisions. EEG and ERP Analysis Neural data analysis in studies of effort-based behavior and social relationships.",
+      "links": [
+        "/projects/00-eeg-behavioral-modeling/",
+        "/projects/05-behavioral-decision-modeling/",
+        "/projects/02-motion-performance/",
+        "/projects/01-driving-takeover/",
+        "/projects/03-human-ai-ethics/",
+        "/projects/06-eeg-erp-analysis/"
+      ]
+    },
+    {
+      "path": "/publications/",
+      "title": "publications",
+      "text": "publications Published articles, submitted manuscripts, and earlier preprints. 2026 Acta Psychol. Sin. Figure 2 From Overt Deterrence to Covert Internalization: Moral Effects of AI Regulation and the Moderating Role of Personality Traits Jianshu Wang , Xiaowei Jiang, Yanan Chen, and 2 more authors Acta Psychologica Sinica , 2026 DOI Emotion Figure 1 Bidirectional Benefits: Interbrain Synchronization and Role-Specific Neural Signatures in Interpersonal Emotion Regulation Yunkai Yang, Jinxin He, Luxin Wang, and 8 more authors Emotion , May 2026 Accepted in April 2026; published online on May 7, 2026 DOI HTML Submitted Figure 3 Effects of Cognitive Load and Time Interval on Takeover Performance and Situational Awareness in Two-Stage Warning System: An Individual Difference Perspective Jianshu Wang and Yanan Chen 2026 Manuscript submitted to IEEE Transactions on Intelligent Transportation Systems . Submitted Figure 1 Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion Jianshu Wang , Yulong Bian, Siyu Liu, and 10 more authors 2026 Manuscript submitted to CHI 2027 . Submitted Figure 1 Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation Ran Liu, Jianshu Wang , Huijun Wang, and 3 more authors 2026 Manuscript submitted to Journal of Environmental Psychology . Corresponding author: Ze Geng. Submitted The Effect of Input Cost and Reward/Punishment Cues on Performance in Simple Cognitive Tasks: An ERP Study Jianshu Wang , Xuemeng Wang, and Yanan Chen 2026 Manuscript submitted. arXiv Does Motion Intensity Impair Cognition in HCI? The Critical Role of Physical Motion-Visual Target Directional Congruency Jianshu Wang , Siyu Liu, Chao Zhou, and 8 more authors arXiv preprint arXiv:2601.12884 , 2026 Earlier preprint. A revised manuscript, Beyond Motion Intensity: Task-Relative Motion Geometry and Directional Response Time During Whole-Body Motion , has been submitted to CHI 2027. DOI",
+      "links": [
+        "https://doi.org/10.3724/SP.J.1041.2026.0381",
+        "https://doi.org/10.1037/emo0001683",
+        "https://doi.org/10.1037/emo0001683",
+        "https://doi.org/10.48550/arXiv.2601.12884"
+      ]
+    },
+    {
+      "path": "/repositories/",
+      "title": "repositories",
+      "text": "repositories",
+      "links": []
+    },
+    {
+      "path": "/teaching/",
+      "title": "teaching",
+      "text": "teaching",
+      "links": []
+    }
+  ]
+}

@@ -1,4 +1,10 @@
-# al-folio
+# Jianshu Wang's academic website
+
+The live website at <https://beijixionghelulu.github.io/> uses Scholar Pages / Astro.
+See [`site/README.md`](site/README.md) for content editing, local preview and deployment.
+The original al-folio source and documentation below remain for migration reference and rollback.
+
+# Archived al-folio documentation
 
 <div align="center">
 

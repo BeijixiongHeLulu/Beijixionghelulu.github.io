@@ -1,0 +1,77 @@
+wangSubmittedTakeover:
+  key: driving-figure3
+  source_document: IEEE_TIS.pdf
+  source_sha256: a2d38d009526acd5f9547dd14985f853d91833e26d4ac5dd8009c6d105afe617
+  page: 7
+  figure: 3
+  crop_points:
+    - 48.964
+    - 56.0705
+    - 563.0253
+    - 502.2211
+  image: driving-figure3.png
+  width: 1801
+  height: 1563
+  alt: VR driving scenes, hazard scenarios, and the experimental trial timeline
+yang2026interbrain:
+  key: emotion-figure1
+  source_document: Emotion-2027-65066-001.pdf
+  source_sha256: bd4605b040855747a85bb721c43aed0bada34b08a19041c5e92e167b382e4896
+  page: 6
+  figure: 1
+  crop_points:
+    - 97.668
+    - 103.128
+    - 496.452
+    - 419.952
+  image: emotion-figure1.png
+  width: 1801
+  height: 1431
+  alt: Interpersonal emotion regulation setup and trial procedure
+wang2026motionCHI:
+  key: chi-figure1
+  source_document: CHI2027finalV2.pdf
+  source_sha256: a5d1b32d992833ce277a6f199c8512162cba46456fa88f9ac3f5e5ed48fd6446
+  page: 1
+  figure: 1
+  crop_points:
+    - 71.0
+    - 158.0
+    - 504.0
+    - 365.0
+  image: chi-figure1.png
+  width: 1801
+  height: 862
+  alt: Whole-body motion study overview, directional-judgment task, and task-relative
+    motion analysis
+wang2026moral:
+  key: acta-figure2
+  source_document: 从显性威慑到隐性内化：AI监管和黑暗三联征人格对诚实行为的影响.pdf
+  source_sha256: cefbfc73056d67cd01a1c55fccbe4282b9e589c64c0c2e2d9e0eddcd0f3401f5
+  page: 5
+  figure: 2
+  crop_points:
+    - 60.0
+    - 73.0
+    - 538.0
+    - 309.0
+  image: acta-figure2.png
+  width: 1801
+  height: 890
+  alt: Experimental tasks and trial structure in the AI regulation study
+liu2026community:
+  key: jep-figure1
+  source_document: JEP英文版V1_9.30.docx (native Word PDF export)
+  page: 35
+  figure: 1
+  crop_points:
+    - 90.0
+    - 73.60000610351562
+    - 505.29998779296875
+    - 273.20001220703125
+  image: jep-figure1.png
+  width: 1801
+  height: 867
+  alt: Community–valence IAT block structure, response-key mappings, and trial sequence
+  source_pdf_sha256: af238b5e8cab0e6639fc1e8b2c4aa3f84ce8082983907f166294b0a16f192953
+  source_sha256: c8a6c9bbd367621a55e5f55611bda966f4559fc2eb00589fe1df46e6a8683749

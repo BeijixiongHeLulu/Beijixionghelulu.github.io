@@ -1,4 +1,11 @@
-# Agent Guidelines for al-folio
+# Current website: Scholar Pages / Astro
+
+The live site builds from [`site/`](site/README.md). Follow
+[`site/AGENTS.md`](site/AGENTS.md) for implementation and validation.
+The root Jekyll source remains for rollback; its Ruby/Docker instructions apply
+only to that archived implementation. GitHub Pages still uses `gh-pages`.
+
+# Archived Agent Guidelines for al-folio
 
 A simple, clean, and responsive Jekyll theme for academics.
 

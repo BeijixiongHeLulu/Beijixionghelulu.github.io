@@ -1,0 +1,43 @@
+---
+import Layout from "../layouts/Layout.astro";
+import PublicationList from "../components/PublicationList.astro";
+import FilterBar from "../components/FilterBar.astro";
+import { getAllPapers } from "../lib/papers";
+import siteConfig from "../side.config";
+const papers = getAllPapers();
+const groups = [
+  { filter: "published", label: "Published" },
+  { filter: "submitted", label: "Submitted" },
+  { filter: "preprint", label: "Preprint" },
+];
+---
+
+<Layout
+  title="publications"
+  description={siteConfig.pageTitles.researches.description}
+  schemaType="CollectionPage"
+>
+  <div class="page-stack">
+    <header class="page-header">
+      <h1 class="page-title">publications</h1>
+      <p class="page-description">
+        {siteConfig.pageTitles.researches.description}
+      </p>
+      <FilterBar
+        total={papers.length}
+        allIcon="i-mdi:file-document-multiple"
+        items={groups.map((group) => ({
+          ...group,
+          count: papers.filter((p) => p.category.toLowerCase() === group.filter)
+            .length,
+          icon: "i-mdi:file-document",
+        }))}
+      />
+    </header>
+    <PublicationList papers={papers} />
+  </div>
+</Layout>
+<script>
+  import { setupFilterControls } from "../scripts/ui";
+  document.addEventListener("astro:page-load", () => setupFilterControls());
+</script>
