@@ -1,0 +1,60 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import DetailShell from "../../components/DetailShell.astro";
+import { portfolio } from "../../portfolio/registry";
+import type { PortfolioCase } from "../../portfolio/types";
+import "../../styles/portfolio.css";
+
+export function getStaticPaths() {
+  return portfolio.map((entry) => ({
+    params: { slug: entry.metadata.slug },
+    props: entry,
+  }));
+}
+const { Component } = Astro.props;
+const item: PortfolioCase = Astro.props.metadata;
+---
+
+<Layout title={item.title} description={item.description}>
+  <DetailShell
+    backHref="/portfolio/"
+    backLabel="Back to portfolio"
+    title={item.title}
+    subtitle={item.subtitle}
+    summary={item.summary}
+    transitionKey={`portfolio-${item.slug}`}
+    facts={item.facts}
+    portfolio
+  >
+    <div slot="context" class="portfolio-context">
+      <p class="portfolio-role">{item.role}</p>
+      <p class="portfolio-status">{item.status}</p>
+    </div>
+    <div slot="intro" class="portfolio-contribution">
+      <Component part="intro" />
+    </div>
+    <div slot="visual" class="portfolio-hero">
+      <Component part="visual" />
+    </div>
+    <Component part="body" />
+    <div class="portfolio-resources">
+      {item.resources.map((resource) => {
+        const external = /^https?:/.test(resource.href);
+        return (
+          <a
+            class={
+              resource.kind === "publication" ? "btn-primary" : "action-link"
+            }
+            href={resource.href}
+            target={external ? "_blank" : undefined}
+            rel={external ? "noopener noreferrer" : undefined}
+          >
+            {resource.label}
+            <span aria-hidden="true">{external ? "↗" : "→"}</span>
+            {external && <span class="sr-only">opens in a new tab</span>}
+          </a>
+        );
+      })}
+    </div>
+  </DetailShell>
+</Layout>

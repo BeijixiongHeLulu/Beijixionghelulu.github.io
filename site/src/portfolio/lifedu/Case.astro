@@ -1,0 +1,281 @@
+---
+import type { CasePart } from "../types";
+
+interface Props {
+  part: CasePart;
+}
+const { part } = Astro.props;
+---
+
+{part === "intro" && (
+  <p>
+    As a research assistant at Lifedu, I carried out the data analyses for a
+    collaborative study combining an implicit association task,
+    electroencephalography (EEG) and decision modeling.
+  </p>
+)}
+
+{part === "visual" && (
+  <figure class="portfolio-figure lifedu-workflow">
+    <div class="portfolio-diagram lifedu-map">
+      <div class="portfolio-node lifedu-context">
+        <strong>Implicit association task</strong>
+        <span>Community images and positive or negative words</span>
+      </div>
+      <div class="lifedu-streams">
+        <section class="lifedu-stream" aria-labelledby="lifedu-behavior-route">
+          <h2 id="lifedu-behavior-route">Behavioral observations</h2>
+          <div class="portfolio-node">
+            <strong>Response time</strong>
+            <span>Correct or error choice</span>
+          </div>
+        </section>
+        <section class="lifedu-stream" aria-labelledby="lifedu-eeg-route">
+          <h2 id="lifedu-eeg-route">EEG recorded during the task</h2>
+          <div class="portfolio-node">
+            <strong>EEG recordings</strong>
+          </div>
+          <p class="lifedu-connection">
+            <span aria-hidden="true">↓</span>
+          </p>
+          <div class="portfolio-node">
+            <strong>Preprocessing</strong>
+          </div>
+          <p class="lifedu-connection">
+            <span aria-hidden="true">↓</span>
+          </p>
+          <div class="portfolio-node">
+            <strong>Trial-level CPP slope</strong>
+            <span>CPP: centroparietal positivity</span>
+          </div>
+        </section>
+      </div>
+      <div class="portfolio-node lifedu-matching">
+        <strong>Matched trials</strong>
+        <span>Link each CPP slope to its corresponding behavioral trial</span>
+      </div>
+      <div class="lifedu-inputs">
+        <div class="portfolio-node">
+          <strong>Fitting observations</strong>
+          <span>Response times + correct/error choices</span>
+        </div>
+        <div class="portfolio-node">
+          <strong>Drift-rate specification</strong>
+          <span>CPP slope enters as a measured covariate</span>
+        </div>
+      </div>
+      <p class="lifedu-connection">
+        Together inform <span aria-hidden="true">↓</span>
+      </p>
+      <div class="portfolio-node lifedu-fit">
+        <strong>Fit candidate models</strong>
+      </div>
+      <p class="lifedu-connection">
+        <span aria-hidden="true">↓</span>
+      </p>
+      <div class="portfolio-node lifedu-compare">
+        <strong>Compare candidate explanations</strong>
+        <span>Fit and complexity</span>
+      </div>
+    </div>
+    <figcaption>
+      Analysis workflow: behavioral responses inform model fitting, while a
+      derived EEG measure enters the drift-rate specification.
+    </figcaption>
+  </figure>
+)}
+
+{part === "body" && (
+  <>
+    <p>
+      Participants classified community images and positive or negative words.
+      “Own” meant their residential community; “other” meant another community.
+      Across two response mappings, the community category sharing a key with
+      positive words changed.
+    </p>
+
+    <figure class="portfolio-figure lifedu-task">
+      <div class="portfolio-diagram lifedu-mappings">
+        <section aria-labelledby="lifedu-mapping-one">
+          <h3 id="lifedu-mapping-one">Mapping 1</h3>
+          <dl>
+            <div>
+              <dt>Response A</dt>
+              <dd>Own community + positive words</dd>
+            </div>
+            <div>
+              <dt>Response B</dt>
+              <dd>Other community + negative words</dd>
+            </div>
+          </dl>
+        </section>
+        <section aria-labelledby="lifedu-mapping-two">
+          <h3 id="lifedu-mapping-two">Mapping 2</h3>
+          <dl>
+            <div>
+              <dt>Response A</dt>
+              <dd>Own community + negative words</dd>
+            </div>
+            <div>
+              <dt>Response B</dt>
+              <dd>Other community + positive words</dd>
+            </div>
+          </dl>
+        </section>
+      </div>
+      <figcaption>
+        The two category mappings used counterbalanced response keys. Images and
+        words were classified successively, each remaining on screen until a
+        response.
+      </figcaption>
+    </figure>
+
+    <h2>Connecting measurements and models</h2>
+    <p>
+      I preprocessed the EEG recordings and extracted slopes of centroparietal
+      positivity (CPP), then matched valid EEG measures with the corresponding
+      behavioral trials.
+    </p>
+    <p>
+      I fitted drift diffusion models to response times and correct or incorrect
+      choices. Drift rate represents the model’s rate of evidence accumulation.
+      In joint EEG–behavior models, trial-level CPP slopes entered the
+      drift-rate specification.
+    </p>
+    <h2>Keeping valid error responses</h2>
+    <p>
+      In this study, error trials were excluded from response-time summaries,
+      while valid error responses were retained as choice information for
+      decision modeling. The model needed the pattern of correct and incorrect
+      responses as well as their timing.
+    </p>
+
+    <details class="portfolio-methods">
+      <summary>Model fitting and comparison</summary>
+      <p>
+        Models were fitted using aggregate maximum-likelihood estimation in
+        PyDDM. I compared candidate specifications using BIC, considering fit
+        alongside model complexity. CPP slope entered the drift-rate
+        specification as a measured covariate; the resulting drift rate was a
+        model parameter.
+      </p>
+    </details>
+  </>
+)}
+
+<style>
+  .lifedu-workflow {
+    max-width: 56rem;
+    margin-inline: auto;
+  }
+  .lifedu-map {
+    padding: clamp(1rem, 3vw, 2rem);
+  }
+  .lifedu-map .portfolio-node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: 0;
+  }
+  .lifedu-context,
+  .lifedu-matching,
+  .lifedu-fit,
+  .lifedu-compare {
+    text-align: center;
+  }
+  .lifedu-context {
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+  .lifedu-streams,
+  .lifedu-inputs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+  .lifedu-stream {
+    min-width: 0;
+  }
+  .lifedu-stream h2 {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--portfolio-muted);
+  }
+  .lifedu-matching {
+    margin-top: 1.25rem;
+    border-style: dashed;
+  }
+  .lifedu-connection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.6rem;
+    margin: 0.4rem 0;
+    color: var(--portfolio-muted);
+    font-size: 0.8rem;
+  }
+  .lifedu-connection span {
+    font-size: 1.15rem;
+    color: var(--portfolio-accent);
+  }
+  .lifedu-inputs + .lifedu-connection {
+    margin: 0.8rem 0;
+  }
+  .lifedu-fit,
+  .lifedu-compare {
+    max-width: 34rem;
+    margin-inline: auto;
+  }
+  .lifedu-compare {
+    border-color: var(--portfolio-accent);
+  }
+  .lifedu-mappings {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+    padding: 1.25rem;
+  }
+  .lifedu-mappings section {
+    min-width: 0;
+  }
+  .lifedu-mappings h3 {
+    margin: 0 0 0.8rem;
+    font-size: 1rem;
+  }
+  .lifedu-mappings dl {
+    margin: 0;
+  }
+  .lifedu-mappings dl > div {
+    padding-block: 0.75rem;
+    border-top: 1px solid var(--portfolio-line);
+  }
+  .lifedu-mappings dt {
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: var(--portfolio-accent);
+  }
+  .lifedu-mappings dd {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--portfolio-ink);
+  }
+  @media (max-width: 539px) {
+    .lifedu-map,
+    .lifedu-map .portfolio-node,
+    .lifedu-mappings {
+      padding: 12px;
+    }
+    .lifedu-streams,
+    .lifedu-inputs,
+    .lifedu-mappings {
+      grid-template-columns: 1fr;
+    }
+    .lifedu-stream + .lifedu-stream {
+      border-top: 1px solid var(--portfolio-line);
+      padding-top: 1rem;
+    }
+  }
+</style>

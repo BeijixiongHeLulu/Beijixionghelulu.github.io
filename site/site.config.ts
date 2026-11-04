@@ -45,6 +45,7 @@ export const siteConfig = defineSiteConfig({
     { href: "/", label: "about" },
     { href: "/publications/", label: "publications" },
     { href: "/projects/", label: "research" },
+    { href: "/portfolio/", label: "portfolio" },
     { href: "/cv/", label: "CV" },
     { href: "/hobby/", label: "hobby" },
   ],

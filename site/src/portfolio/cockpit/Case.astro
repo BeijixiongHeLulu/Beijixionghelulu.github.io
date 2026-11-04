@@ -1,0 +1,326 @@
+---
+import { Image } from "astro:assets";
+import type { CasePart } from "../types";
+import setup from "./cockpit-participant-setup.png";
+import display from "./cockpit-task-display.png";
+
+interface Props {
+  part: CasePart;
+}
+const { part } = Astro.props;
+---
+
+{part === "intro" && (
+  <p>
+    At the Institute of Software, Chinese Academy of Sciences, I developed a
+    Unity directional-judgment task for an existing six-degree-of-freedom motion
+    platform and analyzed response times.
+  </p>
+)}
+
+{part === "visual" && (
+  <figure class="portfolio-figure cockpit-apparatus">
+    <div class="cockpit-photos">
+      <figure class="cockpit-photo cockpit-photo-main">
+        <Image
+          src={setup}
+          format="webp"
+          widths={[414, 640, setup.width]}
+          sizes="(min-width: 1000px) 640px, (min-width: 700px) 60vw, calc(100vw - 48px)"
+          alt="Participant seated on the motion platform facing the task display, with the original face covering retained."
+          width={setup.width}
+          height={setup.height}
+          loading="eager"
+          fetchpriority="high"
+        />
+        <figcaption>Motion platform and participant.</figcaption>
+      </figure>
+      <figure class="cockpit-photo cockpit-photo-detail">
+        <Image
+          src={display}
+          format="webp"
+          widths={[320, display.width]}
+          sizes="(min-width: 700px) 352px, calc(100vw - 48px)"
+          alt="Task display showing a green directional arrow."
+          width={display.width}
+          height={display.height}
+          loading="eager"
+        />
+        <figcaption>Directional cue on the task display.</figcaption>
+      </figure>
+    </div>
+    <figcaption>
+      The study paired a physical motion platform with an on-screen directional
+      task. Cropped from the original apparatus figure.
+    </figcaption>
+  </figure>
+)}
+
+{part === "body" && (
+  <>
+    <p>
+      Participants responded to an arrow using the corresponding directional
+      key. Practice introduced the mapping with feedback; formal trials provided
+      the behavioral records.
+    </p>
+    <h2>Commands and measurements</h2>
+    <p>
+      Commanding motion and measuring motion answer different questions. Unity
+      specified the platform’s motion conditions, while sensors beneath the seat
+      recorded the movement that occurred. Keeping these roles separate allowed
+      the study to relate task performance to measured motion rather than
+      treating a command setting as the measurement itself.
+    </p>
+    <h2>Task implementation</h2>
+    <p>
+      I implemented cue presentation and directional-response capture in Unity.
+      The task emitted cue and response events alongside behavioral records,
+      providing reference points for relating responses to the independent
+      motion recordings.
+    </p>
+
+    <figure class="portfolio-figure cockpit-workflow">
+      <div class="portfolio-diagram cockpit-map">
+        <div class="cockpit-lanes">
+          <section class="cockpit-lane" aria-labelledby="cockpit-task-lane">
+            <h3 id="cockpit-task-lane">Task and events</h3>
+            <div class="portfolio-node">
+              <span class="cockpit-system">Unity environment</span>
+              <strong>Directional task</strong>
+              <span>Cue presentation · response capture</span>
+            </div>
+            <p class="cockpit-relationship">
+              Emits <span aria-hidden="true">↓</span>
+            </p>
+            <div class="portfolio-node">
+              <strong>Task records</strong>
+              <span>Cue and response events</span>
+              <span>Behavioral responses</span>
+            </div>
+          </section>
+          <section class="cockpit-lane" aria-labelledby="cockpit-motion-lane">
+            <h3 id="cockpit-motion-lane">Command and measurement</h3>
+            <div class="portfolio-node">
+              <span class="cockpit-system">Unity environment</span>
+              <strong>Motion conditions</strong>
+              <span>Platform-command output</span>
+            </div>
+            <p class="cockpit-relationship">
+              Commands <span aria-hidden="true">↓</span>
+            </p>
+            <div class="portfolio-node">
+              <strong>Physical motion platform</strong>
+            </div>
+            <p class="cockpit-relationship">
+              Movement measured by <span aria-hidden="true">↓</span>
+            </p>
+            <div class="portfolio-node">
+              <strong>Under-seat sensors</strong>
+            </div>
+            <p class="cockpit-relationship">
+              Produce <span aria-hidden="true">↓</span>
+            </p>
+            <div class="portfolio-node">
+              <strong>Independent motion records</strong>
+            </div>
+          </section>
+        </div>
+        <div class="cockpit-alignment portfolio-node">
+          <span>Task records + motion records</span>
+          <strong>Align for analysis</strong>
+          <span>Motion relative to the cue direction</span>
+        </div>
+
+        <section class="cockpit-trial" aria-labelledby="cockpit-trial-heading">
+          <h3 id="cockpit-trial-heading">Within each formal trial</h3>
+          <ol class="cockpit-trial-sequence">
+            <li>
+              <strong>Fixation</strong>
+            </li>
+            <li class="cockpit-cue">
+              <strong>Directional cue</strong>
+              <span class="cockpit-arrow" aria-hidden="true">
+                ↑
+              </span>
+              <span>One of four directions</span>
+              <span class="cockpit-response">Valid response recorded here</span>
+            </li>
+            <li>
+              <strong>Interval</strong>
+            </li>
+          </ol>
+          <p class="portfolio-note">
+            The arrow remained visible for its scheduled interval; valid
+            responses were recorded during that interval.
+          </p>
+        </section>
+      </div>
+      <figcaption>
+        Task events and physical measurements support a shared analysis. The
+        inset shows the sequence within one trial; the main arrows indicate
+        commands, events and measurements.
+      </figcaption>
+    </figure>
+
+    <details class="portfolio-methods">
+      <summary>How motion was related to each cue</summary>
+      <p>
+        For each cue, motion was summarized over a fixed preceding interval and
+        expressed relative to the direction of that cue. The window did not
+        depend on how quickly the participant responded. This linked the
+        definition of the behavioral task to the way motion was represented in
+        the analysis.
+      </p>
+    </details>
+  </>
+)}
+
+<style>
+  .cockpit-apparatus {
+    max-width: 48rem;
+    margin-inline: auto;
+  }
+  .cockpit-photos {
+    display: grid;
+    gap: 1.5rem;
+    align-items: center;
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+  }
+  .cockpit-photo {
+    margin: 0;
+    min-width: 0;
+  }
+  .cockpit-photo :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 0.7rem;
+  }
+  .cockpit-photo-main {
+    max-width: 48rem;
+  }
+  .cockpit-photo-detail {
+    max-width: 22rem;
+  }
+  .cockpit-photo figcaption {
+    margin-top: 0.65rem;
+  }
+  .cockpit-map {
+    padding: clamp(1rem, 3vw, 1.5rem);
+  }
+  .cockpit-lanes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.25rem;
+  }
+  .cockpit-lane {
+    min-width: 0;
+  }
+  .cockpit-map h3 {
+    margin: 0 0 1rem;
+    font-size: 1rem;
+    line-height: 1.45;
+  }
+  .cockpit-map .portfolio-node {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+  .cockpit-system {
+    font-size: 0.75rem;
+    font-weight: 650;
+    color: var(--portfolio-accent);
+  }
+  .cockpit-relationship {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+    color: var(--portfolio-muted);
+    font-size: 0.8rem;
+  }
+  .cockpit-relationship span {
+    color: var(--portfolio-accent);
+    font-size: 1.2rem;
+  }
+  .cockpit-alignment {
+    margin-top: 1.5rem;
+    border-color: var(--portfolio-accent);
+    text-align: center;
+  }
+  .cockpit-trial {
+    border-top: 1px solid var(--portfolio-line);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+  .cockpit-trial-sequence {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: 0.7rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  .cockpit-trial-sequence li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-width: 0;
+    margin: 0;
+    padding: 0.8rem 0.5rem;
+    text-align: center;
+    border: 1px solid var(--portfolio-line);
+    border-radius: 0.6rem;
+  }
+  .cockpit-trial-sequence li::before {
+    display: none;
+  }
+  .cockpit-trial-sequence li::marker {
+    content: "";
+  }
+  .cockpit-trial-sequence strong {
+    font-size: 0.9rem;
+  }
+  .cockpit-trial-sequence span {
+    font-size: 0.75rem;
+    line-height: 1.5;
+  }
+  .cockpit-trial-sequence .cockpit-arrow {
+    font-size: 1.8rem;
+    color: var(--portfolio-accent);
+  }
+  .cockpit-response {
+    border-top: 1px solid var(--portfolio-line);
+    padding-top: 0.5rem;
+  }
+  .cockpit-trial .portfolio-note {
+    margin-bottom: 0;
+  }
+  @media (max-width: 699px) {
+    .cockpit-photos {
+      grid-template-columns: 1fr;
+    }
+    .cockpit-photo-detail {
+      width: min(100%, 22rem);
+    }
+  }
+  @media (max-width: 479px) {
+    .cockpit-map,
+    .cockpit-map .portfolio-node {
+      padding: 12px;
+    }
+    .cockpit-lanes {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+    .cockpit-trial-sequence {
+      grid-template-columns: 1fr;
+    }
+    .cockpit-trial-sequence li {
+      padding: 12px;
+    }
+  }
+</style>

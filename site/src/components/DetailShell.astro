@@ -24,6 +24,8 @@ interface Props {
   tags?: string[];
   highlights?: string[];
   resources?: Resource[];
+  portfolio?: boolean;
+  subtitle?: string;
 }
 
 const {
@@ -38,10 +40,13 @@ const {
   tags = [],
   highlights = [],
   resources = [],
+  portfolio = false,
+  subtitle,
 } = Astro.props;
+const hasAside = facts.length > 0 || resources.length > 0 || tags.length > 0;
 ---
 
-<article class="page-stack">
+<article class:list={["page-stack", { "portfolio-case": portfolio }]}>
   <header class="space-y-6 border-b border-paper-300/90 pb-7 pt-2 dark:border-ink-700 sm:space-y-7 sm:pb-9">
     <a href={backHref} class="action-link w-fit px-0">
       <span class="i-mdi:arrow-left" aria-hidden="true"></span>
@@ -55,11 +60,16 @@ const {
       >
         {title}
       </h1>
+      {subtitle && <p class="portfolio-subtitle">{subtitle}</p>}
       <p class="page-description max-w-[46rem] text-[1.125rem] sm:text-[1.1875rem]">
         {summary}
       </p>
+      <slot name="context" />
+      <slot name="intro" />
     </div>
   </header>
+
+  <slot name="visual" />
 
   {cover && coverAlt && (
     <figure
@@ -82,7 +92,12 @@ const {
     </figure>
   )}
 
-  <div class="grid gap-8 sm:gap-9 lg:grid-cols-[minmax(0,1fr)_17rem] lg:items-start lg:gap-14">
+  <div
+    class:list={[
+      "detail-body-grid grid gap-8 sm:gap-9 lg:items-start lg:gap-14",
+      { "lg:grid-cols-[minmax(0,1fr)_17rem] detail-with-aside": hasAside },
+    ]}
+  >
     <div class="order-2 min-w-0 space-y-8 lg:order-1">
       {highlights.length > 0 && (
         <section
@@ -121,74 +136,76 @@ const {
       </div>
     </div>
 
-    <aside
-      class="order-1 space-y-6 lg:order-2 lg:sticky lg:top-24"
-      aria-label="Details and resources"
-    >
-      {facts.length > 0 && (
-        <section
-          class="rounded-2xl bg-paper-100/90 p-4 dark:bg-ink-900/70 sm:p-5"
-          aria-labelledby="detail-facts"
-        >
-          <h2 id="detail-facts" class="entry-title mb-4 text-[1.125rem]">
-            Details
-          </h2>
-          <dl class="space-y-4">
-            {facts.map((fact) => (
-              <div class="space-y-1 border-t border-paper-300/90 pt-3 first:border-0 first:pt-0 dark:border-ink-700">
-                <dt class="font-sans text-xs font-bold text-ink-500 dark:text-paper-400">
-                  {fact.label}
-                </dt>
-                <dd class="font-sans text-sm leading-5 text-ink-800 dark:text-paper-200">
-                  {fact.value}
-                </dd>
-              </div>
-            ))}
-          </dl>
-        </section>
-      )}
+    {hasAside && (
+      <aside
+        class="order-1 space-y-6 lg:order-2 lg:sticky lg:top-24"
+        aria-label="Details and resources"
+      >
+        {facts.length > 0 && (
+          <section
+            class="rounded-2xl bg-paper-100/90 p-4 dark:bg-ink-900/70 sm:p-5"
+            aria-labelledby="detail-facts"
+          >
+            <h2 id="detail-facts" class="entry-title mb-4 text-[1.125rem]">
+              Details
+            </h2>
+            <dl class="space-y-4">
+              {facts.map((fact) => (
+                <div class="space-y-1 border-t border-paper-300/90 pt-3 first:border-0 first:pt-0 dark:border-ink-700">
+                  <dt class="font-sans text-xs font-bold text-ink-500 dark:text-paper-400">
+                    {fact.label}
+                  </dt>
+                  <dd class="font-sans text-sm leading-5 text-ink-800 dark:text-paper-200">
+                    {fact.value}
+                  </dd>
+                </div>
+              ))}
+            </dl>
+          </section>
+        )}
 
-      {resources.length > 0 && (
-        <section aria-labelledby="detail-resources">
-          <h2 id="detail-resources" class="entry-title mb-3 text-[1.125rem]">
-            Resources
-          </h2>
-          <div class="flex flex-col items-start gap-1">
-            {resources.map((resource, index) => (
-              <a
-                href={resource.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                class={
-                  index === 0
-                    ? "btn-primary w-full justify-between"
-                    : "action-link w-full justify-between px-0"
-                }
-              >
-                <span>{resource.label}</span>
-                <span
-                  class="i-mdi:arrow-top-right shrink-0"
-                  aria-hidden="true"
-                ></span>
-                <span class="sr-only"> opens in a new tab</span>
-              </a>
-            ))}
-          </div>
-        </section>
-      )}
+        {resources.length > 0 && (
+          <section aria-labelledby="detail-resources">
+            <h2 id="detail-resources" class="entry-title mb-3 text-[1.125rem]">
+              Resources
+            </h2>
+            <div class="flex flex-col items-start gap-1">
+              {resources.map((resource, index) => (
+                <a
+                  href={resource.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={
+                    index === 0
+                      ? "btn-primary w-full justify-between"
+                      : "action-link w-full justify-between px-0"
+                  }
+                >
+                  <span>{resource.label}</span>
+                  <span
+                    class="i-mdi:arrow-top-right shrink-0"
+                    aria-hidden="true"
+                  ></span>
+                  <span class="sr-only"> opens in a new tab</span>
+                </a>
+              ))}
+            </div>
+          </section>
+        )}
 
-      {tags.length > 0 && (
-        <section aria-labelledby="detail-topics">
-          <h2 id="detail-topics" class="entry-title mb-3 text-[1.125rem]">
-            Topics
-          </h2>
-          <div class="flex flex-wrap gap-2">
-            {tags.map((tag) => (
-              <span class="meta-chip">{tag}</span>
-            ))}
-          </div>
-        </section>
-      )}
-    </aside>
+        {tags.length > 0 && (
+          <section aria-labelledby="detail-topics">
+            <h2 id="detail-topics" class="entry-title mb-3 text-[1.125rem]">
+              Topics
+            </h2>
+            <div class="flex flex-wrap gap-2">
+              {tags.map((tag) => (
+                <span class="meta-chip">{tag}</span>
+              ))}
+            </div>
+          </section>
+        )}
+      </aside>
+    )}
   </div>
 </article>

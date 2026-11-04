@@ -31,6 +31,8 @@ If pnpm is unavailable, use `npx --yes pnpm@11.16.0` instead.
 | Biography                           | `src/content/profile/about.md` |
 | Publications and selected status    | `src/data/publications.bib`    |
 | Research projects                   | `src/content/projects/`        |
+| Portfolio cases and selected media  | `src/portfolio/`               |
+| Portfolio order and routes          | `src/portfolio/registry.ts`    |
 | News                                | `src/content/news/`            |
 | CV                                  | `src/data/cv.yml`              |
 | Hobby                               | `src/pages/hobby.astro`        |
@@ -38,8 +40,17 @@ If pnpm is unavailable, use `npx --yes pnpm@11.16.0` instead.
 | Personal layout styles              | `src/styles/profile.css`       |
 
 Keep project and news filenames to retain URLs. The unpublished trust project
-has `draft: true`. `/projects/` contains research; a separate portfolio can be
-added later without moving existing pages.
+has `draft: true`. `/projects/` contains the existing research records;
+`/portfolio/` presents five selected cases without moving those pages.
+
+Each portfolio directory contains `metadata.ts` for the card, role, status and
+resource link, plus `Case.astro` for contribution, visual and body content.
+Shared presentation is in `src/styles/portfolio.css` and `DetailShell.astro`.
+The editable Acta graphical abstract is an SVG; its narrow-screen account uses
+`acta-figure-data.ts`. Keep the two accounts consistent when revising it.
+Unpublished cases show approved equipment, interfaces and methods; private
+manuscripts, source archives, application records and results stay outside this
+repository.
 
 ## Deployment and migration
 
@@ -49,7 +60,9 @@ Build scripts copy original assets byte for byte and preserve `/sitemap.xml`.
 
 `pnpm verify` checks types, unit tests, rendered content, original routes,
 asset hashes and internal links. Browser tests cover desktop and mobile
-navigation, publication filters, citation copy and theme persistence.
+navigation, publication filters, citation copy and theme persistence, as well as
+portfolio images, role/status labels, resources, keyboard disclosures and
+narrow layouts with enlarged text.
 
 For the initial migration only, run `node scripts/verify-migration.mjs --baseline`
 after building to check original content hashes and text. This strict snapshot

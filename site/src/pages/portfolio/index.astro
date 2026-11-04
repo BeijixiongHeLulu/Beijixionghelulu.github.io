@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+import Layout from "../../layouts/Layout.astro";
+import { portfolio } from "../../portfolio/registry";
+import "../../styles/portfolio.css";
+
+const description =
+  "Selected research on how people make decisions, regulate emotions and act with technology.";
+---
+
+<Layout title="portfolio" description={description}>
+  <div class="page-stack portfolio-index">
+    <header class="portfolio-index-header">
+      <h1 class="page-title">portfolio</h1>
+      <p class="page-description">{description}</p>
+    </header>
+    <ol class="portfolio-list" aria-label="Selected research cases">
+      {portfolio.map(({ metadata: item }, index) => (
+        <li>
+          <a class="portfolio-card" href={`/portfolio/${item.slug}/`}>
+            <div class="portfolio-card-media">
+              <Image
+                src={item.thumbnail}
+                alt={item.thumbnailAlt}
+                format={item.thumbnail.format === "svg" ? undefined : "webp"}
+                widths={
+                  item.thumbnail.format === "svg"
+                    ? undefined
+                    : [320, 576].filter(
+                        (width) => width <= item.thumbnail.width,
+                      )
+                }
+                sizes="(min-width: 768px) 288px, calc(100vw - 32px)"
+                loading={index === 0 ? "eager" : "lazy"}
+                decoding="async"
+              />
+            </div>
+            <div class="portfolio-card-copy">
+              <p class="portfolio-status">{item.status}</p>
+              <h2>{item.title}</h2>
+              <p class="portfolio-card-description">{item.description}</p>
+              <p class="portfolio-card-role">{item.role}</p>
+              <span class="portfolio-card-action" aria-hidden="true">
+                Read case <span>→</span>
+              </span>
+            </div>
+          </a>
+        </li>
+      ))}
+    </ol>
+  </div>
+</Layout>

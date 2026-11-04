@@ -1,0 +1,352 @@
+---
+import { Image } from "astro:assets";
+import type { CasePart } from "../types";
+import apparatus from "./driving-apparatus.png";
+import roadworks from "./driving-roadworks.jpeg";
+import pedestrians from "./driving-pedestrian.jpeg";
+
+interface Props {
+  part: CasePart;
+}
+
+const { part } = Astro.props;
+---
+
+{part === "intro" && (
+  <p>
+    In this independent project, I designed the experiment, extended{" "}
+    <a href="https://github.com/Westdrive-Workgroup/LoopAR-public">LoopAR</a> in
+    Unity and C#, and analyzed behavioral and physiological records.
+  </p>
+)}
+
+{part === "visual" && (
+  <figure class="portfolio-figure driving-apparatus">
+    <Image
+      src={apparatus}
+      alt="Research setup with a seated person wearing a VR headset and using a steering wheel and pedals, with recording leads attached."
+      format="webp"
+      widths={[360, 520, apparatus.width]}
+      sizes="(min-width: 720px) 657px, calc(100vw - 48px)"
+      width={apparatus.width}
+      height={apparatus.height}
+      loading="eager"
+      fetchpriority="high"
+      decoding="async"
+    />
+    <figcaption>
+      The experiment combined a VR headset, steering wheel and pedals with
+      physiological recording.
+    </figcaption>
+  </figure>
+)}
+
+{part === "body" && (
+  <>
+    <section aria-labelledby="driving-preparation-heading">
+      <h2 id="driving-preparation-heading">Preparing to take control</h2>
+      <p>
+        Taking control involves more than a first response. This study separated
+        the opportunity to inspect the road from the actions that followed,
+        asking how prior driving tendencies and preparation related to the
+        transition.
+      </p>
+      <p>
+        Before the takeover trials, manual-driving observations characterized
+        participants&apos; slowing and steering; questionnaire items about
+        cautious driving provided a separate source of prior information.
+      </p>
+
+      <figure
+        class="portfolio-diagram driving-sequence"
+        aria-labelledby="driving-sequence-heading"
+        aria-describedby="driving-sequence-caption"
+      >
+        <h3 id="driving-sequence-heading">
+          From preparation to manual control
+        </h3>
+        <p class="portfolio-note driving-prior">
+          <strong>Before the trials</strong>
+          <span>Manual-driving observations</span>
+        </p>
+
+        <ol class="driving-stages" role="list" aria-label="Trial stages">
+          <li class="portfolio-node driving-stage">
+            <h4>Automated driving</h4>
+            <p>
+              Assigned participant groups: one-back or three-back letter-memory
+              task, or control.
+            </p>
+            <p class="driving-record">Responses in memory-task groups</p>
+          </li>
+          <li class="portfolio-node driving-stage">
+            <h4>Observe the road</h4>
+            <p>
+              A monitoring request prompts road viewing. Automation retains
+              control.
+            </p>
+          </li>
+          <li class="portfolio-node driving-stage">
+            <h4>Situation-awareness questions</h4>
+            <p>Road hidden; simulation paused.</p>
+            <p class="driving-record">Question responses</p>
+          </li>
+          <li class="portfolio-node driving-stage driving-transfer">
+            <h4>Transfer to manual control</h4>
+            <ol class="driving-handover" aria-label="Control transfer steps">
+              <li>Scene resumes</li>
+              <li>Takeover request</li>
+              <li>Manual control</li>
+            </ol>
+          </li>
+          <li class="portfolio-node driving-stage">
+            <h4>Drive through the event</h4>
+            <p>Steering, pedal input and speed recorded.</p>
+            <p class="driving-record">Driving inputs</p>
+          </li>
+          <li class="portfolio-node driving-stage">
+            <h4>Workload ratings</h4>
+            <p>Ratings after the driving event.</p>
+          </li>
+        </ol>
+
+        <p class="driving-continuous">
+          Cardiac (ECG), muscle (EMG) and electrodermal (EDA) activity were
+          recorded throughout the trial.
+        </p>
+        <figcaption id="driving-sequence-caption">
+          The trial separates road observation, a paused situation-awareness
+          probe, and the transfer to manual control. This is a conceptual
+          sequence; spacing does not represent duration.
+        </figcaption>
+      </figure>
+
+      <p>
+        To probe what participants had noticed before taking control, I paused
+        the simulated world and hid the road during the questions. Participants
+        answered without further road viewing, while the question timer ran
+        independently of simulation time.
+      </p>
+    </section>
+
+    <section aria-labelledby="driving-recording-heading">
+      <h2 id="driving-recording-heading">Recording the transition</h2>
+      <p>
+        I implemented event markers and timestamped driving records so task and
+        control transitions could be matched across recordings. Steering, pedal
+        input and speed were recorded alongside event information, and I added
+        an interface for sending markers to physiological acquisition.
+      </p>
+      <p>
+        Roadworks and pedestrians provided two simulated contexts for the
+        takeover tasks.
+      </p>
+      <div class="driving-scenarios">
+        <figure class="portfolio-figure">
+          <Image
+            src={roadworks}
+            alt="Simulated road with traffic cones and construction equipment ahead."
+            format="webp"
+            widths={[320, roadworks.width]}
+            sizes="(min-width: 640px) 336px, calc(100vw - 48px)"
+            width={roadworks.width}
+            height={roadworks.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Roadworks scenario overview</figcaption>
+        </figure>
+        <figure class="portfolio-figure">
+          <Image
+            src={pedestrians}
+            alt="Two pedestrian figures ahead on a simulated road."
+            format="webp"
+            widths={[320, pedestrians.width]}
+            sizes="(min-width: 640px) 336px, calc(100vw - 48px)"
+            width={pedestrians.width}
+            height={pedestrians.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Pedestrian scenario overview</figcaption>
+        </figure>
+      </div>
+      <p class="portfolio-note driving-source">
+        Equipment and scenario images from the study materials.
+      </p>
+    </section>
+
+    <section aria-labelledby="driving-analysis-heading">
+      <h2 id="driving-analysis-heading">Analyzing action sequences</h2>
+      <p>
+        I examined initial braking and steering, then the sequence of actions
+        after manual control was transferred to the driver. Across the analyses,
+        I related these records to prior-driving observations, responses to the
+        situation-awareness questions and physiological measures, accounting for
+        repeated observations within drivers.
+      </p>
+      <p>
+        The project shaped my interest in how assistance can support preparation
+        before a demanding action, and how that support may differ across
+        people.
+      </p>
+    </section>
+  </>
+)}
+
+<style>
+  .driving-apparatus {
+    width: min(100%, 657px);
+    margin-inline: auto;
+  }
+
+  .driving-apparatus :global(img),
+  .driving-scenarios :global(img) {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .driving-sequence h3 {
+    margin: 0 0 1rem;
+    color: var(--portfolio-ink);
+  }
+
+  .driving-prior {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.15rem 0.75rem;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid var(--portfolio-line);
+  }
+
+  .driving-stages {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: 0.9rem;
+    counter-reset: driving-stage;
+    list-style: none;
+    margin: 1.25rem 0;
+    padding: 0;
+  }
+
+  .driving-stage {
+    position: relative;
+    counter-increment: driving-stage;
+    margin: 0;
+    padding: 1rem 1rem 1rem 3rem;
+    min-width: 0;
+  }
+
+  .driving-stage::before {
+    content: counter(driving-stage);
+    position: absolute;
+    top: 0.95rem;
+    left: 1rem;
+    color: var(--portfolio-accent);
+    font-weight: 700;
+    font-size: 0.875rem;
+    line-height: 1.5;
+  }
+
+  .driving-stage h4 {
+    margin: 0;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 700;
+    line-height: 1.45;
+    color: var(--portfolio-ink);
+  }
+
+  .driving-stage p {
+    margin: 0.45rem 0 0;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--portfolio-muted);
+  }
+
+  .driving-stage .driving-record {
+    margin-top: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--portfolio-line);
+    color: var(--portfolio-accent);
+    font-size: 0.8rem;
+  }
+
+  .driving-handover {
+    list-style-type: lower-alpha;
+    margin: 0.55rem 0 0;
+    padding-left: 1.15rem;
+    color: var(--portfolio-muted);
+    font-size: 0.875rem;
+    line-height: 1.55;
+  }
+
+  .driving-handover li {
+    margin: 0.15rem 0;
+    padding-left: 0.2rem;
+  }
+
+  .driving-handover li::marker {
+    color: var(--portfolio-accent);
+  }
+
+  .driving-continuous {
+    margin: 1rem 0;
+    padding: 0.8rem 1rem;
+    border-left: 3px solid var(--portfolio-accent);
+    background: var(--portfolio-surface);
+    color: var(--portfolio-ink);
+    font-size: 0.875rem;
+    line-height: 1.6;
+  }
+
+  .driving-scenarios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    align-items: start;
+    gap: 1.25rem;
+    margin-top: 1.25rem;
+  }
+
+  .driving-scenarios figure {
+    margin: 0;
+    min-width: 0;
+  }
+
+  .driving-scenarios figure:first-child {
+    max-width: 523px;
+  }
+
+  .driving-scenarios figure:last-child {
+    max-width: 507px;
+  }
+
+  .driving-source {
+    margin-top: 0.8rem;
+  }
+
+  @media (max-width: 539px) {
+    .driving-stage {
+      padding: min(1rem, 16px) min(1rem, 16px) min(1rem, 16px) min(3rem, 48px);
+    }
+
+    .driving-stage::before {
+      top: min(0.95rem, 16px);
+      left: min(1rem, 16px);
+    }
+
+    .driving-handover {
+      padding-left: min(1.15rem, 24px);
+    }
+
+    .driving-handover li {
+      padding-left: min(0.2rem, 4px);
+    }
+
+    .driving-continuous {
+      padding-inline: min(1rem, 16px);
+    }
+  }
+</style>
