@@ -1,33 +1,308 @@
 ---
+import type { ImageMetadata } from "astro";
 import type { CasePart } from "../types";
 import ResearchFigure from "../../components/ResearchFigure.astro";
-import monitoring from "./acta-monitoring-english.svg";
-import incentives from "./acta-incentives-english.svg";
-import screen1 from "./acta-task-screen-01-original.png";
-import screen2 from "./acta-task-screen-02-original.png";
-import screen3 from "./acta-task-screen-03-original.png";
-import screen4 from "./acta-task-screen-04-original.png";
-import screen5 from "./acta-task-screen-05-original.png";
-import screen6 from "./acta-task-screen-06-original.png";
+import procedure from "./acta-figure-02-english.svg";
+import monitoring from "./acta-figure-03-english.svg";
+import visibleTimes from "./acta-figure-05-english.svg";
+import uncertainTimes from "./acta-figure-06-english.svg";
+import monitoringModel from "./acta-figure-07-english.svg";
+import incentiveTraits from "./acta-figure-08-english.svg";
+import incentives from "./acta-figure-09-english.svg";
+import incentiveModel from "./acta-figure-10-english.svg";
+
 interface Props {
   part: CasePart;
 }
+type Block =
+  | { kind: "copy" | "note" | "heading"; text: string }
+  | {
+      kind: "figure";
+      src: ImageMetadata;
+      number: string;
+      alt: string;
+      caption: string;
+      compact?: boolean;
+    }
+  | { kind: "table"; title: string; headings: string[]; rows: string[][] };
+interface ResultSection {
+  id: string;
+  title: string;
+  blocks: Block[];
+}
 const { part } = Astro.props;
-const screens = [
-  { source: screen1, content: "+", duration: "Random 0.8–1.5 s" },
+const article = "https://doi.org/10.3724/SP.J.1041.2026.0381";
+const sourceNote =
+  "English labels; significance marks follow the p values reported in the Results.";
+const sections: ResultSection[] = [
   {
-    source: screen2,
-    content: "Predict: heads or tails",
-    duration: "Up to 10 s",
+    id: "acta-monitoring",
+    title: "Visible monitoring produced the highest honesty",
+    blocks: [
+      {
+        kind: "copy",
+        text: "Honesty was highest under visible monitoring, intermediate when monitoring was uncertain, and lowest without monitoring. The same 46 participants completed Experiment 2 after Experiment 1; uncertain monitoring meant knowing that oversight was possible without seeing its current status.",
+      },
+      {
+        kind: "figure",
+        src: monitoring,
+        number: "3",
+        compact: true,
+        alt: "Complete published Figure 3 with English labels. A shows honesty rates for no monitoring, visible monitoring and uncertain monitoring; B shows response times for the same conditions. All three honesty comparisons are significant; uncertain monitoring has shorter response times than either visible monitoring or no monitoring.",
+        caption:
+          "Honesty and response time across monitoring conditions. Both panels retain the original axes, observations summarized by bars, error bars and comparison brackets.",
+      },
+      {
+        kind: "table",
+        title: "All three monitoring comparisons",
+        headings: ["Comparison", "Honesty rate", "Response time"],
+        rows: [
+          [
+            "Visible vs no monitoring",
+            "98% > 85%; p < .001",
+            "0.64 vs 0.63 s; not significant (post-hoc p = 1.00)",
+          ],
+          [
+            "Uncertain vs no monitoring",
+            "94% > 85%; p = .001",
+            "0.49 < 0.63 s; p < .001",
+          ],
+          [
+            "Visible vs uncertain",
+            "98% > 94%; p = .001",
+            "0.64 > 0.49 s; p < .001",
+          ],
+        ],
+      },
+      {
+        kind: "note",
+        text: "The Experiment 1 paired test likewise found no response-time difference between visible and absent monitoring (p = .383). In that experiment, behavior type, monitoring and their interaction also had no significant response-time effects (all p > .20).",
+      },
+    ],
   },
-  { source: screen3, content: "Tossing…", duration: "Random 1–2 s" },
-  { source: screen4, content: "Outcome: heads / tails", duration: "1 s" },
   {
-    source: screen5,
-    content: "Was your prediction correct or incorrect?",
-    duration: "Up to 10 s",
+    id: "acta-personality",
+    title: "Personality shaped monitoring responses",
+    blocks: [
+      {
+        kind: "copy",
+        text: "The honesty benefit of visible monitoring differed between high and low Machiavellianism groups (interaction p = .011) and psychopathy groups (p = .039), but not narcissism groups (p = .148). High and low refer to median splits of SD3 trait scores.",
+      },
+      {
+        kind: "table",
+        title:
+          "Visible versus absent monitoring within each trait group (Table 2)",
+        headings: ["Trait group", "Honesty comparison", "Reported p"],
+        rows: [
+          ["High Machiavellianism", "98% > 79%", ".005"],
+          ["Low Machiavellianism", "99% vs 95%; not significant", ".092"],
+          ["High psychopathy", "99% > 82%", "< .001"],
+          ["Low psychopathy", "99% vs 94%; not significant", ".091"],
+        ],
+      },
+      { kind: "heading", text: "Narcissism and the time taken to lie" },
+      {
+        kind: "copy",
+        text: "Behavior-by-narcissism interactions appeared in Experiment 1 (p = .030) and under uncertain monitoring in Experiment 2 (p = .038). Their simple comparisons differed: the clearest lying-time cost under uncertain monitoring occurred in the low-narcissism group.",
+      },
+      {
+        kind: "figure",
+        src: visibleTimes,
+        number: "5",
+        alt: "Complete Figure 5 with psychopathy, Machiavellianism and narcissism panels. Each shows honest and dishonest response times in low and high trait groups during Experiment 1. The high-narcissism simple comparison has no significance star because its reported p is .0523.",
+        caption:
+          "Experiment 1: honest and dishonest response times by trait group. The high-narcissism difference was a trend, not below the .05 threshold.",
+      },
+      {
+        kind: "figure",
+        src: uncertainTimes,
+        number: "6",
+        alt: "Complete Figure 6: response times under uncertain monitoring for low and high psychopathy, Machiavellianism and narcissism groups. The low-narcissism group takes longer to lie than to report honestly; the corresponding high-narcissism difference is not significant.",
+        caption:
+          "Experiment 2: response times when monitoring status was unknown.",
+      },
+      {
+        kind: "table",
+        title: "Every reported narcissism simple comparison",
+        headings: [
+          "Experiment and group",
+          "Lying vs honest response time",
+          "Reported p",
+        ],
+        rows: [
+          [
+            "Experiment 1 · high narcissism",
+            "0.65 vs 0.58 s; not significant",
+            ".0523",
+          ],
+          [
+            "Experiment 1 · low narcissism",
+            "0.70 vs 0.68 s; not significant",
+            ".728",
+          ],
+          [
+            "Uncertain monitoring · high narcissism",
+            "0.59 vs 0.48 s; not significant",
+            ".232",
+          ],
+          ["Uncertain monitoring · low narcissism", "1.17 > 0.57 s", ".004"],
+        ],
+      },
+      {
+        kind: "copy",
+        text: "In the Experiment 2 response-time analysis, lying was slower than honest reporting (0.92 vs 0.53 s, p = .002). Machiavellianism and psychopathy did not significantly moderate this time difference (interaction p = .344 and .842). Their behavior, trait-group and interaction effects were also nonsignificant in Experiment 1 (all p > .05).",
+      },
+    ],
   },
-  { source: screen6, content: "Feedback", duration: "1.5 s" },
+  {
+    id: "acta-incentives",
+    title: "Monetary rewards left a partial benefit after withdrawal",
+    blocks: [
+      {
+        kind: "copy",
+        text: "Separate groups received monetary incentives (Experiment 3a, n = 60) or moral feedback (3b, n = 62). Monetary rewards increased honesty; some of that gain remained after the reward was removed. Moral feedback showed no significant overall phase effect (p = .319).",
+      },
+      {
+        kind: "note",
+        text: "Baseline, intervention and withdrawal occurred within one session. The paper calls withdrawal the “internalization” phase; it tests immediate persistence after feedback removal.",
+      },
+      {
+        kind: "figure",
+        src: incentives,
+        number: "9",
+        compact: true,
+        alt: "Complete Figure 9 comparing monetary rewards and moral feedback across baseline, intervention and withdrawal. Monetary honesty rises and then partly declines while remaining above baseline; moral-feedback honesty stays near baseline. The original lines, points and error bars remain, with significance marks based on reported p values.",
+        caption:
+          "The monetary group retained part of its improvement after withdrawal. Baseline groups did not differ significantly; monetary incentives outperformed moral feedback in the next two phases.",
+      },
+      {
+        kind: "table",
+        title: "All monetary-reward phase comparisons",
+        headings: ["Comparison", "Honesty rate", "Reported p"],
+        rows: [
+          ["Intervention vs baseline", "97% > 89%", "< .001"],
+          ["Intervention vs withdrawal", "97% > 93%", ".004"],
+          ["Withdrawal vs baseline", "93% > 89%", ".013"],
+        ],
+      },
+      {
+        kind: "table",
+        title: "Monetary incentives versus moral feedback",
+        headings: ["Phase", "Honesty rate: monetary vs moral", "Reported p"],
+        rows: [
+          ["Baseline", "89% vs 88%; not significant", ".646"],
+          ["Intervention", "97% > 89%", ".003"],
+          ["Withdrawal", "93% > 88%", ".041"],
+        ],
+      },
+      {
+        kind: "table",
+        title: "Response times shortened in both experiments",
+        headings: ["Phase comparison", "Monetary rewards", "Moral feedback"],
+        rows: [
+          [
+            "Baseline vs intervention",
+            "5.44 > 5.03 s; p < .001",
+            "5.63 > 5.07 s; p < .001",
+          ],
+          [
+            "Intervention vs withdrawal",
+            "5.03 > 4.57 s; p < .001",
+            "5.07 > 4.45 s; p < .001",
+          ],
+          [
+            "Baseline vs withdrawal",
+            "5.44 > 4.57 s; p < .001",
+            "5.63 > 4.45 s; p < .001",
+          ],
+        ],
+      },
+    ],
+  },
+  {
+    id: "acta-incentive-traits",
+    title: "Trait differences persisted beyond the average effect",
+    blocks: [
+      {
+        kind: "copy",
+        text: "After monetary rewards were withdrawn, the high-Machiavellianism group was less honest than the low group (92% vs 96%, p = .044). Under moral feedback, high-narcissism participants had lower honesty at baseline, during feedback and after withdrawal.",
+      },
+      {
+        kind: "figure",
+        src: incentiveTraits,
+        number: "8",
+        alt: "Complete Figure 8. Row A shows monetary incentives and row B moral feedback; each row retains baseline, intervention and withdrawal, with high and low groups for all three traits. The significant group differences are Machiavellianism after monetary withdrawal and narcissism at all three moral-feedback phases.",
+        caption:
+          "All three traits and all phases remain visible. Dark and light bars denote high and low trait groups, respectively.",
+      },
+      {
+        kind: "table",
+        title: "High–low trait contrasts across all phases",
+        headings: ["Phase", "Monetary rewards", "Moral feedback"],
+        rows: [
+          [
+            "Baseline",
+            "No significant high–low contrast for any trait",
+            "High narcissism < low; p = .034",
+          ],
+          [
+            "Intervention",
+            "No significant high–low contrast for any trait",
+            "High narcissism < low; p = .013",
+          ],
+          [
+            "Withdrawal",
+            "High Machiavellianism < low; p = .044. Other traits not significant",
+            "High narcissism < low; p = .024",
+          ],
+        ],
+      },
+      {
+        kind: "note",
+        text: "Under moral feedback, Machiavellianism and psychopathy high–low comparisons were nonsignificant at every phase (all p > .20 and p > .162, respectively). The monetary-withdrawal result compares groups at that phase; it is not itself a test of which group declined more.",
+      },
+    ],
+  },
+  {
+    id: "acta-models",
+    title: "Trial-level models connected traits with context",
+    blocks: [
+      {
+        kind: "copy",
+        text: "Mixed-effects models used continuous standardized trait scores and participant random intercepts. The forest plots show conditional model coefficients; the adjoining curves show model predictions.",
+      },
+      { kind: "heading", text: "Monitoring presence and visibility" },
+      {
+        kind: "copy",
+        text: "Monitoring and visibility interacted (p < .001). Visibility also interacted with Machiavellianism (p = .013) and narcissism (p = .006), but not psychopathy (p = .445). The visibility-by-narcissism relationship additionally depended on whether monitoring was present (three-way p = .024); the corresponding Machiavellianism and psychopathy three-way terms were nonsignificant (both p > .5).",
+      },
+      {
+        kind: "figure",
+        src: monitoringModel,
+        number: "7",
+        alt: "Complete Figure 7: all fixed-effect odds ratios and confidence intervals for the monitoring model, with every two-way and three-way marginal-prediction panel. Stars for visibility by Machiavellianism and monitoring by visibility by narcissism follow their reported Results p values.",
+        caption:
+          "Monitoring-model coefficients and predicted honesty probabilities. Predictions do not represent additional observed group means.",
+      },
+      { kind: "heading", text: "Feedback type, phase and personality" },
+      {
+        kind: "copy",
+        text: "The monetary condition showed larger intervention and withdrawal-related honesty gains than moral feedback (type-by-phase p < .001 for both). Psychopathy was associated with stronger phase-related gains in the monetary reference condition (intervention p = .025; withdrawal p < .001).",
+      },
+      {
+        kind: "copy",
+        text: "As Machiavellianism increased, the relative withdrawal-stage change became more favorable to moral feedback (type × withdrawal × trait, p < .001). During intervention, the corresponding relative change favored monetary rewards at higher psychopathy scores (p = .025). These are interactions across conditions and phases, rather than separate within-group tests.",
+      },
+      {
+        kind: "figure",
+        src: incentiveModel,
+        number: "10",
+        alt: "Complete Figure 10: all fixed-effect odds ratios and confidence intervals for feedback type, phase and personality, plus the complete marginal-prediction panels. Original estimates remain; significance annotations follow the p values reported in Results.",
+        caption:
+          "The combined incentive model. It also displays a withdrawal-by-Machiavellianism term; all coefficients and prediction panels from the published figure are retained.",
+      },
+    ],
+  },
 ];
 ---
 
@@ -41,103 +316,220 @@ const screens = [
 {part === "visual" && (
   <section
     class="portfolio-section acta-task-section"
-    aria-labelledby="task-title"
+    aria-labelledby="acta-task-title"
   >
-    <h2 id="task-title">A coin-prediction task</h2>
-    <figure class="portfolio-figure">
-      <ol class="acta-screens" aria-label="Six steps in one trial">
-        {screens.map((screen, index) => (
-          <li>
-            <div class="acta-screen-meta">
-              <span class="acta-step-number" aria-hidden="true">
-                {index + 1}
-              </span>
-              <span>{screen.duration}</span>
-            </div>
-            <div class:list={["acta-screen", { "acta-fixation": index === 0 }]}>
-              <img
-                src={screen.source.src}
-                width={screen.source.width}
-                height={screen.source.height}
-                alt=""
-                aria-hidden="true"
-                loading="eager"
-                decoding="async"
-              />
-              <span>{screen.content}</span>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <figcaption class="acta-task-caption">
-        Predictions and outcomes were recorded, so each report could be checked.
-        Reporting a correct guess earned more tokens.
-        <span class="acta-caption-source">
-          Adapted from Fig. 2a; English labels.
-        </span>
-      </figcaption>
-    </figure>
-    <p class="portfolio-note acta-ai-context">
-      Programmed monitoring and feedback were framed as AI oversight.
+    <h2 id="acta-task-title">A coin-prediction task across four experiments</h2>
+    <ResearchFigure
+      src={procedure}
+      eager
+      class="acta-full-figure"
+      alt="Complete published Figure 2, panels a through d, with English labels. A retains the six trial screens and timings. B and C show the coin outcomes and prediction accuracy. D retains monitored and unmonitored branches and the baseline, intervention and withdrawal conditions for monetary rewards and moral feedback."
+    >
+      <a href={article}>Figure 2, Wang et al., 2026.</a> Participants predicted
+      a coin outcome, then reported whether their prediction was correct.
+      Reports could be checked against the recorded prediction; reporting a
+      correct guess earned more tokens. Panel d shows the monitoring and
+      feedback conditions. English labels; original procedure and numerical
+      settings retained.
+    </ResearchFigure>
+    <p class="portfolio-note">
+      Programmed monitoring and feedback were framed as AI oversight. In
+      Experiment 3a, an unannounced extra reward followed five consecutive
+      honest reports; Experiment 3b used encouraging or reflective text.
     </p>
   </section>
 )}
 
 {part === "body" && (
   <>
-    <section class="portfolio-section" aria-labelledby="monitoring-title">
-      <h2 id="monitoring-title">Monitoring and honest reporting</h2>
-      <div class="acta-monitoring-result">
-        <ResearchFigure
-          src={monitoring}
-          alt="Published honesty-rate comparison: visible monitoring has the highest bar, uncertain monitoring is intermediate, and no monitoring is lowest. The source axis runs from 80% to 100%; original error bars and significance brackets are preserved."
-          class="acta-monitoring-figure"
-        >
-          <span class="acta-caption-source">
-            Adapted from Fig. 3a; English labels. *** <em>p</em> &lt; .001.
-          </span>
-        </ResearchFigure>
-        <div class="acta-result-copy">
-          <p class="acta-finding">
-            Honesty was highest when monitoring was visible.
-          </p>
-          <p class="portfolio-copy">
-            Experiment 2 used uncertain monitoring and followed Experiment 1 in
-            the same 46 participants.
-          </p>
-          <p class="portfolio-copy">
-            In Experiment 1, the monitoring effect was larger in groups with
-            higher Machiavellianism or psychopathy scores.
-          </p>
-        </div>
-      </div>
-    </section>
-    <section class="portfolio-section" aria-labelledby="incentives-title">
-      <h2 id="incentives-title">After incentives were removed</h2>
-      <ResearchFigure
-        src={incentives}
-        alt="Published honesty rates across baseline, incentive and withdrawal phases. Monetary rewards show an increase during incentives and remain above baseline after withdrawal. Moral feedback shows no comparable increase. Original curves, error bars and significance marks are preserved."
-        class="acta-incentives-figure"
-      >
-        <span class="acta-caption-source">
-          Adapted from Fig. 9; English labels. * <em>p</em> &lt; .05, **{" "}
-          <em>p</em> &lt; .01, *** <em>p</em> &lt; .001.
-        </span>
-      </ResearchFigure>
-      <p class="portfolio-copy">
-        In the monetary-reward experiment, honesty rose during incentives and
-        remained above baseline after withdrawal. Moral feedback showed no
-        comparable increase.
+    <nav class="acta-result-nav" aria-label="Results on this page">
+      <a href="#acta-monitoring">Monitoring</a>
+      <a href="#acta-personality">Personality</a>
+      <a href="#acta-incentives">Incentives</a>
+      <a href="#acta-incentive-traits">Trait differences</a>
+      <a href="#acta-models">Models</a>
+      <a href="#acta-statistics">Statistical details</a>
+    </nav>
+    {sections.map((section) => (
+      <section class="portfolio-section" aria-labelledby={section.id}>
+        <h2 id={section.id}>{section.title}</h2>
+        {section.blocks.map((block) => (
+          <>
+            {block.kind === "copy" && (
+              <p class="portfolio-copy">{block.text}</p>
+            )}
+            {block.kind === "note" && (
+              <p class="portfolio-note">{block.text}</p>
+            )}
+            {block.kind === "heading" && (
+              <h3 class="acta-subheading">{block.text}</h3>
+            )}
+            {block.kind === "figure" && (
+              <ResearchFigure
+                src={block.src}
+                alt={block.alt}
+                class={
+                  block.compact ? "acta-compact-figure" : "acta-full-figure"
+                }
+              >
+                <a href={article}>Figure {block.number}.</a> {block.caption}
+                <span class="acta-source-note">{sourceNote}</span>
+              </ResearchFigure>
+            )}
+            {block.kind === "table" && (
+              <table class="acta-results-table" role="table">
+                <caption>{block.title}</caption>
+                <thead>
+                  <tr role="row">
+                    {block.headings.map((heading) => (
+                      <th scope="col" role="columnheader">
+                        {heading}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {block.rows.map((row) => (
+                    <tr role="row">
+                      <th scope="row" role="rowheader">
+                        {row[0]}
+                      </th>
+                      {row.slice(1).map((cell, index) => (
+                        <td role="cell" data-label={block.headings[index + 1]}>
+                          {cell}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            )}
+          </>
+        ))}
+      </section>
+    ))}
+
+    <details class="portfolio-methods acta-statistics" id="acta-statistics">
+      <summary>Reported statistical tests and effect sizes</summary>
+      <h3>Monitoring and personality</h3>
+      <p>
+        Experiment 1 honesty: t(45) = 4.59, p &lt; .001, d = .67. Across the
+        three monitoring conditions, honesty F(2, 90) = 18.10, η² = .28, and
+        response time F(2, 90) = 34.10, η² = .43 (both p &lt; .001).
       </p>
-      <p class="portfolio-note">
-        Separate groups; phases within the same session.
+      <p>
+        In the three-condition post-hoc analysis, the honesty contrasts had
+        t(45) = −4.60, −3.79 and 3.91, with d = .89, .58 and .54 for visible
+        versus absent, uncertain versus absent and visible versus uncertain
+        monitoring, respectively. Response-time contrasts had t(45) = 6.48, 6.20
+        and −.88, with d = .82, .71 and .06 for visible versus uncertain, absent
+        versus uncertain and visible versus absent monitoring.
       </p>
-    </section>
+      <ul>
+        <li>
+          <strong>Machiavellianism:</strong> honesty trait-group F(1, 44) =
+          7.81, p = .008, η² = .15; monitoring F = 24.01, p &lt; .001, η² = .35;
+          interaction F = 7.11, p = .011, η² = .14.
+        </li>
+        <li>
+          <strong>Narcissism:</strong> honesty trait-group F(1, 44) = 1.10, p =
+          .301, η² = .02; monitoring F = 21.69, p &lt; .001, η² = .33;
+          interaction F = 2.17, p = .148, η² = .05.
+        </li>
+        <li>
+          <strong>Psychopathy:</strong> honesty trait-group F(1, 44) = 3.82, p =
+          .057, η² = .08; monitoring F = 22.78, p &lt; .001, η² = .34;
+          interaction F = 4.50, p = .039, η² = .09.
+        </li>
+      </ul>
+      <p>
+        The four within-group monitoring contrasts in Table 2 had t = 4.60 (df =
+        25), 1.77 (19), 4.44 (28) and 1.80 (16), with d = .90, .40, .82 and .44
+        for high/low Machiavellianism and high/low psychopathy, respectively.
+      </p>
+      <p>
+        The behavior-by-narcissism response-time interactions were F(1, 23) =
+        5.33, p = .030, η² = .19 in Experiment 1, and F(1, 29) = 4.74, p = .038,
+        η² = .14 in Experiment 2. Under uncertain monitoring, the overall
+        honest–lying contrast was t(30) = −3.34, p = .002, d = −.60; the
+        low-narcissism contrast was t(17) = −3.33, p = .004.
+      </p>
+      <p>
+        In Experiment 2, Machiavellianism group, behavior and interaction tests
+        were F(1, 29) = .31, 11.14 and .92 (p = .590, .002 and .344).
+        Psychopathy tests were F(1, 29) = .30, 10.81 and .041 (p = .586, .003
+        and .842). Behavioral effect sizes were η² = .28 and .27, respectively.
+      </p>
+      <h3>Incentives and withdrawal</h3>
+      <p>
+        Monetary incentives: honesty F(2, 118) = 16.06, p &lt; .001, η² = .21;
+        response time F(2, 118) = 58.59, p &lt; .001, η² = .49. Moral feedback:
+        the reported honesty phase effect was nonsignificant (p = .319);
+        response time F(2, 122) = 130.07, p &lt; .001, η² = .68.
+      </p>
+      <p>
+        The combined analysis reported a phase effect, F(2, 240) = 13.30, p &lt;
+        .001, η² = .099, a feedback-type effect with p = .057, and a
+        phase-by-type interaction with p = .0013. Between-type baseline,
+        intervention and withdrawal contrasts were t(120) = .46, 3.07 and 2.06;
+        the latter two had d = .55 and .34.
+      </p>
+      <p>
+        The monetary-withdrawal Machiavellianism contrast was t(57.98) = −2.04,
+        p = .044, d = −.52. Under moral feedback, high–low narcissism contrasts
+        were t(53.62) = −2.16, d = −.51 at baseline; t(49.95) = −2.55, d = −.60
+        during intervention; and t(48.52) = −2.31, d = −.54 after withdrawal.
+      </p>
+      <h3>Conditional model effects</h3>
+      <p>
+        In the monitoring model, the conditional monitoring main effect was
+        nonsignificant (p = .838), visibility was significant (p &lt; .001), and
+        Machiavellianism had p = .065. The remaining conditional coefficients
+        are shown in Figure 7. These coefficients are interpreted with their
+        interaction terms, not as unconditional comparisons of monitoring
+        conditions.
+      </p>
+      <p>
+        In the incentive model, intervention and withdrawal coefficients were
+        positive (both p &lt; .001), while feedback-type and trait main effects
+        were nonsignificant (p = .892 and all p &gt; .1). Figure 10 retains the
+        other reported terms and their confidence intervals; exact unreported p
+        values are not inferred from their size.
+      </p>
+    </details>
+
+    <details class="portfolio-methods acta-statistics">
+      <summary>Measurement, materials pretest and model checks</summary>
+      <p>
+        The 27-item Short Dark Triad scale measured Machiavellianism, narcissism
+        and psychopathy, with nine items per trait. Reported λ6 coefficients
+        were .75, .70 and .72; KMO values were .80, .674 and .78; all Bartlett
+        tests had p &lt; .001.
+      </p>
+      <p>
+        An independent pretest with 111 participants checked the moral-feedback
+        materials. Encouraging messages had more positive valence than
+        reflective messages (7.88 vs 4.86; t(110) = 18.91, p &lt; .001, d =
+        1.79). Ratings of encouragement to remain honest (7.47) and prompts to
+        reflect (6.45) each exceeded the neutral midpoint of 5: t(110) = 24.02
+        and 12.76, d = 2.28 and 1.21 (both p &lt; .001). These were material
+        ratings, distinct from the behavioral outcomes.
+      </p>
+      <p>
+        The monitoring model had marginal/conditional R² = .19/.66,
+        random-intercept variance = 4.58 and ICC = .58. The incentive model had
+        marginal/conditional R² = .116/.517 and ICC = .45. Trait correlations
+        were .07/.26/.28 in the monitoring data and .29/.46/.36 in the incentive
+        data; reported VIFs were 1.15/1.26/1.09. These are model-fit and
+        collinearity summaries, not out-of-sample prediction scores.
+      </p>
+    </details>
+
     <section
       class="portfolio-section acta-publication"
-      aria-labelledby="publication-title"
+      aria-labelledby="acta-publication-title"
     >
-      <h2 id="publication-title">Publication</h2>
+      <h2 id="acta-publication-title">Publication</h2>
       <p class="portfolio-copy acta-citation">
         Wang, J., Jiang, X., Chen, Y., Wang, M., &amp; Du, F. (2026). From Overt
         Deterrence to Covert Internalization: Moral Effects of AI Regulation and
@@ -149,127 +541,134 @@ const screens = [
 )}
 
 <style>
-  .acta-screens {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.5rem 1.25rem;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  .acta-task-section {
+    margin-top: 0;
   }
-  .acta-screens li {
-    min-width: 0;
-  }
-  .acta-screen-meta {
+  .acta-result-nav {
     display: flex;
-    align-items: baseline;
-    gap: 0.7rem;
-    margin-bottom: 0.55rem;
-    color: var(--portfolio-muted);
-    font-size: 1rem;
-    line-height: 1.4;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    padding-block: 1rem;
+    margin-bottom: 2.5rem;
+    border-block: 1px solid var(--portfolio-line);
+    font-size: 0.9rem;
   }
-  .acta-step-number {
+  .acta-result-nav a {
     color: var(--portfolio-accent);
-    font-size: 1.125rem;
-    font-weight: 700;
+    text-underline-offset: 0.2em;
   }
-  .acta-screen {
-    position: relative;
-    display: grid;
-    place-items: center;
-    min-height: 10rem;
-    padding: 20px;
-    isolation: isolate;
-    text-align: center;
+  h2[id],
+  #acta-statistics {
+    scroll-margin-top: 6rem;
   }
-  .acta-screen img {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    max-width: none;
-    z-index: -2;
+  .acta-subheading {
+    margin-top: 2rem;
   }
-  .acta-screen::before {
-    content: "";
-    position: absolute;
-    inset: 14% 8%;
-    background: #8c898e;
-    z-index: -1;
+  :global(.acta-full-figure) {
+    max-width: 68rem;
+    margin: 1.5rem auto;
   }
-  .acta-screen > span {
-    font-size: 1.3rem;
-    line-height: 1.4;
-    font-weight: 700;
-    color: #10141a;
-    text-wrap: balance;
+  :global(.acta-compact-figure) {
+    max-width: 48rem;
+    margin: 1.5rem auto;
   }
-  .acta-fixation > span {
-    font-size: 2.5rem;
-    font-weight: 400;
-  }
-  .acta-task-caption {
-    max-width: 46rem;
-  }
-  .acta-caption-source {
+  .acta-source-note {
     display: block;
     font-size: 0.875rem;
   }
-  .acta-ai-context {
-    margin: 0.6rem 0 0;
-  }
-  .acta-monitoring-result {
-    display: grid;
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
-    align-items: center;
-    gap: clamp(1.5rem, 4vw, 3.5rem);
-  }
-  .acta-result-copy {
-    min-width: 0;
-  }
-  .acta-finding {
-    font-family: "Crimson Pro Variable", Georgia, serif;
-    font-size: 1.8rem;
-    line-height: 1.25;
-    margin: 0 0 1rem;
+  .acta-results-table {
+    width: 100%;
+    max-width: 64rem;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin: 1.5rem 0 2rem;
+    font-size: 0.9375rem;
+    line-height: 1.5;
     color: var(--portfolio-ink);
+  }
+  .acta-results-table caption {
+    text-align: left;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--portfolio-ink);
+    padding-bottom: 0.8rem;
+  }
+  .acta-results-table :is(th, td) {
+    padding: 0.8rem 0.85rem;
+    vertical-align: top;
+    text-align: left;
+    border-bottom: 1px solid var(--portfolio-line);
+    overflow-wrap: anywhere;
+  }
+  .acta-results-table thead th {
+    background: var(--portfolio-surface);
+    font-weight: 700;
+  }
+  .acta-results-table tbody th {
+    width: 30%;
+    font-weight: 600;
+  }
+  .acta-results-table td {
+    color: var(--portfolio-muted);
+  }
+  .acta-statistics p {
+    max-width: 55rem;
+    margin: 1rem 0;
+  }
+  .acta-statistics h3 {
+    margin: 1.8rem 0 0.7rem;
+  }
+  .acta-statistics ul {
+    max-width: 55rem;
+    padding-left: 1.3em;
+  }
+  .acta-statistics li + li {
+    margin-top: 0.8rem;
+  }
+  .acta-publication {
+    margin-top: 2.5rem;
+    margin-bottom: 0;
   }
   .acta-citation {
     font-size: 0.9375rem;
   }
-  .acta-publication {
-    margin-bottom: 0;
-  }
-  @media (max-width: 47rem) {
-    .acta-screens {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 1.25rem 0.8rem;
+  @media (max-width: 45rem) {
+    .acta-results-table,
+    .acta-results-table caption,
+    .acta-results-table tbody,
+    .acta-results-table tr,
+    .acta-results-table th,
+    .acta-results-table td {
+      display: block;
+      width: 100%;
     }
-    .acta-screen {
-      min-height: 10rem;
-      padding: 14px;
+    .acta-results-table thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
     }
-    .acta-screen > span {
-      font-size: 1.125rem;
+    .acta-results-table tr {
+      margin-bottom: 1rem;
+      padding: 0.9rem 0;
+      border-top: 1px solid var(--portfolio-line);
     }
-    .acta-fixation > span {
-      font-size: 2.25rem;
+    .acta-results-table :is(th, td) {
+      border: 0;
+      padding: 0.3rem 0;
     }
-    .acta-monitoring-result {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 1.25rem;
+    .acta-results-table tbody th {
+      width: 100%;
+      margin-bottom: 0.3rem;
     }
-    .acta-finding {
-      font-size: 1.6rem;
-    }
-  }
-  @media (max-width: 359px) {
-    .acta-screens {
-      grid-template-columns: minmax(0, 1fr);
-    }
-    .acta-screen {
-      min-height: 9rem;
+    .acta-results-table td::before {
+      content: attr(data-label);
+      display: block;
+      font-size: 0.85em;
+      font-weight: 700;
+      color: var(--portfolio-ink);
     }
   }
 </style>

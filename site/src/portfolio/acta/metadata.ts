@@ -1,5 +1,5 @@
 import type { PortfolioCase } from "../types";
-import thumbnail from "./acta-monitoring-english.svg";
+import thumbnail from "./acta-figure-03-english.svg";
 
 export default {
   slug: "honesty-ai-supervision",
@@ -12,7 +12,7 @@ export default {
   facts: [{ label: "Journal", value: "Acta Psychologica Sinica" }],
   thumbnail,
   thumbnailAlt:
-    "Published comparison of honesty rates across monitoring conditions.",
+    "Published comparison of honesty rates and response times across monitoring conditions.",
   resources: [
     {
       label: "Read the published article",

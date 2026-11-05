@@ -1,15 +1,19 @@
 ---
 import ResearchFigure from "../../components/ResearchFigure.astro";
 import type { CasePart } from "../types";
-import paired from "./emotion-paired-illustration-v2.png";
+import procedure from "./emotion-figure-1-original.jpeg";
 import coverage from "./emotion-measurement-coverage-v2.png";
-import decoding from "./emotion-decoding-result-v2.png";
-import photograph from "./emotion-paired-setup.png";
+import behavior from "./emotion-figure-3-original.jpeg";
+import activation from "./emotion-figure-4-original.png";
+import decoding from "./emotion-figure-5-original.jpeg";
+import functionalDecoding from "./emotion-figure-6-original.jpeg";
+import theory from "./emotion-figure-7-original.jpeg";
 
 interface Props {
   part: CasePart;
 }
 const { part } = Astro.props;
+const article = "https://doi.org/10.1037/emo0001683";
 ---
 
 {part === "intro" && (
@@ -23,109 +27,32 @@ const { part } = Astro.props;
 {part === "visual" && (
   <section
     class="portfolio-section emotion-task-section"
-    aria-label="The interpersonal regulation task"
+    aria-labelledby="emotion-task-heading"
   >
+    <h2 id="emotion-task-heading">The paired task</h2>
     <ResearchFigure
-      src={paired}
-      preserveSource={false}
+      src={procedure}
       eager
-      class="emotion-pair"
-      alt="Published illustration of two participants facing each other across a table, each wearing an fNIRS cap and using a separate display and response keypad."
+      class="emotion-procedure"
+      alt="Original Figure 1. A and B show the paired fNIRS setup and masked participant photograph. C shows initial and final resting periods around one neutral and four negative-image blocks. For both regulator and target, a negative image and ratings precede an eight-second interaction, followed by the same image and new ratings. Separate rows preserve the cognitive-reappraisal and arithmetic-distraction procedures and all phase timings."
     >
-      Simultaneous fNIRS recording from both participants.{" "}
-      <a href="https://doi.org/10.1037/emo0001683">
-        Yang et al., 2026, Figure 1A.
-      </a>
+      <a href={article}>Figure 1, Yang et al., 2026.</a> Thirty-four pairs of
+      women took part. In panel C, CR denotes reinterpreting the image
+      (cognitive reappraisal); DIS denotes mental arithmetic (distraction). The
+      regulator offered the strategy and the target responded; both rated the
+      same negative image before and after the interaction.
     </ResearchFigure>
-    <figure class="portfolio-figure emotion-story">
-      <ol class="emotion-scenes">
-        <li>
-          <span class="scene-number">1</span>
-          <div class="image-and-rating" aria-hidden="true">
-            <svg class="emotion-image-card" viewBox="0 0 200 120">
-              <rect
-                x="1"
-                y="1"
-                width="198"
-                height="118"
-                rx="6"
-                fill="#e9eff1"
-                stroke="#526476"
-                stroke-width="2"
-              />
-              <circle cx="147" cy="32" r="12" fill="#d6c2a4" />
-              <path d="M2 113 62 39 108 94 139 65 198 113Z" fill="#90a5ab" />
-              <path d="m44 61 18-22 19 23-17-8Z" fill="#f8fafb" />
-            </svg>
-            <div class="rating-ruler">
-              <i />
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-          </div>
-          <h3>View and rate</h3>
-        </li>
-        <li class="emotion-interaction">
-          <span class="scene-number">2</span>
-          <div class="strategy-examples">
-            <div>
-              <span class="speech-example" aria-hidden="true">
-                ↻
-              </span>
-              <strong>Reappraisal</strong>
-            </div>
-            <span class="strategy-or">or</span>
-            <div>
-              <span class="speech-example arithmetic" aria-hidden="true">
-                71 − 52 = ?
-              </span>
-              <strong>Arithmetic distraction</strong>
-            </div>
-          </div>
-          <h3>Regulation interaction</h3>
-          <p>Regulator offers a strategy; target responds.</p>
-        </li>
-        <li>
-          <span class="scene-number">3</span>
-          <div class="image-and-rating" aria-hidden="true">
-            <svg class="emotion-image-card" viewBox="0 0 200 120">
-              <rect
-                x="1"
-                y="1"
-                width="198"
-                height="118"
-                rx="6"
-                fill="#e9eff1"
-                stroke="#526476"
-                stroke-width="2"
-              />
-              <circle cx="147" cy="32" r="12" fill="#d6c2a4" />
-              <path d="M2 113 62 39 108 94 139 65 198 113Z" fill="#90a5ab" />
-              <path d="m44 61 18-22 19 23-17-8Z" fill="#f8fafb" />
-            </svg>
-            <div class="rating-ruler">
-              <i />
-              <i />
-              <i />
-              <i />
-              <i />
-            </div>
-          </div>
-          <h3>View the same image and rate again</h3>
-        </li>
-      </ol>
-      <figcaption>
-        Task illustration: the same negative image was rated before and after
-        the interaction. The picture card is illustrative.
-      </figcaption>
-    </figure>
   </section>
 )}
 
 {part === "body" && (
   <>
+    <nav class="emotion-result-nav" aria-label="Results on this page">
+      <a href="#emotion-behavior-heading">Behavior</a>
+      <a href="#emotion-activation-heading">Activation</a>
+      <a href="#emotion-decoding-heading">Interbrain synchrony</a>
+      <a href="#emotion-interpretation-heading">Interpretation</a>
+    </nav>
     <section
       class="portfolio-section"
       aria-labelledby="emotion-measurement-heading"
@@ -134,213 +61,256 @@ const { part } = Astro.props;
       <ResearchFigure
         src={coverage}
         class="emotion-coverage"
-        alt="Published fNIRS coverage: frontal and lateral brain views show source and detector positions and the ten sampled regions, including prefrontal, primary motor, primary sensory, Broca and Wernicke regions."
+        alt="Original Figure 2. Frontal and lateral brain views show all sources, detectors and channels across ten regions, including prefrontal, primary motor, primary sensory, Broca and Wernicke regions. The complete color legend identifies the sampled regions."
       >
-        fNIRS tracks blood-oxygenation changes in sampled cortical regions,
-        yielding regional time courses for each person.{" "}
-        <a href="https://doi.org/10.1037/emo0001683">Figure 2.</a>
+        <a href={article}>Figure 2.</a> Simultaneous fNIRS recordings yielded
+        blood-oxygenation time courses from ten cortical regions per person.
       </ResearchFigure>
     </section>
-    <section class="portfolio-section" aria-labelledby="emotion-result-heading">
-      <h2 id="emotion-result-heading">
-        What the neural patterns distinguished
+
+    <section
+      class="portfolio-section"
+      aria-labelledby="emotion-behavior-heading"
+    >
+      <h2 id="emotion-behavior-heading">
+        Valence improved, especially after reappraisal
       </h2>
       <p class="portfolio-copy">
-        Interbrain synchronization patterns distinguished strategy and
-        rating-defined regulation success in within-participant
-        cross-validation. Success meant a more positive rating on the second
-        viewing.
+        Valence ratings were higher after regulation and higher overall for
+        regulators than targets. Reappraisal produced higher postregulation
+        valence than distraction; the strategies did not differ reliably before
+        regulation. The time-by-strategy interaction was significant, while the
+        other valence interactions and all arousal effects were nonsignificant.
+      </p>
+      <ResearchFigure
+        src={behavior}
+        class="emotion-behavior"
+        alt="Original Figure 3. Four valence distributions show reappraisal and distraction before and after regulation. Individual points, box plots and significance brackets are intact. Postregulation reappraisal has higher ratings than postregulation distraction."
+      >
+        <a href={article}>Figure 3.</a> Pre-IER and post-IER denote ratings
+        before and after interpersonal emotion regulation. Higher ratings
+        indicate more positive valence. *** p &lt; .001.
+      </ResearchFigure>
+    </section>
+
+    <section
+      class="portfolio-section"
+      aria-labelledby="emotion-activation-heading"
+    >
+      <h2 id="emotion-activation-heading">
+        Activation depended on role and strategy
+      </h2>
+      <p class="portfolio-copy">
+        Role-by-strategy interactions appeared in the frontal pole (FP), left
+        and right orbitofrontal cortex (lOFC, rOFC), and right Broca’s area
+        (rBroca). Targets showed higher activation during distraction than
+        reappraisal in all four regions. During reappraisal, regulators showed
+        higher activation than targets in all four; during distraction, targets
+        exceeded regulators in rOFC and rBroca.
+      </p>
+      <ResearchFigure
+        src={activation}
+        class="emotion-activation"
+        alt="Complete original Figure 4, including A frontal pole, B left orbitofrontal cortex, C right orbitofrontal cortex and D right Broca's area. Each panel retains the four role-by-strategy distributions, individual observations, beta-value axes and all reported significance brackets; the shared condition legend remains between the rows."
+      >
+        <a href={article}>Figure 4A–D.</a> Task-related oxygenated-hemoglobin
+        activation estimates. * p &lt; .05; ** p &lt; .01; *** p &lt; .001.
+      </ResearchFigure>
+    </section>
+
+    <section
+      class="portfolio-section"
+      aria-labelledby="emotion-decoding-heading"
+    >
+      <h2 id="emotion-decoding-heading">
+        Interbrain patterns distinguished strategy and success
+      </h2>
+      <p class="portfolio-copy">
+        Correlations between the two participants’ regional time courses formed
+        a 10 × 10 interbrain-synchronization matrix for each trial. In five-fold
+        within-participant cross-validation, classifiers distinguished the
+        strategy, regulator success and target success above 50% chance (all
+        FDR-corrected p &lt; .001). Success meant a more positive valence rating
+        on the second viewing.
+      </p>
+      <p class="portfolio-copy">
+        Feature-importance rankings differed across region pairs for all three
+        classifiers. Connections involving the regulator’s frontal pole appeared
+        repeatedly among the most informative features.
       </p>
       <ResearchFigure
         src={decoding}
-        class="emotion-result"
-        alt="Published decoding results for strategy, regulator success and target success. Each violin retains individual points and the box plot; the dashed horizontal line marks chance accuracy of 0.5. All three comparisons are marked above chance."
+        class="emotion-decoding"
+        alt="Complete original Figure 5. A shows strategy, regulator-success and target-success decoding accuracies with all points, distributions, box plots and the 0.50 chance line. B shows the ten highest-ranked interbrain region pairs for each classifier. Lower average ranks indicate greater importance; each pair names the regulator's region first and the target's region second."
       >
-        Original published result,{" "}
-        <a href="https://doi.org/10.1037/emo0001683">Figure 5A</a>. The three
-        targets were strategy, regulator success and target success.
+        <a href={article}>Figure 5A–B.</a> A: all three decoding tests exceeded
+        chance. B: lower average rank indicates greater feature importance;
+        pairs are regulator ROI × target ROI. These tests evaluated held-out
+        trials within participants, rather than generalization to new
+        participants.
       </ResearchFigure>
     </section>
+
+    <section
+      class="portfolio-section"
+      aria-labelledby="emotion-interpretation-heading"
+    >
+      <h2 id="emotion-interpretation-heading">
+        Exploratory functional interpretation
+      </h2>
+      <p class="portfolio-copy">
+        Neurosynth analyses linked the four regions to terms from the
+        neuroimaging literature. These associations informed an interpretation
+        in which regulators support monitoring and guidance, while targets
+        engage different demands when accepting a reinterpretation or doing
+        arithmetic. This functional account remains exploratory.
+      </p>
+      <ResearchFigure
+        src={functionalDecoding}
+        class="emotion-functional-decoding"
+        alt="Complete original Figure 6. Four panels retain the brain slices, coordinates and associated term clouds for frontal pole, left and right orbitofrontal cortex and right Broca's area. These are literature-based Neurosynth functional associations, not activation maps measured in this study's participants."
+      >
+        <a href={article}>Figure 6A–D.</a> Literature-based functional decoding:
+        brain locations and associated cognitive terms for each region.
+      </ResearchFigure>
+      <details class="portfolio-methods">
+        <summary>The paper’s proposed theoretical model</summary>
+        <ResearchFigure
+          src={theory}
+          class="emotion-theory"
+          alt="Original Figure 7, the authors' proposed model. A regulator monitoring-and-guidance system is paired with a target inhibitory-and-executive system, with interbrain synchrony between them and valence outcomes for both roles. Directional arrows express the theoretical interpretation."
+        >
+          <a href={article}>Figure 7.</a> The authors’ proposed integration of
+          behavioral, activation and synchrony findings. Its arrows depict a
+          candidate mechanism; the symmetric correlations do not establish
+          causal transmission between brains.
+        </ResearchFigure>
+      </details>
+    </section>
+
+    <details class="portfolio-methods emotion-statistics">
+      <summary>Reported statistical comparisons</summary>
+      <h3>Behavior</h3>
+      <p>
+        Valence main effects: role, F(1, 231) = 69.08, η² = .23; time, F =
+        70.91, η² = .23; strategy, F = 36.68, η² = .14. The time × strategy
+        interaction was F = 22.40, η² = .09 (all p &lt; .001). Other valence
+        interactions had Fs &lt; 3.43, ps &gt; .065. Arousal had no significant
+        main effects or interactions (Fs &lt; 3.63, ps &gt; .058).
+      </p>
+      <p>
+        Regulators versus targets: t(231) = 8.31, d = 1.01; post- versus
+        preregulation: t = 8.42, d = 1.02; reappraisal versus distraction after
+        regulation: t = 7.63, d = 1.31 (all p &lt; .001). Before regulation, the
+        strategy comparison was t = .94, p = .350, d = .16.
+      </p>
+      <h3>Activation</h3>
+      <p>
+        Role × strategy interactions, all with F(1, 99): FP, 17.20, p &lt; .001,
+        η² = .15; lOFC, 9.30, p = .003, η² = .09; rOFC, 26.09, p &lt; .001, η² =
+        .21; rBroca, 10.95, p = .001, η² = .10. Strategy main effects were also
+        reported in FP (F = 6.31, p = .014, η² = .06) and rOFC (F = 9.45, p =
+        .003, η² = .09).
+      </p>
+      <ul class="emotion-comparisons">
+        <li>
+          <strong>FP:</strong> targets DIS &gt; CR, t(99) = 4.70, p &lt; .001, d
+          = 1.14; regulators &gt; targets under CR, t = 4.02, p &lt; .001, d =
+          .98.
+        </li>
+        <li>
+          <strong>lOFC:</strong> targets DIS &gt; CR, t(99) = 2.35, p = .021, d
+          = .57; regulators &gt; targets under CR, t = 3.02, p = .002, d = .78.
+        </li>
+        <li>
+          <strong>rOFC:</strong> targets DIS &gt; CR, t(99) = 5.79, p &lt; .001,
+          d = 1.40; targets &gt; regulators under DIS, t = 2.86, p = .005, d =
+          .69; targets &lt; regulators under CR, t = −4.37, p &lt; .001, d =
+          −1.06.
+        </li>
+        <li>
+          <strong>rBroca:</strong> targets DIS &gt; CR, t(99) = 3.19, p = .002,
+          d = .77; targets &gt; regulators under DIS, t = 2.54, p = .013, d =
+          .61; targets &lt; regulators under CR, t = −2.14, p = .034, d = −.52.
+        </li>
+      </ul>
+      <h3>Synchrony-based decoding</h3>
+      <p>
+        One-sample tests against .50 chance, all with t(33): strategy, 3.78, d =
+        1.31; regulator success, 7.41, d = 2.58; target success, 4.73, d = 1.65
+        (all FDR-corrected p &lt; .001). Importance rankings differed across
+        region pairs for strategy, regulator success and target success: χ²(99)
+        = 592.68, 754.58 and 785.33, respectively (all p &lt; .001).
+      </p>
+    </details>
+
     <details class="portfolio-methods">
-      <summary>Study and analysis details</summary>
+      <summary>Analysis methods and study scope</summary>
       <p>
         After quality checks and preprocessing, activation analyses used
         task-related oxygenated-hemoglobin estimates. Behavioral and activation
-        models included a dyad random intercept. For interbrain synchrony,
-        trial-level Pearson correlations between ten regions per person formed a
-        10 × 10 feature matrix. Support-vector machines were evaluated with
-        five-fold within-participant cross-validation.
+        models included a dyad random intercept. Trial-level Pearson
+        correlations between ten regions per person supplied the interbrain
+        features. Support-vector machines used five-fold within-participant
+        cross-validation, with oversampling to balance classes when needed;
+        permutation importance ranked the features.
       </p>
-      <ResearchFigure
-        src={photograph}
-        class="emotion-photo"
-        alt="The study's two participants wearing fNIRS caps at the paired setup, with the original published face masks preserved."
-      >
-        Study photograph from Figure 1B.
-      </ResearchFigure>
+      <p>
+        The study recruited 68 female university students in 34 dyads. Its
+        sampling and cortical coverage limit generalization, and the
+        meta-analytic functional account remains a candidate explanation for
+        further hypothesis-driven research.
+      </p>
     </details>
   </>
 )}
 
 <style>
+  .emotion-result-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.4rem;
+    margin-bottom: 2.5rem;
+    padding-block: 1rem;
+    border-block: 1px solid var(--portfolio-line);
+    font-size: 0.9rem;
+  }
+  .emotion-result-nav a {
+    color: var(--portfolio-accent);
+    text-underline-offset: 0.2em;
+  }
+  h2[id] {
+    scroll-margin-top: 6rem;
+  }
   .emotion-task-section {
     margin-top: 0;
   }
-  :global(.emotion-pair) {
-    max-width: 46rem;
+  :global(.emotion-procedure),
+  :global(.emotion-activation),
+  :global(.emotion-decoding),
+  :global(.emotion-functional-decoding),
+  :global(.emotion-theory) {
+    max-width: 68rem;
     margin-inline: auto;
   }
   :global(.emotion-coverage) {
     max-width: 48rem;
     margin-inline: auto;
   }
-  :global(.emotion-result) {
-    max-width: 45rem;
+  :global(.emotion-behavior) {
+    max-width: 46rem;
     margin-inline: auto;
   }
-  :global(.emotion-photo) {
-    max-width: 38rem;
-  }
-  .emotion-story {
-    margin-top: 2.5rem;
-  }
-  .emotion-scenes {
-    list-style: none;
-    display: grid;
-    grid-template-columns: 1fr 1.25fr 1fr;
-    gap: clamp(1rem, 3vw, 2.5rem);
-    padding: 0;
-    margin: 0;
-  }
-  .emotion-scenes li {
-    min-width: 0;
-    position: relative;
-    text-align: center;
-  }
-  .emotion-scenes li + li::before {
-    content: "→";
-    position: absolute;
-    left: -1.5rem;
-    top: 5.5rem;
-    color: var(--portfolio-muted);
-    font-size: 1.5rem;
-  }
-  .scene-number {
-    display: inline-flex;
-    width: 1.7rem;
-    height: 1.7rem;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid var(--portfolio-line);
-    border-radius: 50%;
-    font-size: 0.8rem;
-    color: var(--portfolio-muted);
-    margin-bottom: 0.8rem;
-  }
-  .image-and-rating {
-    max-width: 12.5rem;
-    min-height: 10rem;
-    margin-inline: auto;
-  }
-  .emotion-image-card {
-    width: 100%;
-    height: auto;
-  }
-  .rating-ruler {
-    height: 1.6rem;
-    display: flex;
-    justify-content: space-between;
-    margin: 0.7rem 0.8rem 0;
-    border-top: 2px solid #637782;
-  }
-  .rating-ruler i {
-    display: block;
-    width: 2px;
-    height: 0.55rem;
-    background: #637782;
-  }
-  .emotion-scenes h3 {
-    margin: 0.6rem 0 0;
-    font-size: 1rem;
-    line-height: 1.45;
-    font-weight: 650;
+  .emotion-statistics h3 {
+    margin: 1.6rem 0 0.5rem;
+    font-size: 1.05rem;
     color: var(--portfolio-ink);
   }
-  .emotion-scenes p {
-    margin: 0.5rem 0 0;
-    font-size: 0.88rem;
-    line-height: 1.5;
-    color: var(--portfolio-muted);
+  .emotion-comparisons {
+    padding-left: 1.3em;
+    line-height: 1.65;
   }
-  .strategy-examples {
-    min-height: 10rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 0.65rem;
-  }
-  .strategy-examples > div {
-    flex: 1;
-    min-width: 0;
-  }
-  .speech-example {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 4rem;
-    padding: 0.5rem;
-    border-radius: 1rem 1rem 1rem 0.2rem;
-    background: #eef3f4;
-    color: #304e5a;
-    font-size: 2.3rem;
-  }
-  .speech-example.arithmetic {
-    font-size: clamp(0.8rem, 1.5vw, 1rem);
-  }
-  .strategy-examples strong {
-    display: block;
-    margin-top: 0.5rem;
-    font-size: 0.83rem;
-    line-height: 1.4;
-    font-weight: 550;
-  }
-  .strategy-or {
-    font-size: 0.75rem;
-    color: var(--portfolio-muted);
-  }
-  @media (max-width: 700px) {
-    .emotion-scenes {
-      grid-template-columns: 1fr;
-      gap: 2.5rem;
-    }
-    .emotion-scenes li + li::before {
-      content: "↓";
-      top: -2rem;
-      left: calc(50% - 0.4rem);
-    }
-    .strategy-examples {
-      max-width: 24rem;
-      margin-inline: auto;
-      min-height: 7rem;
-    }
-    .image-and-rating {
-      min-height: auto;
-    }
-    .speech-example.arithmetic {
-      font-size: 1rem;
-    }
-  }
-  @media (max-width: 400px) {
-    .strategy-examples {
-      flex-direction: column;
-      gap: 0.6rem;
-    }
-    .strategy-examples > div {
-      width: 100%;
-    }
-    .speech-example {
-      max-width: 12rem;
-      margin-inline: auto;
-    }
+  .emotion-comparisons li + li {
+    margin-top: 0.8rem;
   }
 </style>

@@ -43,5 +43,16 @@ const item: PortfolioCase = Astro.props.metadata;
         );
       })}
     </div>
+    {item.status === "Manuscript submitted" && (
+      <p class="portfolio-note portfolio-publication-note">
+        Further study details and results will be added after publication.
+      </p>
+    )}
   </PortfolioCaseShell>
 </Layout>
+
+<style>
+  .portfolio-publication-note {
+    margin-top: 1.5rem;
+  }
+</style>
