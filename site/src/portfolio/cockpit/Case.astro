@@ -6,6 +6,8 @@ import setup from "./cockpit-platform-original.jpeg";
 import display from "./cockpit-display-original.jpeg";
 import sensors from "./cockpit-sensors-original.jpeg";
 import keypress from "./cockpit-keypress-illustration.png";
+import motionClip from "./cockpit-platform-demo.mp4?url";
+import motionPoster from "./cockpit-platform-demo-poster.jpg";
 interface Props {
   part: CasePart;
 }
@@ -14,29 +16,52 @@ const { part } = Astro.props;
 
 {part === "intro" && (
   <p>
-    I developed a Unity directional-judgment task for an existing
+    I developed the Unity/C# directional-judgment task on an existing
     six-degree-of-freedom motion platform and analyzed response times in
-    relation to task-relative measured motion.
+    relation to independently measured motion.
   </p>
 )}
 {part === "visual" && (
   <div class="cockpit-setup">
-    <ResearchFigure
-      src={setup}
-      alt="Participant on the existing motion platform facing three displays. The original face covering and complete platform base are visible."
-      eager
-    >
-      The existing platform delivered whole-body motion during an on-screen
-      task.
-    </ResearchFigure>
+    <figure class="portfolio-figure cockpit-video">
+      <video
+        controls
+        muted
+        playsinline
+        preload="auto"
+        poster={motionPoster.src}
+        width="960"
+        height="544"
+        aria-label="Five-second demonstration of the motion platform and directional task"
+        aria-describedby="cockpit-video-caption"
+      >
+        <source src={motionClip} type="video/mp4" />
+        <a href={motionClip}>Watch the five-second platform demonstration.</a>
+      </video>
+      <figcaption id="cockpit-video-caption">
+        Five-second demonstration of the motion platform and directional task,
+        with the seat unoccupied.
+      </figcaption>
+    </figure>
   </div>
 )}
 {part === "body" && (
   <>
     <section class="portfolio-section" aria-labelledby="cockpit-task-heading">
-      <h2 id="cockpit-task-heading">Responding during motion</h2>
+      <h2 id="cockpit-task-heading">Responding in a moving environment</h2>
+      <p class="portfolio-copy">
+        In a moving vehicle, people still need to interpret visual cues and act
+        on them. We used a simple directional task to study response speed and
+        accuracy under different motion conditions.
+      </p>
       <div class="cockpit-task-layout">
-        <div class="cockpit-detail">
+        <div class="cockpit-detail cockpit-study-images">
+          <ResearchFigure
+            src={setup}
+            alt="Participant on the existing motion platform facing three displays. The original face covering and complete platform base are visible."
+          >
+            Study setup with a seated participant.
+          </ResearchFigure>
           <ResearchFigure
             src={display}
             alt="The actual task display shows an upward green arrow; a four-direction keypad sits beside it."
@@ -59,9 +84,6 @@ const { part } = Astro.props;
                   <path d="M50 16L22 48H40V84H60V48H78Z" fill="#7fda71" />
                 </svg>
               </div>
-              <div class="cockpit-fixed-cue">
-                Cue stays visible for a fixed interval
-              </div>
               <Image
                 src={keypress}
                 alt="Illustration of an index finger pressing the upward key of a four-direction keypad."
@@ -82,8 +104,8 @@ const { part } = Astro.props;
             </li>
           </ol>
           <figcaption>
-            Task illustration. Match the arrow to its key; one of four
-            directions is shown. A response does not end the cue.
+            Illustrated directional task: participants matched a visual arrow to
+            a directional key.
           </figcaption>
         </figure>
       </div>
@@ -91,8 +113,9 @@ const { part } = Astro.props;
     <section class="portfolio-section" aria-labelledby="cockpit-motion-heading">
       <h2 id="cockpit-motion-heading">Motion relative to the task</h2>
       <p class="portfolio-copy">
-        Unity controlled task and motion commands; under-seat sensors recorded
-        the motion used in analysis.
+        I considered both motion intensity and the direction of movement
+        relative to the current cue. The same acceleration can lie along one
+        target direction and across another.
       </p>
       <div class="cockpit-measurement-layout">
         <div class="cockpit-detail">
@@ -100,7 +123,7 @@ const { part } = Astro.props;
             src={sensors}
             alt="Two motion sensors mounted beneath the participant's seat."
           >
-            Measured motion beneath the seat.
+            Sensors beneath the seat recorded physical motion.
           </ResearchFigure>
         </div>
         <figure class="portfolio-figure cockpit-geometry">
@@ -164,43 +187,17 @@ const { part } = Astro.props;
               </li>
             </ul>
           </div>
-          <div
-            class="cockpit-window"
-            role="img"
-            aria-label="Motion was summarized in a fixed window before cue onset. The response occurs after cue onset and does not define the window length."
-          >
-            <div class="cockpit-window-before">
-              <span>Fixed pre-cue window</span>
-            </div>
-            <div class="cockpit-window-cue">
-              <span>Cue</span>
-            </div>
-            <div class="cockpit-window-after">
-              <span>Response</span>
-            </div>
-          </div>
-          <figcaption>
-            Method illustration. Motion is expressed along and across the cue
-            direction, using a fixed window before the cue.
-          </figcaption>
+          <figcaption>Example task-relative reference frame.</figcaption>
         </figure>
       </div>
-      <p class="portfolio-copy">
-        Task events linked responses to motion recorded beneath the seat.
-      </p>
     </section>
     <details class="portfolio-methods">
-      <summary>How motion entered the response-time analysis</summary>
+      <summary>Why target direction matters</summary>
       <p>
-        The along-cue component was summarized by its signed mean; the
-        across-cue component by its root mean square. The geometry above
-        explains the reference frame, rather than showing either computed
-        statistic. The pre-cue window did not depend on response time.
-      </p>
-      <p>
-        Unity emitted cue and response markers. Independently recorded motion
-        was aligned with these task events for analysis; commanded platform
-        settings were not treated as the measured movement.
+        Target direction defines both the motion reference frame and the
+        response required by the task. I accounted for differences between
+        target directions when interpreting the relationship between measured
+        motion and response time.
       </p>
     </details>
   </>
@@ -210,12 +207,26 @@ const { part } = Astro.props;
     max-width: 850px;
     margin-inline: auto;
   }
+  .cockpit-video video {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    background: #191b20;
+  }
+  .cockpit-study-images {
+    display: grid;
+    gap: 1.5rem;
+  }
   .cockpit-task-layout,
   .cockpit-measurement-layout {
     display: grid;
     grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.65fr);
     gap: 2.25rem;
     align-items: start;
+  }
+  .cockpit-task-layout {
+    margin-top: 1.5rem;
   }
   .cockpit-detail {
     max-width: 340px;
@@ -268,15 +279,6 @@ const { part } = Astro.props;
   .cockpit-screen svg {
     width: 52%;
     height: 75%;
-  }
-  .cockpit-fixed-cue {
-    border-top: 2px solid #74897c;
-    margin: 1.15rem 0 0.45rem;
-    padding-top: 0.45rem;
-    text-align: center;
-    font-size: 0.8rem;
-    line-height: 1.5;
-    color: var(--portfolio-muted);
   }
   .cockpit-keypress {
     display: block;
@@ -341,49 +343,6 @@ const { part } = Astro.props;
   .cockpit-direction-key .cockpit-motion-key span {
     color: #346579;
   }
-  .cockpit-window {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 2px minmax(0, 1fr);
-    margin: 1.75rem 0 1rem;
-    align-items: stretch;
-    color: var(--portfolio-muted);
-    font-size: 0.8rem;
-    line-height: 1.5;
-  }
-  .cockpit-window-before {
-    min-height: 3.2rem;
-    padding: 0.6rem 0.5rem;
-    background: var(--portfolio-surface);
-    border-bottom: 2px solid var(--portfolio-accent);
-    text-align: center;
-  }
-  .cockpit-window-cue {
-    position: relative;
-    background: var(--portfolio-accent);
-  }
-  .cockpit-window-cue span {
-    position: absolute;
-    white-space: nowrap;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 100%;
-    font-weight: 650;
-  }
-  .cockpit-window-after {
-    min-height: 3.2rem;
-    padding: 0.6rem 0.5rem;
-    text-align: center;
-    border-bottom: 1px solid var(--portfolio-line);
-  }
-  .cockpit-window-after span::before {
-    content: "•";
-    display: inline-block;
-    margin-right: 0.5rem;
-    color: var(--portfolio-accent);
-  }
-  .cockpit-window-after span {
-    white-space: nowrap;
-  }
   @media (max-width: 767px) {
     .cockpit-task-layout,
     .cockpit-measurement-layout {
@@ -423,20 +382,8 @@ const { part } = Astro.props;
       text-align: center;
       margin-bottom: 0.7rem;
     }
-    .cockpit-fixed-cue {
-      max-width: 240px;
-      margin-inline: auto;
-    }
     .cockpit-keypress {
       width: min(100%, 200px);
-    }
-    .cockpit-window-before,
-    .cockpit-window-after {
-      padding-inline: 6px;
-    }
-    .cockpit-window-after span::before {
-      display: block;
-      margin-right: 0;
     }
   }
 </style>

@@ -13,9 +13,10 @@ const { part } = Astro.props;
 
 {part === "intro" && (
   <p>
-    In this independent project, I designed the experiment, extended{" "}
+    I independently designed the study, extended{" "}
     <a href="https://github.com/Westdrive-Workgroup/LoopAR-public">LoopAR</a> in
-    Unity and C#, and analyzed behavioral and physiological records.
+    Unity and C# to run the task and warning sequences, and analyzed driving and
+    physiological records.
   </p>
 )}
 {part === "visual" && (
@@ -49,9 +50,11 @@ const { part } = Astro.props;
 {part === "body" && (
   <>
     <section class="portfolio-section" aria-labelledby="driving-story-heading">
-      <h2 id="driving-story-heading">From observation to action</h2>
+      <h2 id="driving-story-heading">Understanding preparation</h2>
       <p class="portfolio-copy">
-        Prior manual driving supplied a separate measure of driving tendencies.
+        I separated the opportunity to observe the road from the request to take
+        control. This let me examine what drivers understood before acting and
+        how that preparation related to the braking and steering that followed.
       </p>
       <figure
         class="portfolio-figure driving-story"
@@ -80,11 +83,11 @@ const { part } = Astro.props;
           </li>
           <li>
             <h3>
-              <span class="driving-step">3</span> Hidden-road questions
+              <span class="driving-step">3</span> Road-situation questions
             </h3>
             <DrivingScene state="probe" />
             <p class="driving-stage-note">
-              Simulation paused; answer from prior observation.
+              Answer questions about the scene before taking control.
             </p>
           </li>
           <li class="driving-transfer">
@@ -121,30 +124,18 @@ const { part } = Astro.props;
         </p>
         <figcaption id="driving-story-caption">
           Illustration of the study sequence. Participants were assigned to
-          one-back, three-back or control groups; spacing does not represent
-          duration.
+          one-back, three-back or control groups. The question stage paused the
+          simulation; spacing does not represent duration.
         </figcaption>
       </figure>
       <p class="portfolio-copy driving-judgment">
-        I aligned task and control events with driving and physiological
-        records.
+        I considered prior driving tendencies alongside drivers’ understanding
+        of the current hazard and physiological changes during preparation.
+        Following braking and steering beyond the first input let me examine how
+        drivers organized the maneuver and how the developing action sequence
+        related to collision risk.
       </p>
     </section>
-    <details class="portfolio-methods">
-      <summary>Implementation and analysis details</summary>
-      <p>
-        The question timer ran independently while the simulated world was
-        paused and the road hidden. Unity emitted event markers to the recording
-        interface alongside timestamped driving records.
-      </p>
-      <p>
-        I examined initial braking and steering and the subsequent action
-        sequence, relating these to prior driving observations,
-        situation-awareness responses and physiological measures while
-        accounting for repeated observations within drivers. Questionnaire items
-        about cautious driving supplied a separate source of prior information.
-      </p>
-    </details>
   </>
 )}
 <style>

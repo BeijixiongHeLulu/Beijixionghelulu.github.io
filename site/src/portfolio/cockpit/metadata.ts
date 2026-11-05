@@ -4,7 +4,8 @@ import setup from "./cockpit-platform-original.jpeg";
 export default {
   slug: "whole-body-motion",
   title: "Human performance during whole-body motion",
-  summary: "What shapes directional responses during whole-body motion?",
+  summary:
+    "How does physical motion relate to the directional task a person is performing?",
   description:
     "Unity task development and behavioral analysis for a directional-judgment study on a physical motion platform.",
   role: "Unity task development · Response-time analysis",
