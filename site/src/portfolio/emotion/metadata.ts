@@ -3,12 +3,11 @@ import thumbnail from "./emotion-paired-illustration-v2.png";
 
 export default {
   slug: "interpersonal-emotion-regulation",
-  title: "Neural patterns in interpersonal emotion regulation",
+  title: "Both sides of interpersonal emotion regulation",
   summary:
-    "How do two people coordinate when one helps the other regulate emotion? We compared reappraisal and distraction while recording both people with functional near-infrared spectroscopy (fNIRS).",
+    "How do different emotion-regulation strategies affect the feelings and neural responses of both people in an interaction?",
   description:
     "Behavioral and fNIRS analyses of emotion regulation between two people.",
-  role: "Co-author · Data analysis",
   status: "Published 2026",
   facts: [{ label: "Journal", value: "Emotion" }],
   thumbnail,

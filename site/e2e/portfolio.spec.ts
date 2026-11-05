@@ -8,15 +8,6 @@ const cases = [
   "whole-body-motion",
   "community-eeg-modeling",
 ];
-const roles = [
-  "Co-first author · Experimental design and analysis",
-  "Co-author · Data analysis",
-  "Co-author · User-profile design and psychological foundations",
-  "Independent project · Design, implementation and analysis",
-  "Unity task development · Response-time analysis",
-  "Second author · Data analysis",
-];
-
 const statuses = [
   "Published 2026",
   "Published 2026",
@@ -51,7 +42,8 @@ test("portfolio is reachable and every case can be read and returned from", asyn
     await page.locator(`.portfolio-card[href="/portfolio/${slug}/"]`).click();
     await expect(page.locator("h1")).toBeVisible();
     await expect(page.locator(".portfolio-contribution")).toBeVisible();
-    await expect(page.locator(".portfolio-role")).toHaveText(roles[index]);
+    await expect(page.locator(".portfolio-role")).toHaveCount(0);
+    await expect(page.locator(".portfolio-question")).toHaveText(/\?$/);
     await expect(
       page.locator(".portfolio-context .portfolio-status"),
     ).toHaveText(statuses[index]);

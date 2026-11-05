@@ -1,0 +1,12 @@
+---
+// Use in publication contexts, where these strings name journals.
+interface Props {
+  text: string;
+}
+const { text } = Astro.props;
+const parts = text.split(
+  /(Acta Psychologica Sinica|Acta Psychol\. Sin\.|Journal of Environmental Psychology|IEEE Transactions on Intelligent Transportation Systems|Emotion)/g,
+);
+---
+
+{parts.map((part, index) => (index % 2 ? <em>{part}</em> : part))}

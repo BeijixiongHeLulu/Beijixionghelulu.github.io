@@ -10,4 +10,4 @@ As a research assistant at Lifedu Educational Technology Co., Ltd., supervised b
 
 The study combines questionnaires, a community–valence Implicit Association Test (IAT), and EEG. I preprocessed the EEG recordings, extracted single-trial centroparietal positivity (CPP) slopes, and fit drift diffusion models to IAT response times and accuracy using PyDDM. I used BIC to compare models and incorporated CPP slopes into drift-rate models to examine the relationship between neural and behavioral evidence accumulation.
 
-The manuscript, “Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation,” has been **submitted to the Journal of Environmental Psychology**. I am the second author; Ze Geng is the corresponding author.
+The manuscript, “Community Environment and Resident Well-Being from an Affordance Perspective: Implicit Associations and Evidence Accumulation,” has been **submitted to the _Journal of Environmental Psychology_**. I am the second author; Ze Geng is the corresponding author.

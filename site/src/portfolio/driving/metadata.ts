@@ -3,13 +3,11 @@ import apparatus from "./driving-apparatus.png";
 
 const driving: PortfolioCase = {
   slug: "driving-takeover",
-  title: "Preparing to take back control",
-  subtitle: "A VR study of automated-driving takeovers",
+  title: "From preparation to action in driving takeovers",
   summary:
-    "How do drivers understand a road situation and organize their actions when taking back control?",
+    "How do drivers’ prior tendencies and preparation relate to braking and steering as they take over from automation?",
   description:
     "A VR study of driver preparation and the development of braking and steering after a takeover.",
-  role: "Independent project · Design, implementation and analysis",
   status: "Manuscript submitted",
   facts: [{ label: "Context", value: "VR human-factors experiment" }],
   thumbnail: apparatus,

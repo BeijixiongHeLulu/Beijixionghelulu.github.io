@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import JournalText from "../components/JournalText.astro";
 import raw from "../data/cv.yml?raw";
 import { parse } from "yaml";
 interface Entry {
@@ -132,11 +133,17 @@ const date = (value: string) =>
                     <em>{entry.publisher}</em>
                   </p>
                 )}
-                {entry.summary && <p class="body-copy">{entry.summary}</p>}
+                {entry.summary && (
+                  <p class="body-copy">
+                    <JournalText text={entry.summary} />
+                  </p>
+                )}
                 {entry.highlights && (
                   <ul class="cv-highlights">
                     {entry.highlights.map((highlight) => (
-                      <li>{highlight}</li>
+                      <li>
+                        <JournalText text={highlight} />
+                      </li>
                     ))}
                   </ul>
                 )}

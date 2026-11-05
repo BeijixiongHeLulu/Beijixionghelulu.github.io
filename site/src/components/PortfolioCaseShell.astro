@@ -17,10 +17,9 @@ const { item } = Astro.props;
     <h1 class="page-title" transition:name={`portfolio-${item.slug}-title`}>
       {item.title}
     </h1>
-    {item.subtitle && <p class="portfolio-subtitle">{item.subtitle}</p>}
     <p class="portfolio-question">{item.summary}</p>
+    {item.subtitle && <p class="portfolio-subtitle">{item.subtitle}</p>}
     <div class="portfolio-context">
-      <p class="portfolio-role">{item.role}</p>
       <p class="portfolio-status">{item.status}</p>
     </div>
     {item.facts && item.facts.length > 0 && (
@@ -28,7 +27,9 @@ const { item } = Astro.props;
         {item.facts.map((fact) => (
           <div>
             <dt>{fact.label}</dt>
-            <dd>{fact.value}</dd>
+            <dd>
+              {fact.label === "Journal" ? <em>{fact.value}</em> : fact.value}
+            </dd>
           </div>
         ))}
       </dl>

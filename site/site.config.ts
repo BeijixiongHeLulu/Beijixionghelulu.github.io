@@ -59,7 +59,7 @@ export const siteConfig = defineSiteConfig({
     projects: {
       title: "research",
       description:
-        "Selected research in EEG/ERP analysis, behavioral modeling, cognitive neuroscience, and human-computer interaction.",
+        "Selected research in Human Factors, Human-computer Interaction and cognitive neuroscience.",
     },
   },
   homeBlocks: {

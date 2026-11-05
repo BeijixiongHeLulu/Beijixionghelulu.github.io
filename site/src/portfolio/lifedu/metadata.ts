@@ -3,11 +3,11 @@ import vignette from "./lifedu-eeg-task-illustration-v2.png";
 
 export default {
   slug: "community-eeg-modeling",
-  title: "Community evaluations and evidence accumulation",
-  summary: "How are community evaluations reflected in decisions?",
+  title: "Community environments and everyday well-being",
+  summary:
+    "How are community environments associated with residents’ well-being and the way they evaluate their own community?",
   description:
     "Connecting EEG measures with decision models of implicit community evaluations.",
-  role: "Second author · Data analysis",
   status: "Manuscript submitted",
   facts: [
     { label: "Institution", value: "Lifedu Educational Technology Co., Ltd." },

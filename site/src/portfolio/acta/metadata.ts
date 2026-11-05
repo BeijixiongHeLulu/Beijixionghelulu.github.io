@@ -3,11 +3,11 @@ import thumbnail from "./acta-figure-03-english.svg";
 
 export default {
   slug: "honesty-ai-supervision",
-  title: "Honesty, monitoring and incentives",
-  summary: "How do AI monitoring and incentives affect honest reporting?",
+  title: "Personality and responses to AI oversight",
+  summary:
+    "How do responses to AI monitoring and incentives vary with personality, and what happens to honesty after rewards or feedback are withdrawn?",
   description:
     "Behavioral experiments on supervision, incentives and honest reporting.",
-  role: "Co-first author · Experimental design and analysis",
   status: "Published 2026",
   facts: [{ label: "Journal", value: "Acta Psychologica Sinica" }],
   thumbnail,

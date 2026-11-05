@@ -1,6 +1,7 @@
 ---
 import { getCollection, render, type CollectionEntry } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
+import JournalText from "../../components/JournalText.astro";
 export async function getStaticPaths() {
   return (await getCollection("news")).map((news) => ({
     params: { slug: news.id },
@@ -19,7 +20,9 @@ const title = news.data.title;
         <span class="i-ph-arrow-left" aria-hidden="true" />
         news
       </a>
-      <h1 class="page-title">{title}</h1>
+      <h1 class="page-title">
+        <JournalText text={title} />
+      </h1>
       <p class="entry-meta">
         <time datetime={news.data.date.toISOString()}>
           {news.data.date.toLocaleDateString("en-US", {

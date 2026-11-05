@@ -83,10 +83,10 @@ html.dark {
   text-decoration: underline;
   text-underline-offset: 0.2rem;
 }
-.portfolio-card-role {
+.portfolio-card-question {
   color: var(--portfolio-muted);
-  font-size: 0.9375rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.55;
 }
 .portfolio-card-action {
   display: inline-flex;
@@ -127,12 +127,6 @@ html.dark {
   flex-wrap: wrap;
   gap: 0.35rem 1.25rem;
   margin-top: 1.1rem;
-}
-.portfolio-role {
-  font-size: 0.9375rem;
-  font-weight: 700;
-  color: var(--portfolio-accent);
-  line-height: 1.5;
 }
 .portfolio-facts {
   margin: 0.6rem 0 0;

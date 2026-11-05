@@ -100,9 +100,9 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
 
               <div class="entry-meta flex flex-wrap items-center gap-x-2 gap-y-1 text-xs">
                 {paper.venue && (
-                  <span class="font-semibold text-accent-800 dark:text-accent-200">
+                  <em class="font-semibold text-accent-800 dark:text-accent-200">
                     {paper.venue}
-                  </span>
+                  </em>
                 )}
                 {paper.venue && paper.year && (
                   <span
@@ -122,7 +122,11 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
                 )}
                 {paper.category && (
                   <span class="scholarly-pill ml-1">
-                    {paper.legacyFields?.abbr || paper.category}
+                    {paper.type === "article" ? (
+                      <em>{paper.legacyFields?.abbr || paper.category}</em>
+                    ) : (
+                      paper.legacyFields?.abbr || paper.category
+                    )}
                   </span>
                 )}
               </div>
@@ -132,6 +136,7 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
                 class="publication-control action-link glass-control absolute right-4 top-4.5 min-h-9 cursor-pointer px-2.5 text-xs font-semibold leading-none sm:right-6 sm:top-5"
                 data-citation-trigger
                 data-citation-title={paper.title}
+                data-citation-venue={paper.venue}
                 data-citations={JSON.stringify(citations)}
                 aria-label={`Cite ${paper.title}`}
                 aria-haspopup="dialog"
@@ -385,6 +390,7 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
           return;
 
         let citations: Record<string, string> = {};
+        let citationVenue = "";
         let currentStyle: keyof typeof labels = "bibtex";
         let lastTrigger: HTMLButtonElement | null = null;
         let resetTimer = 0;
@@ -399,7 +405,31 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
         const selectStyle = (style: keyof typeof labels) => {
           currentStyle = style;
           dialog.dataset.currentStyle = style;
-          output.textContent = citations[style] ?? "";
+          const citation = citations[style] ?? "";
+          output.replaceChildren();
+          const journalField = citation.match(
+            /\b(?:journal|booktitle)\s*=\s*[{\"]/i,
+          );
+          const venueStart = citationVenue
+            ? style === "bibtex"
+              ? journalField
+                ? citation.indexOf(citationVenue, journalField.index)
+                : -1
+              : citation.lastIndexOf(citationVenue)
+            : -1;
+          if (venueStart >= 0) {
+            const venue = document.createElement("em");
+            venue.textContent = citationVenue;
+            output.append(
+              document.createTextNode(citation.slice(0, venueStart)),
+              venue,
+              document.createTextNode(
+                citation.slice(venueStart + citationVenue.length),
+              ),
+            );
+          } else {
+            output.textContent = citation;
+          }
           output.parentElement?.classList.toggle(
             "font-mono",
             style === "bibtex",
@@ -427,6 +457,7 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
                 return;
               }
               lastTrigger = button;
+              citationVenue = button.dataset.citationVenue ?? "";
               title.textContent = button.dataset.citationTitle ?? "";
               selectStyle("bibtex");
               dialog.showModal();
