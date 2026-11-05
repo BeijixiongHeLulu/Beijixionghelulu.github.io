@@ -3,6 +3,7 @@ import { test, expect } from "@playwright/test";
 const cases = [
   "honesty-ai-supervision",
   "interpersonal-emotion-regulation",
+  "words-and-deeds",
   "driving-takeover",
   "whole-body-motion",
   "community-eeg-modeling",
@@ -10,9 +11,19 @@ const cases = [
 const roles = [
   "Co-first author · Experimental design and analysis",
   "Co-author · Data analysis",
+  "Co-author · User-profile design and psychological foundations",
   "Independent project · Design, implementation and analysis",
   "Unity task development · Response-time analysis",
   "Second author · Data analysis",
+];
+
+const statuses = [
+  "Published 2026",
+  "Published 2026",
+  "Preprint · Submitted",
+  "Manuscript submitted",
+  "Manuscript submitted",
+  "Manuscript submitted",
 ];
 
 test("portfolio is reachable and every case can be read and returned from", async ({
@@ -28,7 +39,7 @@ test("portfolio is reachable and every case can be read and returned from", asyn
     .getByRole("link", { name: "portfolio", exact: true })
     .filter({ visible: true })
     .click();
-  await expect(page.locator(".portfolio-card")).toHaveCount(5);
+  await expect(page.locator(".portfolio-card")).toHaveCount(6);
   await page.locator(".portfolio-card img").evaluateAll(async (images) => {
     for (const image of images) {
       if (!(image instanceof HTMLImageElement)) continue;
@@ -43,7 +54,7 @@ test("portfolio is reachable and every case can be read and returned from", asyn
     await expect(page.locator(".portfolio-role")).toHaveText(roles[index]);
     await expect(
       page.locator(".portfolio-context .portfolio-status"),
-    ).toHaveText(index < 2 ? "Published 2026" : "Manuscript submitted");
+    ).toHaveText(statuses[index]);
     await page.locator("img").evaluateAll(async (images) => {
       for (const image of images) {
         if (!(image instanceof HTMLImageElement)) continue;
@@ -91,13 +102,14 @@ test("case meaning survives narrow enlarged text and dark mode", async ({
   }
 });
 
-test("published cases link to papers and submitted cases to preserved research", async ({
+test("cases link to available papers or preserved research", async ({
   page,
   request,
 }) => {
   const resources = [
     "https://doi.org/10.3724/SP.J.1041.2026.0381",
     "https://doi.org/10.1037/emo0001683",
+    "https://arxiv.org/abs/2610.36813",
     "/projects/01-driving-takeover/",
     "/projects/02-motion-performance/",
     "/projects/00-eeg-behavioral-modeling/",

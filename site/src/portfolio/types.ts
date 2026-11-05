@@ -7,7 +7,7 @@ export interface PortfolioCase {
   summary: string;
   description: string;
   role: string;
-  status: "Published 2026" | "Manuscript submitted";
+  status: "Published 2026" | "Manuscript submitted" | "Preprint · Submitted";
   facts?: { label: string; value: string }[];
   thumbnail: ImageMetadata;
   thumbnailAlt: string;

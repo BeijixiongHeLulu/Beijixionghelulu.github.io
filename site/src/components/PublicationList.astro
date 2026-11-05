@@ -191,6 +191,15 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
                   </a>
                 )}
 
+                {paper.legacyFields?.portfolio && (
+                  <a
+                    class="publication-control action-link glass-control min-h-9 px-2.5 text-xs font-semibold"
+                    href={paper.legacyFields.portfolio}
+                  >
+                    Case study
+                  </a>
+                )}
+
                 {hasAbstract && (
                   <details class="group">
                     <summary class="publication-control action-link glass-control min-h-9 cursor-pointer list-none px-2.5 text-xs font-semibold leading-none">

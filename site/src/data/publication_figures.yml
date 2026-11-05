@@ -1,3 +1,18 @@
+zhang2026words:
+  key: agent-figure1
+  source_document: 2610.36813v1.pdf
+  source_sha256: 5fd0e481be90c420606e7abbe3fe02cd523d7e3dac4a5cbd01b24d09f0ee561d
+  page: 1
+  figure: 1
+  crop_points:
+    - 54
+    - 254
+    - 558
+    - 404
+  image: agent-figure1.png
+  width: 2016
+  height: 600
+  alt: Study overview linking human decisions, dialogue, personality, and LLM predictions
 wangSubmittedTakeover:
   key: driving-figure3
   source_document: IEEE_TIS.pdf

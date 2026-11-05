@@ -15,7 +15,7 @@ test("original navigation, images and responsive layout", async ({ page }) => {
     page.getByRole("heading", { name: "Jianshu Wang", exact: true }),
   ).toBeVisible();
   await expect(page.locator(".profile-biography p")).toHaveCount(3);
-  await expect(page.locator("[data-paper-id]")).toHaveCount(5);
+  await expect(page.locator("[data-paper-id]")).toHaveCount(6);
   for (const [label, path] of [
     ["publications", "/publications/"],
     ["research", "/projects/"],
@@ -48,10 +48,10 @@ test("original navigation, images and responsive layout", async ({ page }) => {
 });
 test("publication filters, citation formats and copy", async ({ page }) => {
   await page.goto("/publications/");
-  await expect(page.locator("[data-paper-id]:visible")).toHaveCount(7);
+  await expect(page.locator("[data-paper-id]:visible")).toHaveCount(8);
   for (const [filter, count] of [
     ["published", 2],
-    ["submitted", 4],
+    ["submitted", 5],
     ["preprint", 1],
   ] as const) {
     await page.locator(`[data-filter="${filter}"]`).click();
