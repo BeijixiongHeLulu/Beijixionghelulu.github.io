@@ -13,8 +13,16 @@ const statuses = [
   "Published 2026",
   "Preprint · Submitted",
   "Manuscript submitted",
+  "Preprint",
   "Manuscript submitted",
-  "Manuscript submitted",
+];
+const resources = [
+  ["https://doi.org/10.3724/SP.J.1041.2026.0381"],
+  ["https://doi.org/10.1037/emo0001683"],
+  ["https://arxiv.org/abs/2610.36813"],
+  ["/projects/01-driving-takeover/"],
+  ["https://arxiv.org/abs/2601.12884", "/projects/02-motion-performance/"],
+  ["/projects/00-eeg-behavioral-modeling/"],
 ];
 
 test("portfolio is reachable and every case can be read and returned from", async ({
@@ -60,7 +68,9 @@ test("portfolio is reachable and every case can be read and returned from", asyn
         () => document.documentElement.scrollWidth <= innerWidth,
       ),
     ).toBe(true);
-    await expect(page.locator(".portfolio-resources a")).toHaveCount(1);
+    await expect(page.locator(".portfolio-resources a")).toHaveCount(
+      resources[index].length,
+    );
     for (const summary of await page.locator("details summary").all()) {
       await summary.focus();
       await page.keyboard.press("Enter");
@@ -90,7 +100,8 @@ test("case meaning survives narrow enlarged text and dark mode", async ({
       ),
     ).toBe(true);
     await expect(page.locator("h1")).toBeVisible();
-    await expect(page.locator(".portfolio-resources a")).toBeVisible();
+    for (const link of await page.locator(".portfolio-resources a").all())
+      await expect(link).toBeVisible();
   }
 });
 
@@ -98,25 +109,19 @@ test("cases link to available papers or preserved research", async ({
   page,
   request,
 }) => {
-  const resources = [
-    "https://doi.org/10.3724/SP.J.1041.2026.0381",
-    "https://doi.org/10.1037/emo0001683",
-    "https://arxiv.org/abs/2610.36813",
-    "/projects/01-driving-takeover/",
-    "/projects/02-motion-performance/",
-    "/projects/00-eeg-behavioral-modeling/",
-  ];
   for (const [index, slug] of cases.entries()) {
     await page.goto(`/portfolio/${slug}/`);
-    await expect(page.locator(".portfolio-resources a")).toHaveAttribute(
-      "href",
-      resources[index],
-    );
+    expect(
+      await page
+        .locator(".portfolio-resources a")
+        .evaluateAll((links) => links.map((link) => link.getAttribute("href"))),
+    ).toEqual(resources[index]);
     await expect(page.locator('link[rel="canonical"]')).toHaveAttribute(
       "href",
       `https://beijixionghelulu.github.io/portfolio/${slug}/`,
     );
-    if (resources[index].startsWith("/"))
-      expect((await request.get(resources[index])).ok()).toBe(true);
+    for (const resource of resources[index])
+      if (resource.startsWith("/"))
+        expect((await request.get(resource)).ok()).toBe(true);
   }
 });
