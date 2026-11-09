@@ -158,7 +158,7 @@ describe("parseBibtex", () => {
       expect(paper.authors).toContain(siteConfig.author);
     }
     expect(getAllPapers().map((paper) => paper.authors.length)).toEqual([
-      5, 11, 12, 2, 13, 6, 3, 11,
+      5, 11, 12, 2, 13, 6, 3,
     ]);
   });
 });

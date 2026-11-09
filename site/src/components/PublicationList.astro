@@ -6,6 +6,7 @@ import {
   type CitationStyle,
 } from "../lib/bibtex";
 import { inlineMarkup } from "../lib/inline-markup";
+import actaEnglishFigure from "../portfolio/acta/acta-figure-02-english.svg";
 
 interface Props {
   papers: BibEntry[];
@@ -27,6 +28,13 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
     {papers.map((paper, index) => {
       const hasAbstract = Boolean(paper.abstract);
       const citations = formatCitations(paper);
+      const englishPreview =
+        paper.legacyFields?.preview === "acta-figure-02-english.svg"
+          ? actaEnglishFigure
+          : undefined;
+      const previewSrc =
+        englishPreview?.src ??
+        `/assets/img/publication_preview/${paper.legacyFields?.preview}`;
 
       return (
         <li
@@ -43,15 +51,15 @@ const dialogId = `citation-dialog-${papers[0]?.id ?? "empty"}`;
             {paper.legacyFields?.preview ? (
               <figure class="publication-preview">
                 <a
-                  href={`/assets/img/publication_preview/${paper.legacyFields.preview}`}
+                  href={previewSrc}
                   aria-label={`View ${paper.legacyFields.preview_caption} for ${paper.title}`}
                 >
                   <img
-                    src={`/assets/img/publication_preview/${paper.legacyFields.preview}`}
+                    src={previewSrc}
                     alt={paper.legacyFields.preview_alt || paper.title}
                     loading="lazy"
-                    width="1801"
-                    height="1000"
+                    width={englishPreview?.width ?? 1801}
+                    height={englishPreview?.height ?? 1000}
                   />
                 </a>
                 <figcaption>{paper.legacyFields.preview_caption}</figcaption>

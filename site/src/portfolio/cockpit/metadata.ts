@@ -8,7 +8,7 @@ export default {
     "What shapes people’s responses to visual cues during whole-body motion?",
   description:
     "Unity task development and behavioral analysis for a directional-judgment study on a physical motion platform.",
-  status: "Manuscript submitted",
+  status: "Preprint",
   facts: [
     {
       label: "Institution",
@@ -19,6 +19,11 @@ export default {
   thumbnailAlt:
     "Participant seated on a six-degree-of-freedom motion platform facing three displays, with the original face covering retained.",
   resources: [
+    {
+      label: "arXiv preprint",
+      href: "https://arxiv.org/abs/2601.12884",
+      kind: "publication",
+    },
     {
       label: "Whole-body motion research overview",
       href: "/projects/02-motion-performance/",

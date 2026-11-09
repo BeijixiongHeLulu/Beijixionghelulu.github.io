@@ -48,10 +48,10 @@ test("original navigation, images and responsive layout", async ({ page }) => {
 });
 test("publication filters, citation formats and copy", async ({ page }) => {
   await page.goto("/publications/");
-  await expect(page.locator("[data-paper-id]:visible")).toHaveCount(8);
+  await expect(page.locator("[data-paper-id]:visible")).toHaveCount(7);
   for (const [filter, count] of [
     ["published", 2],
-    ["submitted", 5],
+    ["submitted", 4],
     ["preprint", 1],
   ] as const) {
     await page.locator(`[data-filter="${filter}"]`).click();

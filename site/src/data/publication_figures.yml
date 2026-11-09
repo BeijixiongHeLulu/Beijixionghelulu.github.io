@@ -70,10 +70,10 @@ wang2026moral:
     - 73.0
     - 538.0
     - 309.0
-  image: acta-figure2.png
-  width: 1801
-  height: 890
-  alt: Experimental tasks and trial structure in the AI regulation study
+  image: acta-figure-02-english.svg
+  asset_source: src/portfolio/acta/acta-figure-02-english.svg
+  adaptation: Original figure with English labels; shared with the portfolio figure.
+  alt: Experimental tasks and trial structure in the AI regulation study, with English labels
 liu2026community:
   key: jep-figure1
   source_document: JEP英文版V1_9.30.docx (native Word PDF export)
