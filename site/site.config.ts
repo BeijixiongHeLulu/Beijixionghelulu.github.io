@@ -13,7 +13,7 @@ export const siteConfig = defineSiteConfig({
     "psychology",
   ],
   hero: {
-    headline: "Human Factors | Cognitive Neuroscience | Behavioral Modeling",
+    headline: "Human Factors | Cognitive Neuroscience | Ergonomics",
     subheadline: "Research Assistant, Lifedu Educational Technology Co., Ltd.",
     profileImage: "/assets/img/profile.jpg",
     profileAlt: "Jianshu Wang",
