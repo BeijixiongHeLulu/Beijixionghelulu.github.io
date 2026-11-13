@@ -7,9 +7,11 @@ import Layout from "../layouts/Layout.astro";
     <header class="page-header">
       <h1 class="page-title">hobby</h1>
     </header>
-    <section class="hobby-layout">
+    <section class="hobby-layout" aria-labelledby="badminton-heading">
       <div>
-        <h2 class="section-heading">Badminton</h2>
+        <h2 id="badminton-heading" class="section-heading">
+          Badminton
+        </h2>
         <p class="body-copy mt-5">
           Outside of research, I enjoy playing badminton. Time on the court
           helps me stay active and unwind.
@@ -24,6 +26,29 @@ import Layout from "../layouts/Layout.astro";
           alt="Playing badminton on an indoor court"
           width="1159"
           height="1937"
+          class="hobby-image"
+        />
+      </a>
+    </section>
+    <section class="hobby-layout" aria-labelledby="qiuxiang-heading">
+      <div>
+        <h2 id="qiuxiang-heading" class="section-heading">
+          Qiuxiang (秋香)
+        </h2>
+        <p class="body-copy mt-5">
+          This is my dog, Qiuxiang. She's adorable, and I love her very much.
+        </p>
+      </div>
+      <a
+        href="/assets/img/hobby/qiuxiang.jpg"
+        aria-label="View the full photograph of Qiuxiang"
+      >
+        <img
+          src="/assets/img/hobby/qiuxiang.jpg"
+          alt="Qiuxiang (秋香), my dog, sleeping in a doorway"
+          width="960"
+          height="1282"
+          loading="lazy"
           class="hobby-image"
         />
       </a>
