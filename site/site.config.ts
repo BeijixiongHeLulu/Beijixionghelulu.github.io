@@ -15,8 +15,10 @@ export const siteConfig = defineSiteConfig({
   hero: {
     headline: "Human Factors | Cognitive Neuroscience | Ergonomics",
     subheadline: "Research Assistant, Lifedu Educational Technology Co., Ltd.",
-    profileImage: "/assets/img/profile.jpg",
+    profileImage: "/assets/img/profile-casual.png",
     profileAlt: "Jianshu Wang",
+    profileImageWidth: 1392,
+    profileImageHeight: 1279,
   },
   affiliations: [
     {

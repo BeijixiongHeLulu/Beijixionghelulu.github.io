@@ -32,10 +32,10 @@ const { Content } = await render(profile);
       </div>
       <aside class="profile-aside" aria-label="Profile">
         <img
-          src="/assets/img/profile.jpg"
-          alt="Jianshu Wang"
-          width="270"
-          height="430"
+          src={siteConfig.hero.profileImage}
+          alt={siteConfig.hero.profileAlt}
+          width={siteConfig.hero.profileImageWidth}
+          height={siteConfig.hero.profileImageHeight}
           fetchpriority="high"
           class="profile-portrait"
         />
