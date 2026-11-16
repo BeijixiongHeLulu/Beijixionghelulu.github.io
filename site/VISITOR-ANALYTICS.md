@@ -28,11 +28,10 @@ The public API returns aggregate counts, daily totals and coarse map points.
   per IP per minute. Browser extensions can block collection.
 - The collector accepts the production origin only. This is a browser abuse
   control, not proof of a human visitor; non-browser clients can spoof Origin.
-- Location uses the edge's approximate geolocation when available, otherwise a
-  server-side HTTPS request to IPWHOIS (`ipwho.is`) with the network IP address.
-  Successful lookups reuse existing visit locations for seven days; failures
-  pause retries for an hour per running service instance. Lookup failures never
-  discard visits or invent a location. The public map
+- Location uses the edge's approximate geolocation when available. When the
+  hosting dispatcher forwards only `CF-IPCountry`, the map uses a country
+  reference point from Google's DSPL country dataset. These are country-level
+  markers, not inferred city coordinates. The public map
   rounds coordinates to whole degrees. Unknown locations remain in counts.
   The globe displays the 64 most visited map regions; counts and lists include
   all records in the selected period.
