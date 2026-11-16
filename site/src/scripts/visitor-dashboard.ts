@@ -44,6 +44,7 @@ function init(root: HTMLElement) {
   let rotating = !matchMedia("(prefers-reduced-motion: reduce)").matches;
   let phi = 0.5;
   let theta = 0.2;
+  let focusFirstLocation = true;
   let pointerX: number | null = null;
   let pointerY = 0;
   let width = 0;
@@ -65,6 +66,7 @@ function init(root: HTMLElement) {
   canvas.addEventListener(
     "pointerdown",
     (event) => {
+      focusFirstLocation = false;
       pointerX = event.clientX;
       pointerY = event.clientY;
       canvas.setPointerCapture(event.pointerId);
@@ -102,6 +104,7 @@ function init(root: HTMLElement) {
       )
         return;
       event.preventDefault();
+      focusFirstLocation = false;
       if (event.key === "ArrowLeft") phi -= 0.15;
       if (event.key === "ArrowRight") phi += 0.15;
       if (event.key === "ArrowUp") theta = Math.min(0.8, theta + 0.1);
@@ -175,6 +178,14 @@ function init(root: HTMLElement) {
       location: [point.lat, point.lng],
       size: Math.min(0.12, 0.035 + Math.log1p(point.views) * 0.009),
     }));
+    if (focusFirstLocation && data.locations.length) {
+      phi = Math.PI * 1.5 - (data.locations[0].lng * Math.PI) / 180;
+      theta = Math.max(
+        -0.8,
+        Math.min(0.8, (data.locations[0].lat * Math.PI) / 180),
+      );
+      focusFirstLocation = false;
+    }
     // COBE 0.6 has 64 marker slots. Recreate with the complete marker array
     // because its dynamic-marker update counts pairs differently.
     if (globeRequested) void startGlobe();
