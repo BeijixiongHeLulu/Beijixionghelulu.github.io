@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import PublicationList from "../components/PublicationList.astro";
 import NewsList from "../components/NewsList.astro";
+import VisitorGlobe from "../components/VisitorGlobe.astro";
 import { getEntry, render } from "astro:content";
 import { getFeaturedPapers } from "../lib/papers";
 import siteConfig from "../side.config";
@@ -60,5 +61,6 @@ const { Content } = await render(profile);
       For research collaboration or academic inquiries, feel free to contact me
       by <a href="mailto:jishuu825@gmail.com">email</a>.
     </p>
+    <VisitorGlobe compact />
   </div>
 </Layout>

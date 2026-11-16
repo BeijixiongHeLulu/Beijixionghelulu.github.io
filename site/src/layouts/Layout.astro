@@ -869,6 +869,9 @@ function isActiveNav(href: string): boolean {
               </ul>
             </nav>
           )}
+          <a href="/visitors/" class="link-muted">
+            Visitor atlas
+          </a>
           <p class="m-0 ml-auto text-right">&copy; {footerCopyright}</p>
         </div>
       </footer>
@@ -890,8 +893,10 @@ function isActiveNav(href: string): boolean {
 
     <script>
       import { setupLayoutUi } from "../scripts/layout-ui";
+      import { trackVisit } from "../scripts/visitor-tracking";
 
       document.addEventListener("astro:page-load", setupLayoutUi);
+      document.addEventListener("astro:page-load", trackVisit);
     </script>
   </body>
 </html>
