@@ -36,6 +36,8 @@ function init(root: HTMLElement) {
   let summary: VisitorSummary | undefined;
   let queryGeneration = 0;
   let globe: { destroy(): void } | undefined;
+  let globeRequested = false;
+  let globeGeneration = 0;
   let globeMarkers: { location: [number, number]; size: number }[] = [];
   const canvas = get<HTMLCanvasElement>("[data-visitor-globe]");
   const rotation = get<HTMLButtonElement>("[data-globe-rotate]");
@@ -117,9 +119,12 @@ function init(root: HTMLElement) {
   visibility.observe(canvas);
 
   async function startGlobe() {
+    globeRequested = true;
+    const generation = ++globeGeneration;
     try {
       const { default: createGlobe } = await import("cobe");
-      if (signal.aborted) return;
+      if (signal.aborted || generation !== globeGeneration) return;
+      globe?.destroy();
       width = canvas.clientWidth;
       const ratio = Math.min(window.devicePixelRatio || 1, 2);
       let previousFrame = performance.now();
@@ -147,7 +152,6 @@ function init(root: HTMLElement) {
           state.theta = theta;
           state.width = width * ratio;
           state.height = canvas.clientHeight * ratio;
-          state.markers = globeMarkers;
         },
       });
       if (!canvas.getContext("webgl") && !canvas.getContext("webgl2"))
@@ -167,10 +171,13 @@ function init(root: HTMLElement) {
       data.totals.visitors.toLocaleString();
     get("[data-visitor-countries]").textContent =
       data.totals.countries.toLocaleString();
-    globeMarkers = data.locations.map((point) => ({
+    globeMarkers = data.locations.slice(0, 64).map((point) => ({
       location: [point.lat, point.lng],
       size: Math.min(0.12, 0.035 + Math.log1p(point.views) * 0.009),
     }));
+    // COBE 0.6 has 64 marker slots. Recreate with the complete marker array
+    // because its dynamic-marker update counts pairs differently.
+    if (globeRequested) void startGlobe();
     const list = get("[data-visitor-country-list]");
     list.replaceChildren();
     for (const place of data.countries.slice(0, compact ? 4 : 50)) {

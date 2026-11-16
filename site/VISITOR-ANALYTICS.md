@@ -30,6 +30,8 @@ The public API returns aggregate counts, daily totals and coarse map points.
   control, not proof of a human visitor; non-browser clients can spoof Origin.
 - Location comes from the edge's approximate IP geolocation. The public map
   rounds coordinates to whole degrees. Unknown locations remain in counts.
+  The globe displays the 64 most visited map regions; counts and lists include
+  all records in the selected period.
 - The 24-hour/7/30/90-day filters are rolling periods. Charts group by UTC day;
   all-time charts show at most the most recent year. Counts remain all-time.
 - Page paths exclude query strings and fragments; only the referrer's hostname
